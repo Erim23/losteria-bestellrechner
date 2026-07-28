@@ -1,0 +1,1439 @@
+{
+  "venue": {
+    "id": "67b87e42e1690c89bedf3875",
+    "name": "L'Osteria Bonn Portlandweg",
+    "street": "Portlandweg",
+    "number": "4",
+    "postalCode": "53227",
+    "city": "Bonn",
+    "currencySymbol": "€"
+  },
+  "fetchedAt": "2026-07-23T09:39:55.586Z",
+  "categories": [
+    {
+      "id": "67b87e5fe1690c89bedff290",
+      "name": "Speciale",
+      "articles": [
+        {
+          "id": "67b87e5fe1690c89bedff291",
+          "name": "Build your own Pizza",
+          "description": "Sei individuell und baue hier Deine einzigartige L'Osteria Pizza nach Deinen eigenen Wünschen! Wähle die Soße, den Käse und dann bis zu 10 Toppings deiner Wahl.",
+          "price": 11.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc61_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc61_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc61_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e5fe1690c89bedff293",
+          "name": "Build your own Salad",
+          "description": "Baue dir jetzt deinen eigenen Salat.\nSei individuale und baue hier Deinen einzigartigen L'Osteria Salat (basierend auf: gemischter Baby Leaf Salat, Kirschtomaten, Gurke) nach Deinen eigenen Wünschen! Wähle das Dressing und deine Lieblings-Toppings!",
+          "price": 10.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66022a4214e9c002efe74d62_photo_medium.gif",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66022a4214e9c002efe74d62_photo_medium.gif",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66022a4214e9c002efe74d62_photo_large.gif"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6888b93f2aecb4561d86549b",
+          "name": "Pizza Halb | Halb",
+          "description": "Hier kannst Du die beste beste Pizza aus zwei Hälften zusammenstellen - genau wie bei Deiner Lieblings-L'Osteria! Wähle erst die eine, dann die andere Hälfte - wobei die teurere Pizza berechnet wird.",
+          "price": 0,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6888915d04bfa27f2515d1cf_photo_thumb.gif",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6888915d04bfa27f2515d1cf_photo_medium.gif",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6888915d04bfa27f2515d1cf_photo_large.gif"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e5fe1690c89bedff295",
+          "name": "Pizzabrötchen Käse",
+          "description": "Pizzabrötchen mit Käse",
+          "price": 5.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc65_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc65_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc65_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e5fe1690c89bedff298",
+          "name": "Pizzabrötchen Käse & Thunfisch",
+          "description": "Pizzabrötchen mit Käse & Thunfisch",
+          "price": 6.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc68_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc68_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc68_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff299",
+          "name": "Pizzabrötchen Käse & Hähnchen",
+          "description": "Pizzabrötchen mit Käse & Hähnchen",
+          "price": 6.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc69_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc69_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc69_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "689abccd5d62431924891a9a",
+          "name": "Amici Speziale",
+          "description": "Wähle 4 Hauptgerichte (Pizza oder Pasta) deiner Wahl zum Speziale-Preis",
+          "price": 49.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/687777e6b68e0296bbf3f809_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/687777e6b68e0296bbf3f809_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/687777e6b68e0296bbf3f809_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "68f6dba89f0418e528d5e8c3",
+          "name": "Amore Speziale",
+          "description": "Genuss per Due: 2 Hauptgerichte (Pizza oder Pasta oder Insalata) mit 2 Dolci oder 2 Antipasti zum Speziale-Preis",
+          "price": 39.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/68343136ac5c29abaf7f97da_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/68343136ac5c29abaf7f97da_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/68343136ac5c29abaf7f97da_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e5fe1690c89bedff297",
+          "name": "Pizzabrötchen Käse & Salami",
+          "description": "Pizzabrötchen mit Käse & Salami",
+          "price": 6.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc67_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc67_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc67_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff29b",
+          "name": "Panini Piccoli",
+          "description": "Pizzabrötchen mit einem Dip nach Wahl oder Kräuterbutter",
+          "price": 4.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66e8ae7b9d793d12aee55982_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66e8ae7b9d793d12aee55982_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66e8ae7b9d793d12aee55982_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e5fe1690c89bedff296",
+          "name": "Pizzabrötchen Käse & Schinken",
+          "description": "Pizzabrötchen mit Käse & Schinken",
+          "price": 6.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc66_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc66_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc66_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff29a",
+          "name": "Pizzabrötchen Piccante Speciale",
+          "description": "Pizzabrötchen Piccante Speciale",
+          "price": 7.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc6a_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc6a_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f244b15e6fcd81cc6a_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e60e1690c89bedff29d",
+      "name": "Menu della Casa",
+      "articles": [
+        {
+          "id": "6a1dfb75b44e1468380324b3",
+          "name": "Insalata Caprino e Fragole",
+          "description": "gemischter Baby-Leaf-Salat mit frischen Erdbeeren, Kirschtomaten, gebratenem Ziegenkäse, Pinienkerne und Hausdressing",
+          "price": 13.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a032ce8c8ffe970d9c6e64d_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a032ce8c8ffe970d9c6e64d_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a032ce8c8ffe970d9c6e64d_photo_large.png"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a1dfb75b44e1468380324b4",
+          "name": "Spaghetti all'Aperol",
+          "description": "Pasta mit Orangen-Sahne-Sauce, Aperol, Weißwein, Karottenjulienne, Pfeffer, ital. Hartkäse und Basilikum",
+          "price": 12.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a032ed9c72c87ee301e4f01_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a032ed9c72c87ee301e4f01_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a032ed9c72c87ee301e4f01_photo_large.png"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a1dfb75b44e1468380324b5",
+          "name": "Zoodles Genovese al Limone",
+          "description": "lauwarme Zucchini-Spaghetti mit gebratenen Hähnchenbruststreifen, Mascarpone, Pesto Gevonese, Zitrone, Pfeffer, ital. Hartkäse und schwarze Oliven",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a0330b708583b97c0916be8_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a0330b708583b97c0916be8_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a0330b708583b97c0916be8_photo_large.png"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a1dfb75b44e1468380324b6",
+          "name": "SQUADRA SUPREMA",
+          "description": "Mozzarella, scharfe Peperoni-Salami, Hot-Honey und Rucola",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a03320ca5d8b3da4d3ec8b5_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a03320ca5d8b3da4d3ec8b5_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a03320ca5d8b3da4d3ec8b5_photo_large.png"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e60e1690c89bedff2a6",
+      "name": "Antipasti",
+      "articles": [
+        {
+          "id": "67b87e60e1690c89bedff2a8",
+          "name": "Bruschetta",
+          "description": "frische Tomaten, Knoblauch, Basilikum",
+          "price": 8.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfa_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfa_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfa_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e60e1690c89bedff2a9",
+          "name": "Pizza Pane",
+          "description": "Pizzabrot, frische Tomaten, Knoblauch, Rosmarin",
+          "price": 8.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfb_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfb_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfb_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e60e1690c89bedff2ac",
+          "name": "Antipasti della Casa",
+          "description": "Prosciutto Crudo, Artischocken , Zucchini, Aubergine, Cipollle Borretane, schwarze-Oliven, Buratta, Basilikum Pesto, Bruschetta, Vitello Tonnato",
+          "price": 25.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfe_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfe_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfe_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2ad",
+          "name": "Insalata Burrata Caprese",
+          "description": "Kirschtomaten, Burrata, Basilikum",
+          "price": 11.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbff_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbff_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbff_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "683dc23d83cdf71c03a395b1",
+          "name": "Dip Trio",
+          "description": "TARTUFO DIP - Trüffel Mayonnaise; ITALIANA DIP Mit italienischen Kräutern und leichter Knoblauch-Note;  ROSSO DELIZIOSO - Aus fruchtigen Tomaten mit würzig-mediterranem Aroma",
+          "price": 4,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/68342d2870b1740876775d29_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/68342d2870b1740876775d29_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/68342d2870b1740876775d29_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "695f7874355c0504466d6014",
+          "name": "Italiana DIP 40g (Knoblauch Dip)",
+          "description": "Mit italienischen Kräutern und leichter Knoblauch-Note",
+          "price": 1.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da2f9c1d821ce4a592ce3_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695da2f9c1d821ce4a592ce3_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695da2f9c1d821ce4a592ce3_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "695f7874355c0504466d6015",
+          "name": "Tartufo Dip",
+          "description": "Trüffel Mayonnaise",
+          "price": 1.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da3a5c1d821ce4a59590d_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695da3a5c1d821ce4a59590d_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695da3a5c1d821ce4a59590d_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "695f7874355c0504466d6016",
+          "name": "Rosso Delizioso",
+          "description": "Aus fruchtigen Tomaten mit würzig-mediterranem Aroma",
+          "price": 1.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da4092f68e161d7b77c15_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695da4092f68e161d7b77c15_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695da4092f68e161d7b77c15_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "6994605b7ebe4e44b6c7be0a",
+          "name": "Crema di Pomodoro",
+          "description": "ital. Tomatensuppe mit Sahne und Basilikum",
+          "price": 5.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6964bdd26158dabf4f9bdd02_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6964bdd26158dabf4f9bdd02_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6964bdd26158dabf4f9bdd02_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        }
+      ]
+    },
+    {
+      "id": "67b87e60e1690c89bedff2af",
+      "name": "Insalatone",
+      "articles": [
+        {
+          "id": "67b87e60e1690c89bedff2b0",
+          "name": "Insalata Caesare con Pollo",
+          "description": "mit Hähnchenbruststreifen, Romanasalat, Knoblauch-Croûtons, ital. Hartkäse, Caesaredressing",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc02_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc02_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc02_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b1",
+          "name": "Insalata Mista",
+          "description": "Beilagensalat – gemischter Baby-Leaf-Salat, Kirschtomaten, Gurken-Radieschen-Mix, Hausdressing",
+          "price": 5.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc03_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc03_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc03_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b2",
+          "name": "Insalata Avocado e Gamberetti",
+          "description": "Salatmix, Gurken-Radieschen-Mix, Kirschtomaten, Avocado, Garnelen, Hausdressing",
+          "price": 15.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc04_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc04_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc04_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b3",
+          "name": "Insalata Caesare",
+          "description": "Romanasalat, Knoblauch-Croûtons, ital. Hartkäse, Caesaredressing",
+          "price": 11.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc05_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc05_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc05_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b4",
+          "name": "Insalata Quinoa e Avocado",
+          "description": "gemischter Baby-Leaf-Salat, QuinoaGranatapfel-Mix, Rote Beete, Kirschtomaten, Avocado, Hausdressing",
+          "price": 13.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc06_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc06_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc06_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b6",
+          "name": "Insalata Casa",
+          "description": "gemischter Baby-Leaf-Salat, Kirschtomaten, Käse, Thunfisch, Hinterschinken, Artischocke, Oliven, Zwiebeln, Hausdressing",
+          "price": 13.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc08_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc08_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc08_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b7",
+          "name": "Insalata Campagnola",
+          "description": "gemischter Baby-Leaf-Salat, Rote Beete, gebratener Ziegenkäse, Apfel, Walnüsse, Honig, Hausdressing",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc09_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc09_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc09_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2b8",
+          "name": "Insalata Pollo",
+          "description": "Pflücksalat, Kirschtomaten, Hähnchen, Grana Padano, Pfeffer, Rucoladressing",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc0a_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc0a_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc0a_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e60e1690c89bedff2b9",
+      "name": "Pizza",
+      "articles": [
+        {
+          "id": "67b87e60e1690c89bedff2bb",
+          "name": "Hawaii",
+          "description": "Käse, Hinterschinken, Ananas",
+          "price": 15.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0d_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0d_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0d_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2bc",
+          "name": "Prosciutto",
+          "description": "Käse, Hinterschinken",
+          "price": 14.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0e_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0e_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0e_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2bd",
+          "name": "Funghi Freschi",
+          "description": "Käse, frische Champignons",
+          "price": 14.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc0f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2be",
+          "name": "Salami",
+          "description": "Käse, Salami",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc10_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc10_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc10_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2bf",
+          "name": "Prosciutto e Funghi",
+          "description": "Käse, Hinterschinken, frische Champignons",
+          "price": 15.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc11_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc11_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc11_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c0",
+          "name": "Tonno",
+          "description": "Käse, Thunfisch, Zwiebeln",
+          "price": 15.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc12_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc12_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc12_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c1",
+          "name": "Braccio di Ferro",
+          "description": "Käse, Spinat, Ei, Knoblauch",
+          "price": 15.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc13_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc13_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc13_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c2",
+          "name": "Rustica",
+          "description": "Mozzarella, Kirschtomaten, Oliven, Zwiebeln, Oregano",
+          "price": 15.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc14_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc14_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc14_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c3",
+          "name": "Parmigiana",
+          "description": "Mozzarella, Aubergine, ital. Hartkäse, Oregano",
+          "price": 15.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc15_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc15_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc15_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c4",
+          "name": "Caprese",
+          "description": "Mozzarella in Scheiben, Kirschtomaten, Basilikum",
+          "price": 15.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc16_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc16_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc16_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c5",
+          "name": "Salsiccia Piccante",
+          "description": "Mozzarella, scharfe Peperoni-Salami, Basilikum",
+          "price": 16.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc17_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc17_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc17_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c6",
+          "name": "Vegetariana",
+          "description": "Mozzarella, gegrilltes Gemüse, frische Champignons, Rucola, Knoblauch",
+          "price": 16.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc18_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc18_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc18_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c7",
+          "name": "Rucola",
+          "description": "Mozzarella, Rucola, ital. Hartkäse, Knoblauch",
+          "price": 15.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc19_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc19_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc19_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c8",
+          "name": "Prosciutto Crudo",
+          "description": "Mozzarella, ital. luftgetrockneter Schinken",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1b_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1b_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1b_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2c9",
+          "name": "Gamberetti",
+          "description": "Käse, Shrimps, frische Tomaten, Knoblauch, Petersilie",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1c_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1c_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1c_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2ca",
+          "name": "Quattro Formaggi",
+          "description": "Mozzarella, Edamer, Gorgonzola, ital. Hartkäse",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1d_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1d_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1d_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2cb",
+          "name": "Forza",
+          "description": "veganer Pizzaschmelz, veganes Hähnchen auf Erbsenproteinbasis, Spinat, Paprika, Zwiebeln, Knoblauch",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1e_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1e_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1e_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2cc",
+          "name": "BBQ Chicken",
+          "description": "Barbecuesauce, Mozzarella, frittierte Hähnchenbruststreifen, Paprika, Zwiebeln",
+          "price": 17.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc1f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2cd",
+          "name": "Canarino",
+          "description": "Käse, Hinterschinken, frische Champignons, Salami, Sardellen",
+          "price": 17.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc20_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc20_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc20_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2ce",
+          "name": "Nduja Calabrese",
+          "description": "Mozzarella, ital. Streichsalami, halbgetrocknete Kirschtomaten, Rucola",
+          "price": 18.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc21_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc21_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc21_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2cf",
+          "name": "Degli Artisti",
+          "description": "Käse, Hinterschinken, frische Champignons, Salami, Paprika, Peperoni, Zwiebeln",
+          "price": 18.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc22_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc22_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc22_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2d0",
+          "name": "Caesare e Pollo",
+          "description": "Mozzarella, frittierte Hähnchenbruststreifen, Romanasalat, ital. Hartkäse, Caesare-Dressing",
+          "price": 18.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc23_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc23_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc23_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2d1",
+          "name": "Frutti di Mare",
+          "description": "Käse, Meeresfrüchte, Knoblauch, Petersilie",
+          "price": 18.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc24_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc24_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc24_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6888b93f2aecb4561d86549c",
+          "name": "Pizza Halb | Halb",
+          "description": "Hier kannst Du die beste beste Pizza aus zwei Hälften zusammenstellen - genau wie bei Deiner Lieblings-L'Osteria! Wähle erst die eine, dann die andere Hälfte - wobei die teurere Pizza berechnet wird.",
+          "price": 0,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/688892906d236eb390008c2f_photo_thumb.gif",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/688892906d236eb390008c2f_photo_medium.gif",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/688892906d236eb390008c2f_photo_large.gif"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d6018",
+          "name": "Margherita",
+          "description": "Mozzarella, Basilikum",
+          "price": 11.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695d9a085e0ab12790159e0d_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695d9a085e0ab12790159e0d_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695d9a085e0ab12790159e0d_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d6019",
+          "name": "Pizza Marinara Speciale",
+          "description": "Tomatensauce, Kirschtomaten, Oregano, Basilikum",
+          "price": 9.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695eefc1058812950516ea3e_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695eefc1058812950516ea3e_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695eefc1058812950516ea3e_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e60e1690c89bedff2d3",
+      "name": "Pasta",
+      "articles": [
+        {
+          "id": "67b87e60e1690c89bedff2d4",
+          "name": "Spaghetti Rucola e Pomodorini",
+          "description": "Sugo di Pomodoro, Rucola, Kirschtomaten, Knoblauch",
+          "price": 13.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc26_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc26_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc26_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2d5",
+          "name": "Spaghetti Pomodoro e Basilico",
+          "description": "Sugo di Pomodoro, Basilikum, Zwiebeln, Knoblauch",
+          "price": 10.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc27_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc27_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc27_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2d6",
+          "name": "Spaghetti Aglio e Olio",
+          "description": "Kirschtomaten, Knoblauch, Olio Extra Vergine, Petersilie",
+          "price": 11.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc28_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc28_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc28_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2d8",
+          "name": "Maccheroncini Pesto Genovese",
+          "description": "Maccheroncini mit Basilikum Pesto, Knoblauchöl, Petersilie, Basilikum,Pfeffer,  ital. Hartkäse und",
+          "price": 13.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2a_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2a_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2a_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2d9",
+          "name": "Maccheroncini Gorgonzola",
+          "description": "Gorgonzola, Sahne, ital. Hartkäse, Petersilie",
+          "price": 13.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2b_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2b_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2b_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2da",
+          "name": "Maccheroncini Colorati",
+          "description": "Sugo di Pomodoro, gegrilltes Gemüse, Zwiebeln, Kirschtomaten, Basilikum",
+          "price": 13.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2c_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2c_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2c_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2db",
+          "name": "Mezzalune Spinaci",
+          "description": "Spinat, Sahnesauce, Zwiebeln, Knoblauch, ital. Hartkäse",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2d_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2d_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2d_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2dc",
+          "name": "Risotto Funghi",
+          "description": "ital. Reis, frische Champignons, Steinpilze, Weißwein, ital. Hartkäse, Zwiebeln, Petersilie, Knoblauch",
+          "price": 15.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2e_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2e_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2e_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2dd",
+          "name": "Spaghetti Carbonara",
+          "description": "Speck, Sahnesauce, Eigelb, ital. Hartkäse, Petersilie",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2de",
+          "name": "Spaghetti Chitarra Ragù alla Bolognese",
+          "description": "feines Rinderragout mit Rotwein, Zwiebeln, ital. Hartkäse, Petersilie",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc30_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc30_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc30_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2e0",
+          "name": "Tortelloni Prosciutto e Panna",
+          "description": "Hinterschinken, Sahne, Zwiebeln, ital. Hartkäse, Petersilie",
+          "price": 15.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc32_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc32_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc32_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2e1",
+          "name": "Orecchiette di Manzo al Limone",
+          "description": "Rinderfiletstreifen, Paprika, Rucola, Zwiebeln, Knoblauch, Mascarpone-Zitronensauce, Rosmarin – piccante",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc33_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc33_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc33_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2e2",
+          "name": "Zoodles Gamberetti",
+          "description": "Zucchini-Spaghetti mit Garnelen, Karotten, Sellerie, Kirschtomaten",
+          "price": 15.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc34_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc34_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc34_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2e3",
+          "name": "Gnocchi Gamberetti",
+          "description": "Garnelen, Sugo Aurora, Weinbrand, Knoblauch, Petersilie alternativ mit Hähnchenbruststreifen",
+          "price": 15.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc35_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc35_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc35_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e60e1690c89bedff2e4",
+          "name": "Conchiglie di Fiume",
+          "description": "Flusskrebse, Karotten-Zucchini-Julienne, Zwiebeln, Hummersauce, Rosmarin",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc36_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc36_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc36_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d601a",
+          "name": "Penne Arrabiata",
+          "description": "Sugo di Pomodoro, Petersilie, Knoblauch",
+          "price": 10.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695d9e2c6158dabf4f765369_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695d9e2c6158dabf4f765369_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695d9e2c6158dabf4f765369_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d601b",
+          "name": "Penne Pollo Aurora",
+          "description": "gebratene Hähnchenbruststreifen, Sugo Aurora, Zwiebeln, Karotten-Zucchini-Julienne, Knoblauch, Oregano, ital. Hartkäse, Petersilie",
+          "price": 14.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e60e1690c89bedff2e5",
+      "name": "Bambini",
+      "articles": [
+        {
+          "id": "6a56197b993488a2bc597904",
+          "name": "Penne mit Butter",
+          "description": "wahlweise mit Butter",
+          "price": 4.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4e0d40e83977dd5026a13a_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4e0d40e83977dd5026a13a_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4e0d40e83977dd5026a13a_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a56197b993488a2bc597905",
+          "name": "Penne mit Tomatensauce",
+          "description": "wahlweise mit Tomatensauce",
+          "price": 5.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4e12d5a4fbe5fbe1071050_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4e12d5a4fbe5fbe1071050_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4e12d5a4fbe5fbe1071050_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a56197b993488a2bc597906",
+          "name": "Gnocchi Prosciutto e Panna",
+          "description": "Hinterschinken 1,3,4,11, Sahnesauce, Zwiebeln, ital. Hartkäse",
+          "price": 6.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4e1960372daf07d27da870_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4e1960372daf07d27da870_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4e1960372daf07d27da870_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a56197b993488a2bc597907",
+          "name": "Penne Pollo",
+          "description": "Hähnchenbruststreifen, Tomaten-Sahne-Sauce, Paprika",
+          "price": 7.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4e3e54b629357e23446a9b_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4e3e54b629357e23446a9b_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4e3e54b629357e23446a9b_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "6a56197b993488a2bc597908",
+          "name": "Pizza Alfonso",
+          "description": "Tomatensauce, Mozzarella, Basilikum",
+          "price": 5.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f541da5994b02954d1a58_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f541da5994b02954d1a58_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f541da5994b02954d1a58_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e61e1690c89bedff2ee",
+      "name": "Dolci",
+      "articles": [
+        {
+          "id": "67b87e61e1690c89bedff2ef",
+          "name": "Spaghetti Eis",
+          "description": "Vanille-Eiscreme mit Erdbeersauce und Schokostreuseln",
+          "price": 5.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc38_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc38_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc38_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f0",
+          "name": "Tartufo",
+          "description": "Schokoladen-Eiscreme mit Erdbeersauce",
+          "price": 6.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc39_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc39_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc39_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f1",
+          "name": "Panna Cotta",
+          "description": "mit frischen Erdbeeren und Erdbeersauce",
+          "price": 6.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc3a_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc3a_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc3a_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f5",
+          "name": "L'Osteria Gelato Bacio (120ml)",
+          "description": "Nougateis mit Schokoladensauce und gehackten Haselnüssen",
+          "price": 3.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/672e61163c38114ac9549f0d_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/672e61163c38114ac9549f0d_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/672e61163c38114ac9549f0d_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f6",
+          "name": "L'Osteria Gelato Joghurt Amarena (120ml)",
+          "description": "Joghurteis mit Sauerkirschsauce (23%)",
+          "price": 3.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/672e6116d21b140ffab9613e_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/672e6116d21b140ffab9613e_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/672e6116d21b140ffab9613e_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f7",
+          "name": "L'Osteria Gelato Lemon Sorbetto (120ml)",
+          "description": "Zitronensorbet",
+          "price": 3.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/672e611717a4291a48d46eb1_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/672e611717a4291a48d46eb1_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/672e611717a4291a48d46eb1_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f8",
+          "name": "L'Osteria Gelato Panna Cotta Fragola (120ml)",
+          "description": "Erdbeer- Milcheis",
+          "price": 3.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/672e611874d2222ac0e4a457_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/672e611874d2222ac0e4a457_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/672e611874d2222ac0e4a457_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff2f3",
+          "name": "Tiramisù",
+          "description": "Tiramisu, Minze, Kakaopulver, Erdbeere",
+          "price": 7.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc3c_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc3c_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc3c_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        }
+      ]
+    },
+    {
+      "id": "67b87e61e1690c89bedff2fa",
+      "name": "Bibite",
+      "articles": [
+        {
+          "id": "67b87e61e1690c89bedff2fb",
+          "name": "San Pellegrino 0,5l PET",
+          "description": "Natürliches Mineralwasser mit Kohlensäure einfügen 0,5l PET",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff2fc",
+          "name": "Acqua Panna 0,5l PET",
+          "description": "Natürliches Mineralwasser 0,5l PET",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff2fe",
+          "name": "Coca Cola 0,5l PET",
+          "description": "koffein- und kohlensäurehaltiges Erfrischungsgetränk 0,5l PET",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff300",
+          "name": "Ice Tea Peach 0,33l",
+          "description": "Schwarzteegetränk mit Pfirsich-Geschmack 0,33l",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff301",
+          "name": "Ice Tea Pomegranate 0,33l",
+          "description": "Fruchteegetränk mit Granatapfel-Acai-Geschmack 0,33l",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff302",
+          "name": "Ice Tea Lemon Lime 0,33l",
+          "description": "Schwarzteegetränk mit Zitronen-Limetten-Geschmack 0,33l",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff306",
+          "name": "Peroni Alkoholfrei 0,33l",
+          "description": "alkoholfreies italienisches Bier (Akoholgehalt: 0%)",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4b_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4b_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4b_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff307",
+          "name": "Ice Tea Peach 0,33l ZERO",
+          "description": "Erfrischungsgetränk mit Pfirsichgeschmack und Süßungsmitteln 0,33l",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d601c",
+          "name": "Ice Tea Lemon Lime Zero",
+          "description": "Erfrischungsgetränk mit Limettengeschmack und Süßungsmitteln 0,33l",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da1be64b0a5c772e856b3_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695da1be64b0a5c772e856b3_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695da1be64b0a5c772e856b3_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d601d",
+          "name": "Limonata L'Osteria 0,33l",
+          "description": "Kohlensäurehaltiges Zitronenfruchtsaftgetränk. Fruchtgehalt: 18%.",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da551577802cbff98ba35_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695da551577802cbff98ba35_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695da551577802cbff98ba35_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "695f7875355c0504466d601e",
+          "name": "Aranciata L'Osteria 0,33l",
+          "description": "Kohlensäurehaltiges Orangenfruchtsaftgetränk. Fruchtgehalt: 22%.",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da6082f68e161d7b7b9eb_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695da6082f68e161d7b7b9eb_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695da6082f68e161d7b7b9eb_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        }
+      ]
+    },
+    {
+      "id": "67b87e61e1690c89bedff308",
+      "name": "Alcoholici",
+      "articles": [
+        {
+          "id": "67b87e61e1690c89bedff309",
+          "name": "Peroni Nastro Azzurro 0,33l",
+          "description": "italienisches Bier 5,1 % vol, keine Abgabe unter 16 Jährige",
+          "price": 2.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": true
+        },
+        {
+          "id": "67b87e61e1690c89bedff30d",
+          "name": "Valdo Prosecco Spumante 0,75l",
+          "description": "Schaumwein Etchietta Nera DOC extra dry, 11,0% vol., keine Abgabe an unter 16-Jährige",
+          "price": 14.9,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5b_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5b_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5b_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff310",
+          "name": "Primitivo Puglia IGT L'Osteria 0,75l",
+          "description": "Rotwein aus der Region Apulien, 13% vol., keine Abgabe an unter 16-Jährige",
+          "price": 9.9,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5e_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5e_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5e_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "67b87e61e1690c89bedff311",
+          "name": "Primitivo Rosato di Puglia IGT L'Osteria 0,75l",
+          "description": "Roséwein aus Italien, 12% vol., keine Abgabe an unter 16-Jährige",
+          "price": 9.9,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc5f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        },
+        {
+          "id": "695f7875355c0504466d601f",
+          "name": "Pinot Grigio delle Venezie DOC",
+          "description": "Weißwein, 12 % Alkoholgehalt, nicht an Personen unter 16 Jahren verkauft",
+          "price": 9.9,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695e83c764b0a5c7725215af_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695e83c764b0a5c7725215af_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695e83c764b0a5c7725215af_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "configurable": false
+        }
+      ]
+    }
+  ]
+}

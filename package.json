@@ -1,0 +1,41 @@
+{
+  "name": "losteria-bestellrechner",
+  "version": "1.0.0",
+  "description": "Desktop-Bestellrechner für L'Osteria Bonn Portlandweg (Rheinwerk) mit Essensmarken- und Rabatt-Berechnung.",
+  "author": "erkan",
+  "license": "MIT",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "snapshot": "node scripts/snapshot.js",
+    "serve": "node scripts/serve.js",
+    "pack": "electron-builder --win --dir",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "de.erkan.losteria-bestellrechner",
+    "productName": "LOsteria Bestellrechner",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

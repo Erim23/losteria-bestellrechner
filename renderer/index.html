@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'Osteria Bestellrechner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark">L'Osteria</span>
+        <span class="brand-sub">Bestellrechner</span>
+      </div>
+      <div class="venue-info">
+        <div id="venue-name" class="venue-name">Speisekarte wird geladen …</div>
+        <div id="venue-addr" class="venue-addr muted"></div>
+      </div>
+      <div id="data-source" class="source-badge" hidden></div>
+    </header>
+
+    <div class="layout">
+      <main class="menu-pane">
+        <nav id="cat-nav" class="cat-nav"></nav>
+        <div id="menu" class="menu">
+          <div class="loading">Lade Speisekarte …</div>
+        </div>
+      </main>
+
+      <aside class="cart-pane">
+        <div class="cart-head">
+          <h2>Warenkorb</h2>
+          <button id="cart-clear" class="link-btn" hidden>leeren</button>
+        </div>
+
+        <div id="cart-empty" class="cart-empty">Noch nichts ausgewählt.</div>
+        <div id="cart-items" class="cart-items"></div>
+
+        <section class="calc">
+          <button id="discount-toggle" class="discount-btn" aria-pressed="false">
+            <span class="discount-label">20 % Rabatt aktivieren</span>
+          </button>
+
+          <div class="marks">
+            <div class="marks-label">
+              Essensmarken <span class="muted">· 1 Marke = 6,00 €</span>
+            </div>
+            <div class="stepper">
+              <button id="marks-minus" class="step-btn" aria-label="weniger">−</button>
+              <input
+                id="marks-input"
+                class="marks-input"
+                type="number"
+                min="0"
+                step="1"
+                value="0"
+                inputmode="numeric"
+              />
+              <button id="marks-plus" class="step-btn" aria-label="mehr">+</button>
+              <button id="marks-max" class="link-btn" title="Maximal sinnvolle Anzahl">
+                Max
+              </button>
+            </div>
+          </div>
+
+          <div id="breakdown" class="breakdown"></div>
+        </section>
+      </aside>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
