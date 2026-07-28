@@ -1,0 +1,45 @@
+name: Speisekarte aktualisieren
+
+# Holt die aktuelle Speisekarte (Preise, neue Gerichte, Optionen) von der
+# Smoothr-Schnittstelle und committet sie, wenn sich etwas geändert hat.
+# Der Commit löst automatisch das Pages-Deployment aus.
+
+on:
+  schedule:
+    # täglich um 04:17 UTC (ungerade Minute, damit nicht zur Volllaststunde)
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: menu-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Speisekarte abrufen
+        run: node scripts/snapshot.js
+
+      - name: Bei Änderungen committen
+        run: |
+          if [ -z "$(git status --porcelain renderer/menu-seed.json)" ]; then
+            echo "Keine Änderungen an der Speisekarte."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add renderer/menu-seed.json
+          git commit -m "Speisekarte automatisch aktualisiert"
+          git push

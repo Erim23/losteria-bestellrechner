@@ -823,8 +823,26 @@ body {
   opacity: 0.92;
 }
 .qty-static {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
   color: var(--muted);
+}
+.remove-foreign {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+.remove-foreign:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* ---- Dialoge ---- */

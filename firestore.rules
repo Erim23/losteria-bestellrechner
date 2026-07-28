@@ -5,7 +5,10 @@ rules_version = '2';
 // Grundidee:
 //  - Es muss eine (anonyme) Anmeldung vorliegen. Die passiert in der App
 //    unsichtbar und dient nur dazu, jedem Gerät eine stabile Kennung zu geben.
-//  - Positionen im Warenkorb darf nur ändern und löschen, wer sie angelegt hat.
+//  - Anlegen nur unter eigener Kennung; Mengen ändern nur an eigenen
+//    Positionen. So kann niemand die Bestellung anderer verfälschen.
+//  - Entfernen darf jeder in der Runde – damit Tippfehler und Positionen
+//    von Kollegen, die schon weg sind, aufgeräumt werden können.
 //  - Die gemeinsamen Einstellungen einer Runde (20 % Rabatt, Anzahl der
 //    Essensmarken und deren Verteilung) darf jeder in der Runde anpassen.
 //  - Runden werden nie gelöscht; die Kennung ist der jeweilige Tag.
@@ -33,9 +36,8 @@ service cloud.firestore {
                       && resource.data.uid == request.auth.uid
                       && request.resource.data.uid == request.auth.uid;
 
-        // Löschen nur eigene Positionen
-        allow delete: if request.auth != null
-                      && resource.data.uid == request.auth.uid;
+        // Entfernen darf jeder in der Runde (Aufräumen)
+        allow delete: if request.auth != null;
       }
     }
 

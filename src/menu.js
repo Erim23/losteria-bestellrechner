@@ -64,7 +64,10 @@ function pickImage(assets) {
 function normalizeArticle(a) {
   const name = pickLocalized(a.name).trim();
   const price = parsePrice(a.price);
-  const groups = Array.isArray(a.groups) ? a.groups : [];
+  // groups sind ID-Verweise auf Optionsgruppen (siehe fetchOptionGroups)
+  const groupIds = (Array.isArray(a.groups) ? a.groups : []).filter(
+    (g) => typeof g === 'string'
+  );
   return {
     id: a._id || a.id || name,
     name,
@@ -72,9 +75,58 @@ function normalizeArticle(a) {
     price,
     image: pickImage(a.assets),
     kcal: typeof a.kcal === 'number' ? a.kcal : null,
+    groupIds,
     // "konfigurierbar" = Artikel mit Optionsgruppen (z. B. Build your own / Halb|Halb).
-    configurable: groups.length > 0,
+    configurable: groupIds.length > 0,
   };
+}
+
+/** Eine Auswahlmöglichkeit innerhalb einer Optionsgruppe. */
+function normalizeOption(o) {
+  return {
+    id: o._id || o.id,
+    name: pickLocalized(o.name).trim(),
+    price: parsePrice(o.price),
+  };
+}
+
+/**
+ * Lädt alle Optionsgruppen des Betriebs (Saucen, Käse, Toppings, Hälften,
+ * "Zutat weglassen" …) und legt sie als Nachschlagewerk ab. Artikel verweisen
+ * über groupIds darauf – so bleibt die Datei kompakt, obwohl sich viele
+ * Artikel dieselben Gruppen teilen.
+ */
+async function fetchOptionGroups(venueId) {
+  const raw = await fetchJson(
+    `${API_BASE}/v1/general/articleoption/byvenue/${venueId}`
+  );
+  const list = Array.isArray(raw) ? raw : [];
+  const groups = {};
+
+  for (const g of list) {
+    if (!g || g.visible === false || g.deletedAt) continue;
+    const options = (Array.isArray(g.articles) ? g.articles : [])
+      .filter((o) => o && o.isActive !== false && !o.deletedAt)
+      .map(normalizeOption)
+      .filter((o) => o.name);
+    if (options.length === 0) continue;
+
+    const min = Number(g.requiredAmount) || 0;
+    const rawLimit = Number(g.limit);
+    const multiple = g.hasMultiple === true;
+    // limit 0/fehlend bedeutet "unbegrenzt" bei Mehrfachauswahl
+    const max = rawLimit > 0 ? rawLimit : multiple ? 999 : 1;
+
+    groups[g._id] = {
+      id: g._id,
+      name: pickLocalized(g.name).trim(),
+      min,
+      max,
+      multiple,
+      options,
+    };
+  }
+  return groups;
 }
 
 function isArticleVisible(a) {
@@ -104,7 +156,13 @@ async function fetchJson(url) {
  * @returns {Promise<object>} normalisiertes Menü
  */
 async function fetchMenu(venueId) {
-  const venue = await fetchJson(`${API_BASE}/v1/general/venue/${venueId}`);
+  const [venue, optionGroups] = await Promise.all([
+    fetchJson(`${API_BASE}/v1/general/venue/${venueId}`),
+    fetchOptionGroups(venueId).catch((err) => {
+      console.error('Optionsgruppen fehlgeschlagen:', err.message);
+      return {};
+    }),
+  ]);
 
   const categoryIds = (venue.articleCategories || []).filter(
     (x) => typeof x === 'string'
@@ -147,12 +205,14 @@ async function fetchMenu(venueId) {
     },
     fetchedAt: new Date().toISOString(),
     categories,
+    optionGroups,
   };
 }
 
 module.exports = {
   API_BASE,
   fetchMenu,
+  fetchOptionGroups,
   // exportiert für Tests/Wiederverwendung:
   pickLocalized,
   parsePrice,

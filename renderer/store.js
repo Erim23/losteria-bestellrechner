@@ -201,6 +201,14 @@ export async function setQty(articleId, qty) {
   );
 }
 
+/**
+ * Entfernt eine Position anhand ihrer Dokument-Kennung. Auch fremde – damit
+ * Tippfehler und Positionen abwesender Kollegen aufgeräumt werden können.
+ */
+export async function deleteItemByKey(key) {
+  await deleteDoc(doc(db, 'rounds', roundId, 'items', key));
+}
+
 /** Entfernt alle eigenen Positionen. */
 export async function clearMine(items) {
   const mine = items.filter((i) => i.mine);

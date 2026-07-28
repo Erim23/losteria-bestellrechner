@@ -438,7 +438,10 @@ function cartRow(entry) {
         '</span>' +
         '<button data-act="plus">+</button>' +
         '</div>'
-      : '<div class="qty-static">×' + entry.qty + '</div>') +
+      : '<div class="qty-static">×' +
+        entry.qty +
+        '<button class="remove-foreign" title="Position entfernen" ' +
+        'aria-label="Position entfernen">✕</button></div>') +
     '</div>';
 
   if (entry.mine) {
@@ -448,8 +451,22 @@ function cartRow(entry) {
     row
       .querySelector('[data-act="plus"]')
       .addEventListener('click', () => changeQty(entry, +1));
+  } else {
+    const rm = row.querySelector('.remove-foreign');
+    if (rm) rm.addEventListener('click', () => removeForeign(entry));
   }
   return row;
+}
+
+/** Entfernt eine fremde Position (Aufräumen für die ganze Runde). */
+async function removeForeign(entry) {
+  try {
+    await store.deleteItemByKey(entry.key);
+    showToast(entry.name + ' entfernt (' + entry.userName + ')');
+  } catch (err) {
+    console.error(err);
+    showToast('Entfernen nicht möglich');
+  }
 }
 
 function renderCart() {
