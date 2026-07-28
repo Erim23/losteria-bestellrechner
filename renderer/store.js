@@ -112,9 +112,18 @@ function itemsRef() {
   return collection(db, 'rounds', roundId, 'items');
 }
 
-/** Eine Position gehört genau einer Person und einem Artikel. */
-function itemRef(articleId) {
-  return doc(db, 'rounds', roundId, 'items', `${uid}__${articleId}`);
+/**
+ * Eine Position gehört genau einer Person, einem Artikel und einer
+ * Zusammenstellung. Gleiches Gericht mit anderen Extras = eigene Position.
+ */
+function itemKey(articleId, variant) {
+  return variant
+    ? `${uid}__${articleId}__${variant}`
+    : `${uid}__${articleId}`;
+}
+
+function itemRefByKey(key) {
+  return doc(db, 'rounds', roundId, 'items', key);
 }
 
 /**
@@ -147,7 +156,10 @@ export function subscribe({ onShared, onItems, onError }) {
           key: docSnap.id,
           articleId: d.articleId,
           name: d.name || '',
+          // price ist der Stückpreis einschließlich gewählter Extras
           price: Number(d.price) || 0,
+          basePrice: Number(d.basePrice ?? d.price) || 0,
+          options: Array.isArray(d.options) ? d.options : [],
           image: d.image || null,
           qty,
           uid: d.uid,
@@ -170,14 +182,26 @@ export function unsubscribe() {
 
 /* ---------------- Änderungen ---------------- */
 
-/** Legt einen Artikel in den gemeinsamen Warenkorb (bzw. erhöht die Menge). */
-export async function addItem(article, userName) {
+/**
+ * Legt einen Artikel in den gemeinsamen Warenkorb (bzw. erhöht die Menge).
+ * config = { options: [{name, price}], unitPrice, variant }
+ */
+export async function addItem(article, userName, config) {
+  const options = (config && config.options) || [];
+  const unitPrice =
+    config && typeof config.unitPrice === 'number'
+      ? config.unitPrice
+      : article.price;
+  const variant = (config && config.variant) || '';
+
   await setDoc(
-    itemRef(article.id),
+    itemRefByKey(itemKey(article.id, variant)),
     {
       articleId: article.id,
       name: article.name,
-      price: article.price,
+      price: unitPrice,
+      basePrice: article.price,
+      options,
       image: article.image ? article.image.thumb : null,
       uid,
       userName,
@@ -189,13 +213,13 @@ export async function addItem(article, userName) {
 }
 
 /** Setzt die Menge einer eigenen Position; 0 entfernt sie. */
-export async function setQty(articleId, qty) {
+export async function setQtyByKey(key, qty) {
   if (qty <= 0) {
-    await deleteDoc(itemRef(articleId));
+    await deleteDoc(itemRefByKey(key));
     return;
   }
   await setDoc(
-    itemRef(articleId),
+    itemRefByKey(key),
     { qty, updatedAt: serverTimestamp() },
     { merge: true }
   );
@@ -212,7 +236,7 @@ export async function deleteItemByKey(key) {
 /** Entfernt alle eigenen Positionen. */
 export async function clearMine(items) {
   const mine = items.filter((i) => i.mine);
-  await Promise.all(mine.map((i) => deleteDoc(itemRef(i.articleId))));
+  await Promise.all(mine.map((i) => deleteDoc(itemRefByKey(i.key))));
 }
 
 /** Aktualisiert den Namen an allen eigenen Positionen (nach Namenswechsel). */
@@ -220,7 +244,7 @@ export async function renameMyItems(items, newName) {
   const mine = items.filter((i) => i.mine);
   await Promise.all(
     mine.map((i) =>
-      setDoc(itemRef(i.articleId), { userName: newName }, { merge: true })
+      setDoc(itemRefByKey(i.key), { userName: newName }, { merge: true })
     )
   );
 }

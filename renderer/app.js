@@ -31,11 +31,203 @@ const state = {
   menu: null,
   mode: 'local', // 'team' sobald Firebase läuft
   userName: null,
-  items: [], // Positionen: {key, articleId, name, price, image, qty, uid, userName, mine}
+  items: [], // Positionen: {key, articleId, name, price, options, qty, uid, userName, mine}
   shared: { discountActive: false, marksTotal: 0, marksByUid: {} },
   articleById: new Map(),
+  optionGroups: {}, // Nachschlagewerk der Optionsgruppen
   teamConfirmed: false, // true, sobald Firestore erfolgreich geliefert hat
+  config: null, // aktuell offener Zusammenstellen-Dialog
 };
+
+/* ---------------- Optionsgruppen (Extras, Hälften, Toppings) ---------------- */
+
+/**
+ * Die Gruppennamen im Kassensystem sind intern ("Pizza BYO Sauce AG.").
+ * Hier werden sie in lesbare Überschriften übersetzt.
+ */
+function groupDisplayName(raw) {
+  const n = String(raw || '').trim();
+  if (/weglassen/i.test(n)) {
+    // Klammerinhalt behalten, sonst sind bei Halb|Halb beide Gruppen gleich
+    const m = /\(([^)]+)\)/.exec(n);
+    return m ? `Zutaten weglassen (${m[1].trim()})` : 'Zutaten weglassen';
+  }
+  if (/halb\s*\|\s*halb\s*1/i.test(n)) return 'Erste Hälfte';
+  if (/halb\s*\|\s*halb\s*2/i.test(n)) return 'Zweite Hälfte';
+  if (/^topping pizza 1\/2 zweite/i.test(n)) return 'Extra-Toppings zweite Hälfte';
+  if (/^topping pizza 1\/2/i.test(n)) return 'Extra-Toppings erste Hälfte';
+  if (/möchtest du toppings/i.test(n)) return 'Extra-Toppings';
+  if (/^pop up/i.test(n)) return 'Empfehlung';
+  return (
+    n
+      .replace(/^pizza byo\s*/i, '')
+      .replace(/\s*\bAG\b\.?\s*$/i, '')
+      .replace(/\s*\bnew\b\.?\s*$/i, '')
+      .replace(/\.\s*$/, '')
+      .trim() || 'Auswahl'
+  );
+}
+
+/**
+ * Hälften-Gruppen von "Pizza Halb | Halb": Ihre Optionen tragen den VOLLEN
+ * Pizzapreis. Laut Beschreibung wird die teurere Hälfte berechnet – deshalb
+ * dürfen sie nicht addiert werden.
+ *
+ * Hinweis: Das offizielle Kennzeichen dafür liegt nur hinter der
+ * GraphQL-Schnittstelle. Wir erkennen die Gruppen daher am Namen; sollte
+ * L'Osteria sie umbenennen, muss das hier nachgezogen werden.
+ */
+function isHalfGroup(raw) {
+  return /halb\s*\|\s*halb\s*\d/i.test(String(raw || ''));
+}
+
+/** Inhalt der Klammer, z. B. "… weglassen (Hawaii)." -> "hawaii" */
+function parenthetical(raw) {
+  const m = /\(([^)]+)\)/.exec(String(raw || ''));
+  return m ? m[1].trim().toLowerCase() : null;
+}
+
+/** "1/2 Margherita" -> "margherita" */
+function halfBaseName(optionName) {
+  return String(optionName || '')
+    .replace(/^\s*1\/2\s*/i, '')
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Liefert die anzuzeigenden Gruppen eines Artikels: Pflichtauswahl zuerst.
+ * Bei "Halb | Halb" gibt es 45 "Zutat weglassen"-Gruppen – eine pro Pizza.
+ * Davon werden nur die eingeblendet, die zu den gewählten Hälften passen.
+ */
+function groupsForArticle(article, selection) {
+  const all = (article.groupIds || [])
+    .map((id) => state.optionGroups[id])
+    .filter(Boolean)
+    .map((g) => ({
+      ...g,
+      label: groupDisplayName(g.name),
+      isHalf: isHalfGroup(g.name),
+      required: g.min >= 1,
+    }));
+
+  const omitGroups = all.filter((g) => /weglassen/i.test(g.name));
+  let visible = all;
+
+  if (omitGroups.length > 1) {
+    // Nur die "weglassen"-Gruppen der aktuell gewählten Hälften zeigen
+    const chosen = new Set();
+    if (selection) {
+      for (const g of all) {
+        if (!g.isHalf) continue;
+        const sel = selection.get(g.id);
+        if (!sel) continue;
+        for (const oid of sel) {
+          const opt = g.options.find((o) => o.id === oid);
+          if (opt) chosen.add(halfBaseName(opt.name));
+        }
+      }
+    }
+    visible = all.filter((g) => {
+      if (!/weglassen/i.test(g.name)) return true;
+      const p = parenthetical(g.name);
+      return p ? chosen.has(p) : false;
+    });
+  }
+
+  // Pflichtgruppen nach oben, sonst Reihenfolge beibehalten
+  return visible.sort((a, b) => (b.required ? 1 : 0) - (a.required ? 1 : 0));
+}
+
+/** Stückpreis: Grundpreis + Extras, Hälften zählen nur mit dem teureren Wert. */
+function priceForSelection(article, groups, selection) {
+  let extra = 0;
+  let halfMax = 0;
+  let halfUsed = false;
+
+  for (const g of groups) {
+    const sel = selection.get(g.id);
+    if (!sel || sel.size === 0) continue;
+    for (const oid of sel) {
+      const opt = g.options.find((o) => o.id === oid);
+      if (!opt) continue;
+      if (g.isHalf) {
+        halfUsed = true;
+        halfMax = Math.max(halfMax, opt.price);
+      } else {
+        extra += opt.price;
+      }
+    }
+  }
+  return round2(article.price + extra + (halfUsed ? halfMax : 0));
+}
+
+/** Fehlende Pflichtauswahlen als lesbare Liste. */
+function missingRequired(groups, selection) {
+  const missing = [];
+  for (const g of groups) {
+    if (g.min < 1) continue;
+    const size = (selection.get(g.id) || new Set()).size;
+    if (size < g.min) missing.push(g.label);
+  }
+  return missing;
+}
+
+/** Flache Liste der gewählten Optionen (für Warenkorb und Ablesen). */
+function selectedOptions(groups, selection) {
+  const out = [];
+  for (const g of groups) {
+    const sel = selection.get(g.id);
+    if (!sel) continue;
+    for (const oid of sel) {
+      const opt = g.options.find((o) => o.id === oid);
+      // half kennzeichnet Hälften: ihr Preis ist kein Zuschlag, sondern
+      // der Pizzapreis selbst (nur die teurere Hälfte wird berechnet).
+      if (opt)
+        out.push({
+          id: opt.id,
+          name: opt.name,
+          price: opt.price,
+          half: !!g.isHalf,
+        });
+    }
+  }
+  return out;
+}
+
+/** Kurze, stabile Kennung einer Zusammenstellung (für die Positions-ID). */
+function hashString(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+  }
+  return (h >>> 0).toString(36);
+}
+
+function variantOf(options) {
+  if (!options.length) return '';
+  return hashString(
+    options
+      .map((o) => o.id)
+      .sort()
+      .join(',')
+  );
+}
+
+/** Muss vor dem Hinzufügen zwingend zusammengestellt werden? */
+function needsConfig(article) {
+  if (!article.configurable) return false;
+  if (article.price === 0) return true; // z. B. Halb | Halb
+  const groups = groupsForArticle(article, null);
+  return groups.some((g) => g.required);
+}
+
+/** Gibt es überhaupt etwas zum Anpassen? */
+function hasOptions(article) {
+  return (
+    article.configurable && groupsForArticle(article, null).length > 0
+  );
+}
 
 /** Schaltet auf Einzelbetrieb um, wenn der Team-Warenkorb nicht nutzbar ist. */
 function fallbackToLocal(message) {
@@ -90,6 +282,7 @@ async function boot() {
   }
 
   state.menu = result.menu;
+  state.optionGroups = state.menu.optionGroups || {};
   for (const cat of state.menu.categories) {
     for (const a of cat.articles) state.articleById.set(a.id, a);
   }
@@ -269,6 +462,9 @@ function dishCard(article) {
     card.appendChild(placeholderImg(article.name));
   }
 
+  const mustConfig = needsConfig(article);
+  const canConfig = hasOptions(article);
+
   const body = document.createElement('div');
   body.className = 'dish-body';
   body.innerHTML =
@@ -280,19 +476,210 @@ function dishCard(article) {
     '</div>' +
     '<div class="dish-foot">' +
     '<span class="dish-price">' +
-    fmt(article.price) +
+    (mustConfig && article.price === 0 ? 'nach Auswahl' : fmt(article.price)) +
     '</span>' +
     '</div>';
 
+  const foot = body.querySelector('.dish-foot');
+
+  // Optionale Extras: kleiner Zusatzknopf, damit ein Klick auf + schnell bleibt
+  if (canConfig && !mustConfig) {
+    const extrasBtn = document.createElement('button');
+    extrasBtn.className = 'extras-btn';
+    extrasBtn.textContent = 'Extras';
+    extrasBtn.title = 'Zutaten und Extras wählen';
+    extrasBtn.addEventListener('click', () => openConfig(article));
+    foot.appendChild(extrasBtn);
+  }
+
   const addBtn = document.createElement('button');
   addBtn.className = 'add-btn';
-  addBtn.textContent = '+';
-  addBtn.title = 'In den Warenkorb';
-  addBtn.addEventListener('click', () => addToCart(article));
-  body.querySelector('.dish-foot').appendChild(addBtn);
+  addBtn.textContent = mustConfig ? '›' : '+';
+  addBtn.title = mustConfig ? 'Zusammenstellen' : 'In den Warenkorb';
+  addBtn.addEventListener('click', () => {
+    if (mustConfig) openConfig(article);
+    else addToCart(article);
+  });
+  foot.appendChild(addBtn);
 
   card.appendChild(body);
   return card;
+}
+
+/* ---------------- Zusammenstellen-Dialog ---------------- */
+
+function openConfig(article) {
+  if (state.mode === 'team' && !state.userName) {
+    openNameGate();
+    return;
+  }
+  state.config = { article, selection: new Map() };
+  document.getElementById('config-title').textContent = article.name;
+  const desc = document.getElementById('config-desc');
+  desc.textContent = article.description || '';
+  desc.hidden = !article.description;
+  document.getElementById('config-modal').hidden = false;
+  renderConfig();
+}
+
+function closeConfig() {
+  document.getElementById('config-modal').hidden = true;
+  state.config = null;
+}
+
+function renderConfig() {
+  if (!state.config) return;
+  const { article, selection } = state.config;
+  const groups = groupsForArticle(article, selection);
+  state.config.groups = groups;
+
+  const body = document.getElementById('config-body');
+  let html = '';
+
+  for (const g of groups) {
+    const sel = selection.get(g.id) || new Set();
+    const single = g.max === 1 && !g.multiple;
+    let hint;
+    if (g.required && single) hint = 'genau eine Auswahl';
+    else if (g.required) hint = `mindestens ${g.min}`;
+    else if (single) hint = 'höchstens eine';
+    else if (g.max < 999) hint = `bis zu ${g.max}`;
+    else hint = 'beliebig viele';
+
+    // Lange, freiwillige Listen eingeklappt, damit der Dialog handlich bleibt
+    const collapse = !g.required && g.options.length > 10 && sel.size === 0;
+
+    html +=
+      '<section class="opt-group' +
+      (collapse ? ' collapsed' : '') +
+      '" data-group="' +
+      esc(g.id) +
+      '">' +
+      '<button class="opt-head" data-toggle="' +
+      esc(g.id) +
+      '">' +
+      '<span class="opt-title">' +
+      esc(g.label) +
+      (g.required ? ' <span class="req">Pflicht</span>' : '') +
+      '</span>' +
+      '<span class="opt-hint">' +
+      hint +
+      (sel.size ? ' · ' + sel.size + ' gewählt' : '') +
+      (collapse ? ' ▾' : '') +
+      '</span>' +
+      '</button>' +
+      '<div class="opt-list">';
+
+    for (const o of g.options) {
+      const on = sel.has(o.id);
+      html +=
+        '<label class="opt' +
+        (on ? ' on' : '') +
+        '">' +
+        '<input type="' +
+        (single ? 'radio' : 'checkbox') +
+        '" name="g-' +
+        esc(g.id) +
+        '" data-group="' +
+        esc(g.id) +
+        '" data-option="' +
+        esc(o.id) +
+        '"' +
+        (on ? ' checked' : '') +
+        '>' +
+        '<span class="opt-name">' +
+        esc(o.name) +
+        '</span>' +
+        (o.price > 0
+          ? '<span class="opt-price">' +
+            (g.isHalf ? '' : '+ ') +
+            fmt(o.price) +
+            '</span>'
+          : '') +
+        '</label>';
+    }
+    html += '</div></section>';
+  }
+
+  body.innerHTML = html;
+
+  body.querySelectorAll('input[data-option]').forEach((input) => {
+    input.addEventListener('change', () =>
+      toggleOption(input.dataset.group, input.dataset.option)
+    );
+  });
+  body.querySelectorAll('.opt-head').forEach((head) => {
+    head.addEventListener('click', () => {
+      head.parentElement.classList.toggle('collapsed');
+    });
+  });
+
+  updateConfigFoot();
+}
+
+function toggleOption(groupId, optionId) {
+  const { selection, groups } = state.config;
+  const g = groups.find((x) => x.id === groupId);
+  if (!g) return;
+
+  let sel = selection.get(groupId);
+  if (!sel) {
+    sel = new Set();
+    selection.set(groupId, sel);
+  }
+
+  const single = g.max === 1 && !g.multiple;
+  if (single) {
+    // Einzelauswahl: vorherige ersetzen (nochmal klicken hebt sie auf)
+    if (sel.has(optionId)) sel.clear();
+    else {
+      sel.clear();
+      sel.add(optionId);
+    }
+  } else if (sel.has(optionId)) {
+    sel.delete(optionId);
+  } else if (sel.size >= g.max) {
+    showToast(`Höchstens ${g.max} bei "${g.label}"`);
+  } else {
+    sel.add(optionId);
+  }
+
+  // Neu zeichnen, weil sich bei Hälften die Zusatzgruppen ändern können
+  renderConfig();
+}
+
+function updateConfigFoot() {
+  const { article, selection, groups } = state.config;
+  const price = priceForSelection(article, groups, selection);
+  const missing = missingRequired(groups, selection);
+
+  document.getElementById('config-price').textContent = fmt(price);
+  const hint = document.getElementById('config-hint');
+  const addBtn = document.getElementById('config-add');
+
+  if (missing.length) {
+    hint.textContent = 'Bitte noch wählen: ' + missing.join(', ');
+    hint.hidden = false;
+    addBtn.disabled = true;
+  } else {
+    hint.hidden = true;
+    addBtn.disabled = false;
+  }
+}
+
+async function confirmConfig() {
+  if (!state.config) return;
+  const { article, selection, groups } = state.config;
+  if (missingRequired(groups, selection).length) return;
+
+  const options = selectedOptions(groups, selection);
+  const unitPrice = priceForSelection(article, groups, selection);
+  closeConfig();
+  await addToCart(article, {
+    options,
+    unitPrice,
+    variant: variantOf(options),
+  });
 }
 
 function renderMenu() {
@@ -341,14 +728,25 @@ function setupScrollSpy() {
 
 /* ---------------- Warenkorb ---------------- */
 
-async function addToCart(article) {
+async function addToCart(article, config) {
   if (state.mode === 'team' && !state.userName) {
     openNameGate();
     return;
   }
+  const options = (config && config.options) || [];
+  const unitPrice =
+    config && typeof config.unitPrice === 'number'
+      ? config.unitPrice
+      : article.price;
+  const variant = (config && config.variant) || '';
+
   if (state.mode === 'team') {
     try {
-      await store.addItem(article, state.userName);
+      await store.addItem(article, state.userName, {
+        options,
+        unitPrice,
+        variant,
+      });
       showToast(article.name + ' hinzugefügt');
     } catch (err) {
       console.error(err);
@@ -357,7 +755,7 @@ async function addToCart(article) {
     return;
   }
   // Einzelbetrieb
-  const key = 'local__' + article.id;
+  const key = 'local__' + article.id + (variant ? '__' + variant : '');
   const found = state.items.find((i) => i.key === key);
   if (found) found.qty += 1;
   else
@@ -365,7 +763,9 @@ async function addToCart(article) {
       key,
       articleId: article.id,
       name: article.name,
-      price: article.price,
+      price: unitPrice,
+      basePrice: article.price,
+      options,
       image: article.image ? article.image.thumb : null,
       qty: 1,
       uid: 'local',
@@ -380,7 +780,7 @@ async function changeQty(entry, delta) {
   const next = entry.qty + delta;
   if (state.mode === 'team') {
     try {
-      await store.setQty(entry.articleId, next);
+      await store.setQtyByKey(entry.key, next);
     } catch (err) {
       console.error(err);
       showToast('Änderung nicht möglich');
@@ -390,6 +790,14 @@ async function changeQty(entry, delta) {
   entry.qty = next;
   if (entry.qty <= 0) state.items = state.items.filter((i) => i !== entry);
   renderCart();
+}
+
+/** Gewählte Extras als kurze Zeile, z. B. "Tomatensauce · Edamer · + Salami". */
+function optionsSummary(options) {
+  if (!options || !options.length) return '';
+  return options
+    .map((o) => (o.price > 0 && !o.half ? '+ ' + o.name : o.name))
+    .join(' · ');
 }
 
 async function clearMine() {
@@ -418,6 +826,11 @@ function cartRow(entry) {
     '<div class="cart-name">' +
     esc(entry.name) +
     '</div>' +
+    (entry.options && entry.options.length
+      ? '<div class="cart-options">' +
+        esc(optionsSummary(entry.options)) +
+        '</div>'
+      : '') +
     '<div class="cart-unit">' +
     fmt(entry.price) +
     ' / Stück' +
@@ -759,6 +1172,11 @@ function renderDetail() {
             i.qty +
             '× ' +
             esc(i.name) +
+            (i.options && i.options.length
+              ? '<span class="person-line-opts"> (' +
+                esc(optionsSummary(i.options)) +
+                ')</span>'
+              : '') +
             '</span><span>' +
             fmt(round2(i.price * i.qty)) +
             '</span></div>'
@@ -864,12 +1282,24 @@ function renderReadout() {
   const body = document.getElementById('readout-body');
   const t = computeTotals();
 
-  // Gleiche Artikel über alle Personen zusammenfassen
+  // Gleiche Artikel zusammenfassen – aber nur bei gleicher Zusammenstellung,
+  // sonst würde eine Pizza mit Extras mit einer ohne verschmolzen.
   const agg = new Map();
   for (const e of state.items) {
-    const cur = agg.get(e.articleId);
+    const optKey = (e.options || [])
+      .map((o) => o.id || o.name)
+      .sort()
+      .join(',');
+    const key = e.articleId + '|' + optKey;
+    const cur = agg.get(key);
     if (cur) cur.qty += e.qty;
-    else agg.set(e.articleId, { name: e.name, price: e.price, qty: e.qty });
+    else
+      agg.set(key, {
+        name: e.name,
+        price: e.price,
+        qty: e.qty,
+        options: e.options || [],
+      });
   }
   const lines = Array.from(agg.values()).sort((a, b) =>
     a.name.localeCompare(b.name, 'de')
@@ -887,6 +1317,9 @@ function renderReadout() {
       l.qty +
       '×</span><span class="ro-name">' +
       esc(l.name) +
+      (l.options && l.options.length
+        ? '<span class="ro-opts">' + esc(optionsSummary(l.options)) + '</span>'
+        : '') +
       '</span><span class="ro-sum">' +
       fmt(round2(l.price * l.qty)) +
       '</span></li>';
@@ -1005,10 +1438,15 @@ function bindEvents() {
     }
   });
 
+  // Zusammenstellen
+  document.getElementById('config-close').addEventListener('click', closeConfig);
+  document.getElementById('config-add').addEventListener('click', confirmConfig);
+
   // Schließen per Escape
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     closeCartSheet();
+    closeConfig();
     document.getElementById('detail-modal').hidden = true;
     document.getElementById('readout-modal').hidden = true;
   });
@@ -1020,6 +1458,10 @@ function bindEvents() {
       if (e.target === el) el.hidden = true;
     });
   }
+  const cfg = document.getElementById('config-modal');
+  cfg.addEventListener('click', (e) => {
+    if (e.target === cfg) closeConfig();
+  });
 }
 
 /* ---------------- Toast ---------------- */
