@@ -34,6 +34,20 @@
 
     <div class="layout">
       <main class="menu-pane">
+        <div class="search-bar">
+          <input
+            id="search-input"
+            class="search-input"
+            type="text"
+            placeholder="Gericht suchen … z. B. Salami, Pasta, Tiramisu"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="search-clear" class="search-clear" hidden aria-label="Suche löschen">
+            ×
+          </button>
+          <span id="search-count" class="search-count" hidden></span>
+        </div>
         <nav id="cat-nav" class="cat-nav"></nav>
         <div id="menu" class="menu">
           <div class="loading">Lade Speisekarte …</div>

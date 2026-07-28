@@ -25,6 +25,19 @@ function slug(s, i) {
   return 'cat-' + i + '-' + String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-');
 }
 
+/**
+ * Vereinfacht Text für die Suche: Kleinschreibung und deutsche Umlaute
+ * aufgelöst, damit "kase" auch "Käse" findet.
+ */
+function fold(s) {
+  return String(s == null ? '' : s)
+    .toLowerCase()
+    .replace(/ä/g, 'a')
+    .replace(/ö/g, 'o')
+    .replace(/ü/g, 'u')
+    .replace(/ß/g, 'ss');
+}
+
 /* ---------------- Zustand ---------------- */
 
 const state = {
@@ -443,9 +456,13 @@ function placeholderImg(name) {
   return ph;
 }
 
-function dishCard(article) {
+function dishCard(article, categoryName) {
   const card = document.createElement('div');
   card.className = 'dish';
+  // Durchsuchbarer Text: Name, Beschreibung und Kategorie
+  card.dataset.q = fold(
+    article.name + ' ' + (article.description || '') + ' ' + (categoryName || '')
+  );
 
   const imgUrl = article.image && article.image.medium;
   if (imgUrl) {
@@ -697,12 +714,67 @@ function renderMenu() {
 
     const grid = document.createElement('div');
     grid.className = 'card-grid';
-    cat.articles.forEach((a) => grid.appendChild(dishCard(a)));
+    cat.articles.forEach((a) => grid.appendChild(dishCard(a, cat.name)));
     section.appendChild(grid);
     menu.appendChild(section);
   });
 
+  // Hinweis, wenn die Suche nichts findet
+  const empty = document.createElement('div');
+  empty.id = 'search-empty';
+  empty.className = 'search-empty';
+  empty.hidden = true;
+  menu.appendChild(empty);
+
   setupScrollSpy();
+}
+
+/* ---------------- Suche ---------------- */
+
+/**
+ * Filtert die Speisekarte. Alle eingegebenen Wörter müssen vorkommen,
+ * Reihenfolge egal ("pizza salami" findet die Salami-Pizza).
+ */
+function runSearch(rawTerm) {
+  const term = fold(rawTerm).trim();
+  const words = term ? term.split(/\s+/) : [];
+  const active = words.length > 0;
+
+  document.body.classList.toggle('searching', active);
+  document.getElementById('search-clear').hidden = !active;
+
+  let hits = 0;
+  for (const card of document.querySelectorAll('.dish')) {
+    const hay = card.dataset.q || '';
+    const match = !active || words.every((w) => hay.includes(w));
+    card.hidden = !match;
+    if (match) hits++;
+  }
+
+  // Kategorien ohne Treffer ausblenden
+  for (const section of document.querySelectorAll('.menu-section')) {
+    const visible = section.querySelector('.dish:not([hidden])');
+    section.hidden = active && !visible;
+  }
+
+  const countEl = document.getElementById('search-count');
+  countEl.hidden = !active;
+  countEl.textContent = hits === 1 ? '1 Treffer' : hits + ' Treffer';
+
+  const emptyEl = document.getElementById('search-empty');
+  if (emptyEl) {
+    emptyEl.hidden = !(active && hits === 0);
+    emptyEl.textContent = 'Kein Gericht gefunden für „' + rawTerm.trim() + '".';
+  }
+
+  if (active) document.getElementById('menu').scrollTop = 0;
+}
+
+function clearSearch() {
+  const input = document.getElementById('search-input');
+  input.value = '';
+  runSearch('');
+  input.focus();
 }
 
 function setupScrollSpy() {
@@ -1437,6 +1509,17 @@ function bindEvents() {
       showToast(link);
     }
   });
+
+  // Suche
+  const searchInput = document.getElementById('search-input');
+  searchInput.addEventListener('input', () => runSearch(searchInput.value));
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      e.stopPropagation(); // nicht gleichzeitig Dialoge schließen
+      clearSearch();
+    }
+  });
+  document.getElementById('search-clear').addEventListener('click', clearSearch);
 
   // Zusammenstellen
   document.getElementById('config-close').addEventListener('click', closeConfig);

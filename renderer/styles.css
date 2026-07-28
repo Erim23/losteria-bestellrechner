@@ -145,6 +145,71 @@ body {
   min-height: 0;
 }
 
+/* Suchleiste */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14.5px;
+  font-family: inherit;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.search-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.search-clear {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.search-clear:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.search-count {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Während der Suche sind die Kategorie-Chips ohne Nutzen */
+body.searching .cat-nav {
+  display: none;
+}
+
+.search-empty {
+  padding: 48px 22px;
+  text-align: center;
+  color: var(--muted);
+}
+
 /* Kategorie-Navigation */
 .cat-nav {
   display: flex;
@@ -668,6 +733,16 @@ body {
     display: none;
   }
 
+  .search-bar {
+    padding: 8px 16px;
+  }
+  .search-input {
+    height: 40px;
+    font-size: 15px;
+  }
+  .search-count {
+    display: none;
+  }
   .cat-nav {
     padding: 10px 16px;
   }
