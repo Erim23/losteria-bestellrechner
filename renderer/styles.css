@@ -6,14 +6,22 @@
   --paper: #ffffff;
   --ink: #2a2622;
   --muted: #8a8175;
-  --green: #2e5a3e;
-  --green-dark: #234a32;
-  --green-light: #3d7250;
-  --red: #b5121b;
-  --red-dark: #8f0e15;
+
+  /* L'Osteria-Rot als Hauptfarbe */
+  --primary: #db002a;
+  --primary-light: #f01238;
+  --primary-dark: #a80020;
+  --primary-darker: #7d0018;
+  --primary-tint: rgba(219, 0, 42, 0.07);
+
+  --positive: #2e7d4f; /* nur für gesparte Beträge */
+  --warn: #8a5a00; /* Hinweis: verfallende Essensmarken */
+  --warn-bg: rgba(196, 138, 0, 0.12);
+
   --line: #e6ddcc;
-  --shadow: 0 6px 20px rgba(60, 45, 25, 0.10);
+  --shadow: 0 6px 20px rgba(60, 45, 25, 0.1);
   --shadow-sm: 0 2px 8px rgba(60, 45, 25, 0.08);
+  --shadow-up: 0 -8px 24px rgba(60, 45, 25, 0.18);
   --radius: 14px;
 }
 
@@ -47,16 +55,19 @@ body {
   align-items: center;
   gap: 24px;
   padding: 14px 22px;
-  background: linear-gradient(135deg, var(--green-dark), var(--green));
-  color: var(--cream);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff;
   box-shadow: var(--shadow);
   z-index: 20;
+  /* darf nicht schrumpfen, sonst wird der Inhalt abgeschnitten */
+  flex-shrink: 0;
 }
 
 .brand {
   display: flex;
   flex-direction: column;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -72,40 +83,51 @@ body {
   font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #d9e6dc;
+  color: rgba(255, 255, 255, 0.78);
   margin-top: 4px;
 }
 
 .venue-info {
   flex: 1;
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  min-width: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 24px;
 }
 
 .venue-name {
   font-size: 17px;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .venue-addr {
   font-size: 13px;
-  color: #cdddcf !important;
+  color: rgba(255, 255, 255, 0.82) !important;
   margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .source-badge {
   font-size: 12px;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.18);
   color: #fff;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .source-badge.live {
-  background: #3d7250;
+  background: #fff;
+  color: var(--primary-dark);
+  font-weight: 600;
 }
 .source-badge.offline {
-  background: var(--red);
+  background: var(--warn);
+  color: #fff;
 }
 
 /* ---- Layout ---- */
@@ -120,6 +142,7 @@ body {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 /* Kategorie-Navigation */
@@ -130,8 +153,8 @@ body {
   padding: 12px 22px;
   background: var(--cream-2);
   border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
+  /* feste Höhe behalten – sonst quetscht die lange Speisekarte die Chips zusammen */
+  flex-shrink: 0;
 }
 
 .cat-chip {
@@ -143,21 +166,24 @@ body {
   font-size: 14px;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.15s ease;
 }
 .cat-chip:hover {
-  border-color: var(--green-light);
+  border-color: var(--primary);
+  color: var(--primary-dark);
 }
 .cat-chip.active {
-  background: var(--green);
+  background: var(--primary);
   color: #fff;
-  border-color: var(--green);
+  border-color: var(--primary);
 }
 
 /* Speisekarte */
 .menu {
   overflow-y: auto;
   padding: 8px 22px 40px;
+  min-height: 0;
 }
 
 .menu-section {
@@ -168,7 +194,7 @@ body {
 .section-title {
   font-family: Georgia, serif;
   font-size: 22px;
-  color: var(--green-dark);
+  color: var(--primary-dark);
   margin: 6px 0 14px;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--line);
@@ -249,7 +275,7 @@ body {
 
 .add-btn {
   border: none;
-  background: var(--green);
+  background: var(--primary);
   color: #fff;
   width: 34px;
   height: 34px;
@@ -257,10 +283,11 @@ body {
   font-size: 21px;
   line-height: 1;
   cursor: pointer;
+  flex-shrink: 0;
   transition: background 0.15s ease, transform 0.1s ease;
 }
 .add-btn:hover {
-  background: var(--green-light);
+  background: var(--primary-light);
 }
 .add-btn:active {
   transform: scale(0.9);
@@ -279,40 +306,60 @@ body {
 
 .cart-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
+  gap: 10px;
   padding: 18px 20px 10px;
+  flex-shrink: 0;
 }
 .cart-head h2 {
   font-family: Georgia, serif;
   font-size: 21px;
   margin: 0;
-  color: var(--green-dark);
+  color: var(--primary-dark);
+  flex: 1;
 }
 
 .link-btn {
   background: none;
   border: none;
-  color: var(--green);
+  color: var(--primary);
   cursor: pointer;
   font-size: 13px;
   text-decoration: underline;
   padding: 2px 4px;
 }
 .link-btn:hover {
-  color: var(--red);
+  color: var(--primary-darker);
+}
+
+/* Schließen-Knopf nur im Handy-Layout sichtbar */
+.sheet-close {
+  display: none;
+  border: none;
+  background: var(--cream-2);
+  color: var(--ink);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .cart-empty {
   padding: 8px 20px 20px;
   color: var(--muted);
   font-size: 14px;
+  flex-shrink: 0;
 }
 
 .cart-items {
   flex: 1;
   overflow-y: auto;
   padding: 0 20px;
+  min-height: 0;
 }
 
 .cart-row {
@@ -373,8 +420,8 @@ body {
   color: var(--ink);
 }
 .qty button:hover {
-  border-color: var(--green);
-  color: var(--green);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 .qty span {
   min-width: 18px;
@@ -387,14 +434,16 @@ body {
   border-top: 2px solid var(--line);
   padding: 16px 20px 20px;
   background: var(--cream);
+  /* darf nicht schrumpfen, sonst wird die Aufschlüsselung abgeschnitten */
+  flex-shrink: 0;
 }
 
 .discount-btn {
   width: 100%;
   padding: 12px;
-  border: 2px dashed var(--red);
+  border: 2px dashed var(--primary);
   background: transparent;
-  color: var(--red);
+  color: var(--primary-dark);
   border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
@@ -402,10 +451,10 @@ body {
   transition: all 0.15s ease;
 }
 .discount-btn:hover {
-  background: rgba(181, 18, 27, 0.06);
+  background: var(--primary-tint);
 }
 .discount-btn[aria-pressed="true"] {
-  background: var(--red);
+  background: var(--primary);
   color: #fff;
   border-style: solid;
 }
@@ -435,8 +484,8 @@ body {
   color: var(--ink);
 }
 .step-btn:hover {
-  border-color: var(--green);
-  color: var(--green);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 .marks-input {
   width: 64px;
@@ -447,6 +496,10 @@ body {
   border-radius: 10px;
   background: var(--paper);
   color: var(--ink);
+}
+.marks-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
 }
 .marks-input::-webkit-outer-spin-button,
 .marks-input::-webkit-inner-spin-button {
@@ -468,10 +521,10 @@ body {
   color: var(--muted);
 }
 .bd-row.discount {
-  color: var(--red);
+  color: var(--primary-dark);
 }
 .bd-row.marks-row {
-  color: var(--green-dark);
+  color: var(--ink);
 }
 .bd-sep {
   border-top: 1px solid var(--line);
@@ -479,8 +532,8 @@ body {
 }
 .bd-hint {
   font-size: 12.5px;
-  color: var(--red);
-  background: rgba(181, 18, 27, 0.07);
+  color: var(--warn);
+  background: var(--warn-bg);
   border-radius: 8px;
   padding: 8px 10px;
   margin: 8px 0;
@@ -491,7 +544,7 @@ body {
   align-items: baseline;
   margin-top: 8px;
   padding-top: 12px;
-  border-top: 2px solid var(--green);
+  border-top: 2px solid var(--primary);
 }
 .bd-total .label {
   font-size: 15px;
@@ -500,13 +553,49 @@ body {
 .bd-total .value {
   font-size: 26px;
   font-weight: 800;
-  color: var(--green-dark);
+  color: var(--ink);
 }
 .bd-saved {
   text-align: right;
   font-size: 12.5px;
-  color: var(--green-light);
+  color: var(--positive);
   margin-top: 4px;
+}
+
+/* ---- Handy-Leiste (nur im Handy-Layout sichtbar) ---- */
+.cart-bar {
+  display: none;
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 45;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+.cart-bar-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sheet-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 30, 20, 0.45);
+  z-index: 40;
 }
 
 /* ---- Sonstiges ---- */
@@ -521,7 +610,7 @@ body {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: var(--green-dark);
+  background: var(--ink);
   color: #fff;
   padding: 11px 20px;
   border-radius: 999px;
@@ -549,4 +638,99 @@ body {
 .cat-nav::-webkit-scrollbar-thumb {
   background: #d8ceba;
   border-radius: 999px;
+}
+
+/* ==========================================================
+   Handy / schmale Fenster: Warenkorb wird zum Aufklapp-Fenster
+   ========================================================== */
+@media (max-width: 900px) {
+  .app-header {
+    gap: 14px;
+    padding: 10px 16px;
+  }
+  .brand-mark {
+    font-size: 22px;
+  }
+  .brand-sub {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  .venue-info {
+    padding-left: 14px;
+  }
+  .venue-name {
+    font-size: 15px;
+  }
+  .venue-addr {
+    font-size: 12px;
+  }
+  .source-badge {
+    display: none;
+  }
+
+  .cat-nav {
+    padding: 10px 16px;
+  }
+  .menu {
+    /* Platz für die Warenkorb-Leiste am unteren Rand */
+    padding: 4px 16px 96px;
+  }
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .dish-desc {
+    -webkit-line-clamp: 3;
+  }
+  .add-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cart-bar {
+    display: flex;
+  }
+
+  /* Warenkorb als Aufklapp-Fenster von unten */
+  .cart-pane {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 88vh;
+    max-height: 88vh;
+    border-left: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: var(--shadow-up);
+    transform: translateY(101%);
+    transition: transform 0.25s ease;
+    z-index: 46;
+  }
+  body.cart-open .cart-pane {
+    transform: translateY(0);
+  }
+  body.cart-open .sheet-backdrop {
+    display: block;
+  }
+  body.cart-open .cart-bar {
+    display: none;
+  }
+  .sheet-close {
+    display: block;
+  }
+
+  .toast {
+    bottom: 88px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-sub {
+    display: none;
+  }
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
 }

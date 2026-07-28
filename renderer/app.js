@@ -290,6 +290,32 @@ function renderCart() {
   }
 
   renderBreakdown();
+  updateCartBar();
+}
+
+/** Aktualisiert die Warenkorb-Leiste des Handy-Layouts. */
+function updateCartBar() {
+  let count = 0;
+  let sum = 0;
+  for (const { article, qty } of state.cart.values()) {
+    count += qty;
+    sum += article.price * qty;
+  }
+  const countEl = document.getElementById('cart-bar-count');
+  const totalEl = document.getElementById('cart-bar-total');
+  if (countEl) {
+    countEl.textContent = count === 1 ? '1 Artikel' : count + ' Artikel';
+  }
+  if (totalEl) totalEl.textContent = fmt(round2(sum));
+  if (count === 0) closeCartSheet();
+}
+
+function openCartSheet() {
+  document.body.classList.add('cart-open');
+}
+
+function closeCartSheet() {
+  document.body.classList.remove('cart-open');
 }
 
 /* ---------------- Rechner ---------------- */
@@ -416,6 +442,18 @@ function bindCalcEvents() {
   });
 
   document.getElementById('cart-clear').addEventListener('click', clearCart);
+
+  // Handy-Layout: Warenkorb auf-/zuklappen
+  document.getElementById('cart-bar').addEventListener('click', openCartSheet);
+  document
+    .getElementById('cart-close')
+    .addEventListener('click', closeCartSheet);
+  document
+    .getElementById('sheet-backdrop')
+    .addEventListener('click', closeCartSheet);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCartSheet();
+  });
 }
 
 /* ---------------- Toast ---------------- */

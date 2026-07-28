@@ -31,6 +31,9 @@
         <div class="cart-head">
           <h2>Warenkorb</h2>
           <button id="cart-clear" class="link-btn" hidden>leeren</button>
+          <button id="cart-close" class="sheet-close" aria-label="Warenkorb schließen">
+            ×
+          </button>
         </div>
 
         <div id="cart-empty" class="cart-empty">Noch nichts ausgewählt.</div>
@@ -67,6 +70,16 @@
         </section>
       </aside>
     </div>
+
+    <!-- Handy-Layout: Leiste am unteren Rand öffnet den Warenkorb -->
+    <div id="sheet-backdrop" class="sheet-backdrop"></div>
+    <button id="cart-bar" class="cart-bar">
+      <span class="cart-bar-left">
+        <span aria-hidden="true">🛒</span>
+        <span id="cart-bar-count">0 Artikel</span>
+      </span>
+      <span id="cart-bar-total">0,00 €</span>
+    </button>
 
     <div id="toast" class="toast" hidden></div>
 
