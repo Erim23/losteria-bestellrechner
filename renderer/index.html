@@ -19,6 +19,19 @@
       <div id="data-source" class="source-badge" hidden></div>
     </header>
 
+    <!-- Team-Leiste: Bestellrunde, eigener Name, Teilen, Ableseansicht -->
+    <div id="team-bar" class="team-bar" hidden>
+      <span class="team-round" id="team-round"></span>
+      <span class="team-sep">·</span>
+      <span class="team-me">
+        Du: <b id="team-name">—</b>
+        <button id="name-change" class="link-btn">ändern</button>
+      </span>
+      <span class="team-spacer"></span>
+      <button id="btn-share" class="ghost-btn">Link teilen</button>
+      <button id="btn-readout" class="ghost-btn">Zum Ablesen</button>
+    </div>
+
     <div class="layout">
       <main class="menu-pane">
         <nav id="cat-nav" class="cat-nav"></nav>
@@ -30,7 +43,9 @@
       <aside class="cart-pane">
         <div class="cart-head">
           <h2>Warenkorb</h2>
-          <button id="cart-clear" class="link-btn" hidden>leeren</button>
+          <button id="cart-clear" class="link-btn" hidden>
+            meine Auswahl leeren
+          </button>
           <button id="cart-close" class="sheet-close" aria-label="Warenkorb schließen">
             ×
           </button>
@@ -67,6 +82,10 @@
           </div>
 
           <div id="breakdown" class="breakdown"></div>
+
+          <button id="btn-detail" class="wide-btn" hidden>
+            Erweiterte Ansicht · wer zahlt was
+          </button>
         </section>
       </aside>
     </div>
@@ -81,8 +100,60 @@
       <span id="cart-bar-total">0,00 €</span>
     </button>
 
+    <!-- Namensabfrage beim ersten Besuch auf diesem Gerät -->
+    <div id="name-gate" class="overlay" hidden>
+      <div class="dialog">
+        <h2 class="dialog-title">Wie heißt du?</h2>
+        <p class="dialog-text">
+          Damit die anderen sehen, wessen Essen im Warenkorb liegt. Vorname oder
+          Spitzname genügt – kein Konto, kein Passwort. Wird auf diesem Gerät
+          gespeichert.
+        </p>
+        <input
+          id="name-input"
+          class="text-input"
+          type="text"
+          maxlength="24"
+          placeholder="z. B. Erkan"
+          autocomplete="off"
+        />
+        <div id="name-error" class="dialog-error" hidden>
+          Bitte gib einen Namen ein.
+        </div>
+        <div class="dialog-actions">
+          <button id="name-save" class="primary-btn">Los geht's</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Erweiterte Ansicht: Anteile und Essensmarken pro Person -->
+    <div id="detail-modal" class="overlay" hidden>
+      <div class="dialog dialog-wide">
+        <div class="dialog-head">
+          <h2 class="dialog-title">Wer zahlt was</h2>
+          <button id="detail-close" class="sheet-close is-visible" aria-label="Schließen">
+            ×
+          </button>
+        </div>
+        <div id="detail-body"></div>
+      </div>
+    </div>
+
+    <!-- Ableseansicht für den Anruf -->
+    <div id="readout-modal" class="overlay" hidden>
+      <div class="dialog dialog-wide">
+        <div class="dialog-head">
+          <h2 class="dialog-title">Bestellung zum Ablesen</h2>
+          <button id="readout-close" class="sheet-close is-visible" aria-label="Schließen">
+            ×
+          </button>
+        </div>
+        <div id="readout-body"></div>
+      </div>
+    </div>
+
     <div id="toast" class="toast" hidden></div>
 
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

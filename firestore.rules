@@ -1,0 +1,47 @@
+rules_version = '2';
+
+// Zugriffsregeln für den gemeinsamen Warenkorb.
+//
+// Grundidee:
+//  - Es muss eine (anonyme) Anmeldung vorliegen. Die passiert in der App
+//    unsichtbar und dient nur dazu, jedem Gerät eine stabile Kennung zu geben.
+//  - Positionen im Warenkorb darf nur ändern und löschen, wer sie angelegt hat.
+//  - Die gemeinsamen Einstellungen einer Runde (20 % Rabatt, Anzahl der
+//    Essensmarken und deren Verteilung) darf jeder in der Runde anpassen.
+//  - Runden werden nie gelöscht; die Kennung ist der jeweilige Tag.
+//
+// In der Firebase-Konsole einzufügen unter:
+//   Firestore Database  ->  Regeln  ->  Inhalt ersetzen  ->  Veröffentlichen
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /rounds/{roundId} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null;
+      allow delete: if false;
+
+      match /items/{itemId} {
+        allow read: if request.auth != null;
+
+        // Anlegen nur unter eigener Kennung
+        allow create: if request.auth != null
+                      && request.resource.data.uid == request.auth.uid;
+
+        // Ändern nur eigene Positionen, und die Kennung darf nicht wechseln
+        allow update: if request.auth != null
+                      && resource.data.uid == request.auth.uid
+                      && request.resource.data.uid == request.auth.uid;
+
+        // Löschen nur eigene Positionen
+        allow delete: if request.auth != null
+                      && resource.data.uid == request.auth.uid;
+      }
+    }
+
+    // Alles andere ist gesperrt.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
