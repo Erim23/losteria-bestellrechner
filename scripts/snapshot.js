@@ -22,6 +22,55 @@ async function main() {
   const outPath = path.join(__dirname, '..', 'renderer', 'menu-seed.json');
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
+  // --- Plausibilitätsprüfung -------------------------------------------
+  // Die Datenschicht macht bei einem Teilausfall der Schnittstelle bewusst
+  // weiter (lieber Speisekarte ohne Extras als gar keine). Für den
+  // gespeicherten Stand wäre das fatal: ein einziger Aussetzer würde die
+  // Optionen dauerhaft löschen. Deshalb hier lieber abbrechen als
+  // Unvollständiges festschreiben.
+  const previous = (() => {
+    try {
+      return JSON.parse(fs.readFileSync(outPath, 'utf8'));
+    } catch {
+      return null;
+    }
+  })();
+
+  const zaehle = (m) => ({
+    kategorien: (m.categories || []).length,
+    artikel: (m.categories || []).reduce((n, c) => n + c.articles.length, 0),
+    gruppen: Object.keys(m.optionGroups || {}).length,
+  });
+
+  const neu = zaehle(menu);
+  const abbruch = [];
+
+  if (neu.kategorien === 0) abbruch.push('keine Kategorien geliefert');
+  if (neu.artikel === 0) abbruch.push('keine Artikel geliefert');
+  if (neu.gruppen === 0) abbruch.push('keine Optionsgruppen geliefert');
+
+  if (previous) {
+    const alt = zaehle(previous);
+    const eingebrochen = (a, b, was) => {
+      if (a > 0 && b < a * 0.6) {
+        abbruch.push(`${was} von ${a} auf ${b} eingebrochen`);
+      }
+    };
+    eingebrochen(alt.artikel, neu.artikel, 'Artikelzahl');
+    eingebrochen(alt.gruppen, neu.gruppen, 'Optionsgruppen');
+  }
+
+  if (abbruch.length) {
+    console.error('\nABBRUCH – Speisekarte wirkt unvollständig:');
+    for (const grund of abbruch) console.error('  - ' + grund);
+    console.error(
+      '\nDer bisherige Stand bleibt unangetastet. Meist ein vorübergehender\n' +
+        'Aussetzer der Schnittstelle – einfach später erneut ausführen.'
+    );
+    process.exit(1);
+  }
+  // ---------------------------------------------------------------------
+
   // Nur schreiben, wenn sich inhaltlich etwas geändert hat – sonst würde der
   // Zeitstempel allein täglich einen Commit auslösen.
   const withoutTimestamp = (m) => {
