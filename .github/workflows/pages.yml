@@ -27,6 +27,16 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # GitHub Pages liefert mit max-age=600 aus. Ohne Versionsangabe sehen
+      # Besucher nach einer Änderung bis zu 10 Minuten die alte Fassung.
+      - name: Dateiverweise versionieren
+        run: node scripts/cachebust.js "${GITHUB_SHA:0:8}"
+
       - name: Upload renderer as Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
