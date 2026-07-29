@@ -139,6 +139,8 @@ export function subscribe({ onShared, onItems, onError }) {
         discountActive: !!d.discountActive,
         marksTotal: Number(d.marksTotal) || 0,
         marksByUid: d.marksByUid && typeof d.marksByUid === 'object' ? d.marksByUid : {},
+        // Ergebnisse des Glücksrads (wer ruft an, wer holt ab)
+        draw: d.draw && typeof d.draw === 'object' ? d.draw : {},
       });
     },
     onError

@@ -17,6 +17,14 @@
         <div id="venue-addr" class="venue-addr muted"></div>
       </div>
       <div id="data-source" class="source-badge" hidden></div>
+      <button id="wheel-open" class="wheel-btn" title="Glücksrad: Wer ruft an?" aria-label="Glücksrad öffnen">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+          <path d="M12 2 A10 10 0 0 1 20.66 7 L12 12 Z" fill="currentColor" opacity=".95" />
+          <path d="M20.66 17 A10 10 0 0 1 3.34 17 L12 12 Z" fill="currentColor" opacity=".55" />
+          <circle cx="12" cy="12" r="2.2" fill="currentColor" />
+        </svg>
+      </button>
     </header>
 
     <!-- Team-Leiste: Bestellrunde, eigener Name, Teilen, Ableseansicht -->
@@ -27,6 +35,8 @@
         Du: <b id="team-name">—</b>
         <button id="name-change" class="link-btn">ändern</button>
       </span>
+      <span id="draw-caller" class="draw-chip" hidden></span>
+      <span id="draw-pickup" class="draw-chip" hidden></span>
       <span class="team-spacer"></span>
       <button id="btn-share" class="ghost-btn">Link teilen</button>
       <button id="btn-readout" class="ghost-btn">Zum Ablesen</button>
@@ -185,6 +195,43 @@
         <div id="readout-body"></div>
       </div>
     </div>
+
+    <!-- Glücksrad: wer ruft an, wer holt ab -->
+    <div id="wheel-modal" class="overlay" hidden>
+      <div class="dialog wheel-dialog">
+        <div class="dialog-head">
+          <h2 class="dialog-title">Wer muss ran?</h2>
+          <button id="wheel-close" class="sheet-close is-visible" aria-label="Schließen">
+            ×
+          </button>
+        </div>
+
+        <div class="mode-row" role="group" aria-label="Wofür wird gelost?">
+          <button class="mode-box is-active" data-mode="call">Anrufen</button>
+          <button class="mode-box" data-mode="pickup">Abholen</button>
+        </div>
+
+        <div class="wheel-stage">
+          <div class="wheel-pointer" aria-hidden="true"></div>
+          <svg id="wheel-svg" class="wheel-svg" viewBox="0 0 200 200" aria-hidden="true"></svg>
+        </div>
+
+        <div id="wheel-result" class="wheel-result" hidden></div>
+
+        <button id="wheel-spin" class="primary-btn wheel-spin">Drehen</button>
+
+        <div class="people-block">
+          <div class="people-label">
+            Wer macht mit? <span class="muted">· zum Ab- und Anwählen antippen</span>
+          </div>
+          <div id="people-list" class="people-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Liegt bewusst außerhalb des Fensters: das Ergebnis wird auch dann
+         gefeiert, wenn bei den anderen das Glücksrad gar nicht offen ist. -->
+    <canvas id="confetti" class="confetti" aria-hidden="true" hidden></canvas>
 
     <div id="toast" class="toast" hidden></div>
 

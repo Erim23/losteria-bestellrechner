@@ -45,11 +45,19 @@ const state = {
   mode: 'local', // 'team' sobald Firebase läuft
   userName: null,
   items: [], // Positionen: {key, articleId, name, price, options, qty, uid, userName, mine}
-  shared: { discountActive: false, marksTotal: 0, marksByUid: {} },
+  shared: { discountActive: false, marksTotal: 0, marksByUid: {}, draw: {} },
   articleById: new Map(),
   optionGroups: {}, // Nachschlagewerk der Optionsgruppen
   teamConfirmed: false, // true, sobald Firestore erfolgreich geliefert hat
   config: null, // aktuell offener Zusammenstellen-Dialog
+  wheel: {
+    mode: 'call', // 'call' = anrufen, 'pickup' = abholen
+    excluded: new Set(), // abgewählte Namen
+    rotation: 0,
+    spinning: false,
+  },
+  drawSeen: { call: 0, pickup: 0 }, // zuletzt gesehene Ergebnisse
+  drawReady: false, // erst nach dem ersten Abgleich Konfetti zeigen
 };
 
 /* ---------------- Optionsgruppen (Extras, Hälften, Toppings) ---------------- */
@@ -315,7 +323,12 @@ async function boot() {
       onShared: (shared) => {
         state.shared = shared;
         renderBreakdown();
+        handleDrawUpdate();
         if (!document.getElementById('detail-modal').hidden) renderDetail();
+        if (!document.getElementById('wheel-modal').hidden) {
+          renderWheelSvg();
+          updateSpinState();
+        }
       },
       onItems: (items) => {
         state.teamConfirmed = true;
@@ -323,6 +336,11 @@ async function boot() {
         renderCart();
         if (!document.getElementById('detail-modal').hidden) renderDetail();
         if (!document.getElementById('readout-modal').hidden) renderReadout();
+        if (!document.getElementById('wheel-modal').hidden) {
+          renderPeopleChips();
+          renderWheelSvg();
+          updateSpinState();
+        }
       },
       onError: (err) => {
         console.error('Firestore-Fehler:', err);
@@ -1427,6 +1445,382 @@ function renderReadout() {
   body.innerHTML = html;
 }
 
+/* ---------------- Glücksrad: wer ruft an, wer holt ab ---------------- */
+
+const WHEEL_COLORS = [
+  '#db002a',
+  '#2a2622',
+  '#a80020',
+  '#8a5a00',
+  '#2e7d4f',
+  '#7d0018',
+  '#5a4633',
+  '#b5455f',
+];
+const SPIN_MS = 4000;
+
+function prefersReducedMotion() {
+  return (
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+}
+
+/** Alle Personen der Bestellrunde – plus man selbst. */
+function wheelPeople() {
+  const names = new Set();
+  for (const e of state.items) if (e.userName) names.add(e.userName);
+  if (state.userName) names.add(state.userName);
+  return Array.from(names).sort((a, b) => a.localeCompare(b, 'de'));
+}
+
+/**
+ * Wer landet auf dem Rad: alle Ausgewählten. Beim Abholen wird zusätzlich
+ * übersprungen, wer schon anrufen muss – außer es bliebe niemand übrig.
+ */
+function wheelCandidates() {
+  const chosen = wheelPeople().filter((n) => !state.wheel.excluded.has(n));
+  if (state.wheel.mode !== 'pickup') return chosen;
+  const caller = state.shared.draw && state.shared.draw.call;
+  if (!caller || !caller.name) return chosen;
+  const rest = chosen.filter((n) => n !== caller.name);
+  return rest.length ? rest : chosen;
+}
+
+/** Punkt auf dem Rad; Winkel im Uhrzeigersinn ab 12 Uhr. */
+function polar(radius, angleDeg) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return {
+    x: 100 + radius * Math.sin(rad),
+    y: 100 - radius * Math.cos(rad),
+  };
+}
+
+function shortName(n) {
+  const s = String(n || '');
+  return s.length > 12 ? s.slice(0, 11) + '…' : s;
+}
+
+function renderWheelSvg() {
+  const svg = document.getElementById('wheel-svg');
+  const list = wheelCandidates();
+  const n = list.length;
+  let html = '';
+
+  if (n === 0) {
+    html =
+      '<circle cx="100" cy="100" r="95" fill="#efe7d7"/>' +
+      '<text x="100" y="104" text-anchor="middle" fill="#8a8175" font-size="11">' +
+      'niemand ausgewählt</text>';
+  } else if (n === 1) {
+    html =
+      '<circle cx="100" cy="100" r="95" fill="' +
+      WHEEL_COLORS[0] +
+      '"/><text x="100" y="105" text-anchor="middle" fill="#fff" font-size="13">' +
+      esc(shortName(list[0])) +
+      '</text>';
+  } else {
+    const seg = 360 / n;
+    for (let i = 0; i < n; i++) {
+      const a0 = i * seg;
+      const a1 = a0 + seg;
+      const p0 = polar(95, a0);
+      const p1 = polar(95, a1);
+      const largeArc = seg > 180 ? 1 : 0;
+      html +=
+        '<path d="M 100 100 L ' +
+        p0.x.toFixed(2) +
+        ' ' +
+        p0.y.toFixed(2) +
+        ' A 95 95 0 ' +
+        largeArc +
+        ' 1 ' +
+        p1.x.toFixed(2) +
+        ' ' +
+        p1.y.toFixed(2) +
+        ' Z" fill="' +
+        WHEEL_COLORS[i % WHEEL_COLORS.length] +
+        '" stroke="#fff" stroke-width="1"/>';
+
+      // Beschriftung mittig im Segment, nie auf dem Kopf
+      const mid = a0 + seg / 2;
+      const t = polar(62, mid);
+      const rot = mid > 90 && mid < 270 ? mid + 180 : mid;
+      html +=
+        '<text x="' +
+        t.x.toFixed(2) +
+        '" y="' +
+        t.y.toFixed(2) +
+        '" fill="#fff" text-anchor="middle" dominant-baseline="middle" ' +
+        'transform="rotate(' +
+        rot.toFixed(2) +
+        ' ' +
+        t.x.toFixed(2) +
+        ' ' +
+        t.y.toFixed(2) +
+        ')">' +
+        esc(shortName(list[i])) +
+        '</text>';
+    }
+  }
+
+  html +=
+    '<circle cx="100" cy="100" r="9" fill="#fff" stroke="#e6ddcc" stroke-width="2"/>';
+  svg.innerHTML = html;
+}
+
+/**
+ * Drehwinkel, damit das Segment der gezogenen Person unter dem Zeiger
+ * stehen bleibt. Die Person wird zuerst gezogen, der Winkel daraus berechnet –
+ * so kann Anzeige und Ergebnis nicht auseinanderlaufen.
+ */
+function rotationFor(index, count, current) {
+  const seg = 360 / count;
+  const target = index * seg + seg / 2;
+  const need = (360 - target) % 360;
+  const fullTurns = Math.ceil(current / 360) * 360;
+  return fullTurns + 360 * 5 + need;
+}
+
+function renderPeopleChips() {
+  const box = document.getElementById('people-list');
+  const people = wheelPeople();
+  box.innerHTML = '';
+
+  if (!people.length) {
+    box.innerHTML =
+      '<div class="people-empty">Noch niemand in der Bestellrunde.</div>';
+    return;
+  }
+
+  for (const name of people) {
+    const chip = document.createElement('button');
+    chip.className =
+      'person-chip' + (state.wheel.excluded.has(name) ? '' : ' on');
+    chip.textContent = name;
+    chip.addEventListener('click', () => {
+      if (state.wheel.excluded.has(name)) state.wheel.excluded.delete(name);
+      else state.wheel.excluded.add(name);
+      renderPeopleChips();
+      renderWheelSvg();
+      updateSpinState();
+    });
+    box.appendChild(chip);
+  }
+}
+
+function updateSpinState() {
+  const btn = document.getElementById('wheel-spin');
+  const list = wheelCandidates();
+  btn.disabled = list.length === 0 || state.wheel.spinning;
+  btn.textContent = state.wheel.spinning
+    ? 'dreht …'
+    : list.length === 0
+      ? 'niemand ausgewählt'
+      : 'Drehen';
+}
+
+function showDrawResult(mode, name, celebrate) {
+  const el = document.getElementById('wheel-result');
+  el.hidden = false;
+  el.innerHTML =
+    '🎉 Glückwunsch!<br><b>' +
+    esc(name) +
+    '</b> ' +
+    (mode === 'pickup' ? 'muss abholen.' : 'muss anrufen.');
+  if (celebrate) confettiBurst();
+}
+
+function setWheelMode(mode) {
+  state.wheel.mode = mode;
+  for (const box of document.querySelectorAll('.mode-box')) {
+    box.classList.toggle('is-active', box.dataset.mode === mode);
+  }
+  renderWheelSvg();
+  updateSpinState();
+
+  // Vorhandenes Ergebnis dieses Modus anzeigen (ohne erneutes Konfetti)
+  const entry = (state.shared.draw || {})[mode];
+  const el = document.getElementById('wheel-result');
+  if (entry && entry.name) showDrawResult(mode, entry.name, false);
+  else el.hidden = true;
+}
+
+function openWheel() {
+  document.getElementById('wheel-modal').hidden = false;
+  renderPeopleChips();
+  setWheelMode(state.wheel.mode);
+}
+
+function closeWheel() {
+  document.getElementById('wheel-modal').hidden = true;
+}
+
+async function spinWheel() {
+  const w = state.wheel;
+  if (w.spinning) return;
+  const list = wheelCandidates();
+  if (!list.length) return;
+
+  w.spinning = true;
+  updateSpinState();
+  document.getElementById('wheel-result').hidden = true;
+
+  const index = Math.floor(Math.random() * list.length);
+  const winner = list[index];
+
+  const svg = document.getElementById('wheel-svg');
+  w.rotation = rotationFor(index, list.length, w.rotation);
+  svg.style.transform = 'rotate(' + w.rotation + 'deg)';
+
+  // Bewusst über eine Zeitspanne statt über transitionend: das Ereignis kann
+  // ausbleiben (z. B. ohne laufende Animation) und das Rad bliebe hängen.
+  const dur = prefersReducedMotion() ? 600 : SPIN_MS;
+  await new Promise((r) => setTimeout(r, dur + 120));
+
+  w.spinning = false;
+  updateSpinState();
+  showDrawResult(w.mode, winner, true);
+
+  const entry = {
+    name: winner,
+    at: Date.now(),
+    by: (store.team && store.team.uid) || 'local',
+  };
+  state.drawSeen[w.mode] = entry.at; // eigenes Ergebnis nicht doppelt feiern
+  const draw = Object.assign({}, state.shared.draw || {}, { [w.mode]: entry });
+  await updateShared({ draw });
+}
+
+/** Zeigt in der Bestellrunden-Leiste, wer gezogen wurde. */
+function renderDrawChips() {
+  const d = state.shared.draw || {};
+  const set = (id, entry, verb) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (entry && entry.name) {
+      el.hidden = false;
+      el.textContent = entry.name + ' ' + verb;
+    } else {
+      el.hidden = true;
+    }
+  };
+  set('draw-caller', d.call, 'ruft an');
+  set('draw-pickup', d.pickup, 'holt ab');
+}
+
+/** Feiert Ergebnisse, die jemand anderes gedreht hat. */
+function handleDrawUpdate() {
+  const d = state.shared.draw || {};
+  const myUid = (store.team && store.team.uid) || 'local';
+
+  for (const mode of ['call', 'pickup']) {
+    const entry = d[mode];
+    const at = entry && entry.at ? Number(entry.at) : 0;
+
+    if (!state.drawReady) {
+      // Beim ersten Abgleich nur merken – sonst würde beim Öffnen der Seite
+      // ein längst bekanntes Ergebnis erneut gefeiert.
+      state.drawSeen[mode] = at;
+      continue;
+    }
+    if (at > (state.drawSeen[mode] || 0)) {
+      state.drawSeen[mode] = at;
+      if (entry.by !== myUid) {
+        showToast(
+          '🎉 ' + entry.name + (mode === 'pickup' ? ' holt ab!' : ' ruft an!')
+        );
+        confettiBurst();
+      }
+    }
+  }
+  state.drawReady = true;
+  renderDrawChips();
+}
+
+/* ---------------- Konfetti (ohne fremde Bibliothek) ---------------- */
+
+let confettiRaf = null;
+let confettiStop = null;
+function confettiBurst() {
+  if (prefersReducedMotion()) return;
+
+  const canvas = document.getElementById('confetti');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  canvas.hidden = false;
+
+  const colors = ['#db002a', '#f01238', '#ffd166', '#2e7d4f', '#ffffff', '#a80020'];
+  const parts = [];
+  for (let i = 0; i < 140; i++) {
+    parts.push({
+      x: w / 2 + (Math.random() - 0.5) * Math.min(300, w * 0.7),
+      y: h * 0.35 + (Math.random() - 0.5) * 90,
+      vx: (Math.random() - 0.5) * 7,
+      vy: Math.random() * -9 - 3,
+      w: 6 + Math.random() * 6,
+      h: 8 + Math.random() * 9,
+      rot: Math.random() * Math.PI,
+      vr: (Math.random() - 0.5) * 0.32,
+      col: colors[(Math.random() * colors.length) | 0],
+    });
+  }
+
+  if (confettiRaf) cancelAnimationFrame(confettiRaf);
+  // Sicherheitsnetz: läuft die Animation nicht (z. B. Hintergrund-Tab),
+  // würde die Fläche sonst dauerhaft liegen bleiben.
+  if (confettiStop) clearTimeout(confettiStop);
+  confettiStop = setTimeout(() => {
+    if (confettiRaf) cancelAnimationFrame(confettiRaf);
+    confettiRaf = null;
+    ctx.clearRect(0, 0, w, h);
+    canvas.hidden = true;
+  }, 3600);
+
+  const start = performance.now();
+
+  const tick = (now) => {
+    const elapsed = now - start;
+    ctx.clearRect(0, 0, w, h);
+    let visible = 0;
+
+    for (const p of parts) {
+      p.vy += 0.28;
+      p.vx *= 0.995;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      if (p.y < h + 40) visible++;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = Math.max(0, 1 - elapsed / 2600);
+      ctx.fillStyle = p.col;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+
+    if (elapsed < 2800 && visible > 0) {
+      confettiRaf = requestAnimationFrame(tick);
+    } else {
+      ctx.clearRect(0, 0, w, h);
+      canvas.hidden = true;
+      confettiRaf = null;
+      if (confettiStop) clearTimeout(confettiStop);
+    }
+  };
+  confettiRaf = requestAnimationFrame(tick);
+}
+
 /* ---------------- Gemeinsame Einstellungen ändern ---------------- */
 
 async function updateShared(patch) {
@@ -1442,6 +1836,7 @@ async function updateShared(patch) {
   }
   Object.assign(state.shared, patch);
   renderBreakdown();
+  renderDrawChips();
   if (!document.getElementById('detail-modal').hidden) renderDetail();
 }
 
@@ -1529,11 +1924,28 @@ function bindEvents() {
   document.getElementById('config-close').addEventListener('click', closeConfig);
   document.getElementById('config-add').addEventListener('click', confirmConfig);
 
+  // Glücksrad
+  document.getElementById('wheel-open').addEventListener('click', openWheel);
+  document.getElementById('wheel-close').addEventListener('click', closeWheel);
+  document.getElementById('wheel-spin').addEventListener('click', spinWheel);
+  for (const box of document.querySelectorAll('.mode-box')) {
+    box.addEventListener('click', () => setWheelMode(box.dataset.mode));
+  }
+  document.getElementById('draw-caller').addEventListener('click', () => {
+    setWheelMode('call');
+    openWheel();
+  });
+  document.getElementById('draw-pickup').addEventListener('click', () => {
+    setWheelMode('pickup');
+    openWheel();
+  });
+
   // Schließen per Escape
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     closeCartSheet();
     closeConfig();
+    if (!state.wheel.spinning) closeWheel();
     document.getElementById('detail-modal').hidden = true;
     document.getElementById('readout-modal').hidden = true;
   });
@@ -1548,6 +1960,10 @@ function bindEvents() {
   const cfg = document.getElementById('config-modal');
   cfg.addEventListener('click', (e) => {
     if (e.target === cfg) closeConfig();
+  });
+  const wheelModal = document.getElementById('wheel-modal');
+  wheelModal.addEventListener('click', (e) => {
+    if (e.target === wheelModal && !state.wheel.spinning) closeWheel();
   });
 }
 

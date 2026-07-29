@@ -1043,6 +1043,196 @@ body.searching .cat-nav {
   font-size: 17px;
 }
 
+/* ---- Glücksrad ---- */
+.wheel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.wheel-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(25deg);
+}
+
+/* Ergebnis-Anzeige in der Bestellrunden-Leiste */
+.draw-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: var(--primary-tint);
+  color: var(--primary-dark);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.draw-chip:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.wheel-dialog {
+  max-width: 460px;
+  text-align: center;
+}
+
+/* Anrufen / Abholen */
+.mode-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.mode-box {
+  flex: 1;
+  padding: 12px 8px;
+  border: 2px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mode-box:hover {
+  border-color: var(--primary);
+}
+.mode-box.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* Rad mit Zeiger */
+.wheel-stage {
+  position: relative;
+  width: min(78vw, 300px);
+  margin: 0 auto 14px;
+  aspect-ratio: 1;
+}
+.wheel-pointer {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 22px solid var(--ink);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  z-index: 2;
+}
+.wheel-svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  transform: rotate(0deg);
+  transition: transform 4s cubic-bezier(0.17, 0.67, 0.16, 1);
+}
+.wheel-svg text {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 9px;
+}
+
+.wheel-spin {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+.wheel-spin:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.wheel-result {
+  margin: 4px 0 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--primary-tint);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.wheel-result b {
+  color: var(--primary-dark);
+  font-size: 19px;
+}
+
+/* Teilnehmerauswahl */
+.people-block {
+  margin-top: 18px;
+  text-align: left;
+}
+.people-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.people-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.person-chip {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.person-chip:hover {
+  border-color: var(--primary);
+}
+.person-chip.on {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.people-empty {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+/* Konfetti liegt über allem, nimmt aber keine Klicks weg */
+.confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 70;
+}
+
+/* Wer Bewegung reduziert haben möchte, bekommt eine kurze Drehung */
+@media (prefers-reduced-motion: reduce) {
+  .wheel-svg {
+    transition-duration: 0.6s;
+  }
+  .wheel-btn:hover {
+    transform: none;
+  }
+}
+
 /* ---- Zusammenstellen (Extras, Hälften, Toppings) ---- */
 .extras-btn {
   border: 1px solid var(--line);
