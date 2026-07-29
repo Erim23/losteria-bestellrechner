@@ -29,6 +29,15 @@
   box-sizing: border-box;
 }
 
+/*
+ * Das eingebaute display:none von [hidden] wird von jeder eigenen
+ * display-Regel überstimmt (z. B. .dish { display: flex }). Deshalb hier
+ * einmal zentral durchsetzen – sonst bleiben ausgeblendete Elemente sichtbar.
+ */
+[hidden] {
+  display: none !important;
+}
+
 html,
 body {
   margin: 0;
