@@ -129,11 +129,6 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.source-badge.live {
-  background: #fff;
-  color: var(--primary-dark);
-  font-weight: 600;
-}
 .source-badge.offline {
   background: var(--warn);
   color: #fff;

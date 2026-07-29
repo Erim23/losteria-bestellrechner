@@ -363,18 +363,22 @@ function renderHeader(result) {
     .join(', ');
   document.getElementById('venue-addr').textContent = addr;
 
+  // Im Normalbetrieb keine Anzeige: die Speisekarte wird täglich automatisch
+  // aktualisiert. Nur wenn das erkennbar länger nicht passiert ist, wird
+  // dezent gewarnt – sonst würden veraltete Preise unbemerkt bleiben.
   const badge = document.getElementById('data-source');
-  badge.hidden = false;
-  if (result.source === 'live') {
-    badge.textContent = 'Live · aktuelle Preise';
-    badge.className = 'source-badge live';
-  } else {
-    badge.textContent =
-      result.source === 'cache'
-        ? 'Offline · zwischengespeichert'
-        : 'Offline · Beispielstand';
-    badge.className = 'source-badge offline';
-    badge.title = result.error ? 'Grund: ' + result.error : '';
+  badge.hidden = true;
+
+  const fetchedAt = state.menu.fetchedAt ? new Date(state.menu.fetchedAt) : null;
+  if (fetchedAt && !isNaN(fetchedAt)) {
+    const days = (Date.now() - fetchedAt.getTime()) / 86400000;
+    if (days > 7) {
+      badge.hidden = false;
+      badge.className = 'source-badge offline';
+      badge.textContent =
+        'Speisekarte vom ' + fetchedAt.toLocaleDateString('de-DE');
+      badge.title = 'Die automatische Aktualisierung lief länger nicht.';
+    }
   }
 }
 
