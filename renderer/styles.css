@@ -1096,36 +1096,112 @@ body.searching .cat-nav {
 .menu-group {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 6px;
   width: 100%;
-  padding: 12px 14px;
+  padding: 6px 8px 6px 14px;
   border: 1px solid var(--line);
   background: var(--paper);
   border-radius: 12px;
-  font-family: inherit;
   font-size: 15px;
-  text-align: left;
   color: var(--ink);
-  cursor: pointer;
 }
 .menu-group:hover {
   border-color: var(--primary);
-  background: var(--primary-tint);
 }
 .menu-group.is-active {
   border-color: var(--primary);
   background: var(--primary);
   color: #fff;
 }
+
+.mg-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  padding: 8px 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  cursor: pointer;
+}
 .mg-name {
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mg-tag {
   font-size: 11.5px;
   background: rgba(255, 255, 255, 0.25);
   padding: 2px 8px;
   border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.mg-tools {
+  display: inline-flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.mg-tool {
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1;
+  padding: 7px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.75;
+}
+.mg-tool:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.07);
+}
+.menu-group.is-active .mg-tool:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mg-input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  font-size: 14px;
+}
+.menu-group.is-editing,
+.menu-group.is-confirming {
+  padding: 8px;
+  gap: 6px;
+  background: var(--paper);
+  border-color: var(--primary);
+  color: var(--ink);
+  flex-wrap: wrap;
+}
+.mg-confirm-text {
+  flex: 1;
+  min-width: 130px;
+  font-size: 13.5px;
+}
+.mg-danger {
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mg-danger:hover {
+  background: var(--primary-light);
 }
 
 .menu-section {

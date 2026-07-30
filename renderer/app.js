@@ -53,6 +53,7 @@ const state = {
     groupName: '',
   },
   groupId: null, // aktuelle Gruppe (null = Startseite)
+  groupMetaName: '', // zentral hinterlegter Gruppenname
   articleById: new Map(),
   optionGroups: {}, // Nachschlagewerk der Optionsgruppen
   teamConfirmed: false, // true, sobald Firestore erfolgreich geliefert hat
@@ -77,7 +78,7 @@ const LAST_GROUP_KEY = 'losteria.lastGroup';
  * ("tag-JJJJ-MM-TT"). Nur so bleiben bereits laufende Bestellungen und
  * geteilte Links unverändert gültig.
  */
-const LEGACY_GROUP = { id: 'stamm', name: 'Stammgruppe' };
+const LEGACY_GROUP = { id: 'stamm', name: 'Azubibüro' };
 
 function todayStamp() {
   const d = new Date();
@@ -167,6 +168,7 @@ function makeGroupId(name) {
 
 /** Anzeigename der aktuellen Gruppe: geteilt > lokal > aus der Kennung. */
 function currentGroupName() {
+  if (state.groupMetaName) return state.groupMetaName;
   if (state.shared.groupName) return state.shared.groupName;
   const local = loadGroups().find((g) => g.id === state.groupId);
   if (local && local.name) return local.name;
@@ -514,6 +516,7 @@ async function boot() {
         }
       },
     });
+    if (state.groupId) applyGroupMeta(state.groupId);
     if (!state.userName && document.getElementById('group-gate').hidden) {
       openNameGate();
     }
@@ -577,25 +580,83 @@ function renderRoundLabel() {
     : `Bestellrunde ${datum}`;
 }
 
-/**
- * Sorgt dafür, dass der Gruppenname in der Runde hinterlegt ist – sonst sieht
- * ihn nur, wer die Gruppe selbst angelegt hat.
- */
+/** Älterer Weg: Name lag in der Tagesrunde. Wird nur noch gelesen. */
 function syncGroupName() {
   if (state.mode !== 'team') return;
-  if (!state.groupId || state.groupId === LEGACY_GROUP.id) return;
-
-  const lokal = loadGroups().find((g) => g.id === state.groupId);
-  const name = state.shared.groupName || (lokal && lokal.name);
-  if (!name) return;
-
-  if (state.shared.groupName && state.shared.groupName !== (lokal && lokal.name)) {
+  if (state.shared.groupName) {
     rememberGroup(state.groupId, state.shared.groupName);
   }
-  if (!state.shared.groupName) {
-    updateShared({ groupName: name });
+  renderRoundLabel();
+}
+
+/**
+ * Holt Name und Löschzustand der Gruppe. Beides gilt für alle, liegt also
+ * zentral und nicht nur im Browser des Anlegenden.
+ */
+async function applyGroupMeta(groupId, nameVorschlag) {
+  if (state.mode !== 'team' || !groupId) return;
+  const meta = await store.getGroupMeta(groupId);
+
+  if (meta.deleted) {
+    await handleDeletedGroup(groupId);
+    return;
+  }
+
+  if (meta.name) {
+    rememberGroup(groupId, meta.name);
+    state.groupMetaName = meta.name;
+  } else {
+    // Noch kein Name hinterlegt: einmalig nachtragen, damit ihn alle sehen.
+    const lokal = loadGroups().find((g) => g.id === groupId);
+    const name =
+      nameVorschlag ||
+      (lokal && lokal.name) ||
+      (groupId === LEGACY_GROUP.id ? LEGACY_GROUP.name : prettyGroupName(groupId));
+    state.groupMetaName = name;
+    try {
+      await store.setGroupMeta(groupId, { name });
+    } catch (err) {
+      console.error('Gruppenname nicht speicherbar:', err);
+    }
   }
   renderRoundLabel();
+}
+
+/** Wurde die Gruppe von jemandem gelöscht, verlassen wir sie. */
+async function handleDeletedGroup(groupId) {
+  forgetGroup(groupId);
+  showToast('Diese Gruppe wurde gelöscht.');
+
+  // Adresse bereinigen, sonst käme die Meldung bei jedem Neuladen wieder
+  if (groupFromHash() === groupId) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  const rest = loadGroups();
+  if (rest.length) {
+    await switchGroup(rest[0].id, rest[0].name);
+    return;
+  }
+
+  store.unsubscribe();
+  state.groupId = null;
+  state.groupMetaName = '';
+  state.items = [];
+  renderRoundLabel();
+  renderCart();
+  openGroupGate();
+}
+
+/** Entfernt eine Gruppe aus der lokalen Liste. */
+function forgetGroup(id) {
+  saveGroups(loadGroups().filter((g) => g.id !== id));
+  try {
+    if (localStorage.getItem(LAST_GROUP_KEY) === id) {
+      localStorage.removeItem(LAST_GROUP_KEY);
+    }
+  } catch {
+    /* egal */
+  }
 }
 
 function updateNameLabel() {
@@ -615,6 +676,7 @@ async function switchGroup(groupId, name) {
 
   store.unsubscribe();
   state.groupId = groupId;
+  state.groupMetaName = '';
   state.items = [];
   state.shared = {
     discountActive: false,
@@ -668,6 +730,7 @@ async function switchGroup(groupId, name) {
 
   closeMenu();
   closeGroupGate();
+  await applyGroupMeta(groupId, name);
   showToast('Gruppe: ' + currentGroupName());
 
   // Gruppe steht – jetzt darf nach dem Namen gefragt werden
@@ -695,16 +758,166 @@ function renderGroupList() {
   }
 
   for (const g of gruppen) {
-    const row = document.createElement('button');
     const aktiv = g.id === state.groupId;
+    const name = g.name || prettyGroupName(g.id);
+
+    const row = document.createElement('div');
     row.className = 'menu-group' + (aktiv ? ' is-active' : '');
-    row.innerHTML =
+
+    const wechsel = document.createElement('button');
+    wechsel.className = 'mg-switch';
+    wechsel.innerHTML =
       '<span class="mg-name">' +
-      esc(g.name || prettyGroupName(g.id)) +
+      esc(name) +
       '</span>' +
       (aktiv ? '<span class="mg-tag">hier</span>' : '');
-    row.addEventListener('click', () => switchGroup(g.id, g.name));
+    wechsel.addEventListener('click', () => switchGroup(g.id, g.name));
+    row.appendChild(wechsel);
+
+    const werkzeuge = document.createElement('span');
+    werkzeuge.className = 'mg-tools';
+
+    const umbenennen = document.createElement('button');
+    umbenennen.className = 'mg-tool';
+    umbenennen.title = 'Umbenennen';
+    umbenennen.setAttribute('aria-label', 'Gruppe umbenennen');
+    umbenennen.textContent = '✏️';
+    umbenennen.addEventListener('click', (e) => {
+      e.stopPropagation();
+      startRename(row, g.id, name);
+    });
+    werkzeuge.appendChild(umbenennen);
+
+    const loeschen = document.createElement('button');
+    loeschen.className = 'mg-tool';
+    loeschen.title = 'Löschen';
+    loeschen.setAttribute('aria-label', 'Gruppe löschen');
+    loeschen.textContent = '🗑️';
+    loeschen.addEventListener('click', (e) => {
+      e.stopPropagation();
+      askDelete(row, g.id, name);
+    });
+    werkzeuge.appendChild(loeschen);
+
+    row.appendChild(werkzeuge);
     list.appendChild(row);
+  }
+}
+
+/** Zeile in ein Eingabefeld verwandeln. */
+function startRename(row, groupId, aktuellerName) {
+  row.innerHTML = '';
+  row.classList.add('is-editing');
+
+  const feld = document.createElement('input');
+  feld.className = 'text-input mg-input';
+  feld.value = aktuellerName;
+  feld.maxLength = 28;
+
+  const ok = document.createElement('button');
+  ok.className = 'mg-tool';
+  ok.textContent = '✓';
+  ok.title = 'Speichern';
+
+  const ab = document.createElement('button');
+  ab.className = 'mg-tool';
+  ab.textContent = '✕';
+  ab.title = 'Abbrechen';
+
+  ok.addEventListener('click', () => renameGroup(groupId, feld.value));
+  ab.addEventListener('click', () => renderGroupList());
+  feld.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') renameGroup(groupId, feld.value);
+    if (e.key === 'Escape') {
+      e.stopPropagation();
+      renderGroupList();
+    }
+  });
+
+  row.appendChild(feld);
+  row.appendChild(ok);
+  row.appendChild(ab);
+  feld.focus();
+  feld.select();
+}
+
+/** Rückfrage vor dem Löschen – es trifft auch die Bestellungen der anderen. */
+function askDelete(row, groupId, name) {
+  row.innerHTML = '';
+  row.classList.add('is-confirming');
+
+  const text = document.createElement('span');
+  text.className = 'mg-confirm-text';
+  text.textContent = '„' + name + '" für alle löschen?';
+
+  const ja = document.createElement('button');
+  ja.className = 'mg-danger';
+  ja.textContent = 'Löschen';
+
+  const nein = document.createElement('button');
+  nein.className = 'mg-tool';
+  nein.textContent = 'Abbrechen';
+
+  ja.addEventListener('click', () => deleteGroup(groupId));
+  nein.addEventListener('click', () => renderGroupList());
+
+  row.appendChild(text);
+  row.appendChild(ja);
+  row.appendChild(nein);
+}
+
+/** Benennt eine Gruppe für alle um. */
+async function renameGroup(groupId, neuerName) {
+  const name = String(neuerName || '').trim();
+  if (!name) return;
+  try {
+    await store.setGroupMeta(groupId, { name });
+    rememberGroup(groupId, name);
+    if (groupId === state.groupId) {
+      state.groupMetaName = name;
+      renderRoundLabel();
+    }
+    renderGroupList();
+    showToast('Gruppe heißt jetzt „' + name + '"');
+  } catch (err) {
+    console.error(err);
+    showToast('Umbenennen nicht möglich');
+  }
+}
+
+/**
+ * Löscht eine Gruppe für alle: sie wird zentral als gelöscht vermerkt und
+ * ihre heutigen Bestellungen werden entfernt. Wer sie noch offen hat, fliegt
+ * beim nächsten Betreten heraus.
+ */
+async function deleteGroup(groupId) {
+  try {
+    const entfernt = await store.wipeRound(roundIdFor(groupId));
+    await store.setGroupMeta(groupId, { deleted: true });
+    forgetGroup(groupId);
+
+    if (groupId === state.groupId) {
+      const rest = loadGroups();
+      if (rest.length) {
+        await switchGroup(rest[0].id, rest[0].name);
+      } else {
+        state.groupId = null;
+        state.groupMetaName = '';
+        state.items = [];
+        store.unsubscribe();
+        renderCart();
+        closeMenu();
+        openGroupGate();
+      }
+    } else {
+      renderGroupList();
+    }
+    showToast(
+      'Gruppe gelöscht' + (entfernt ? ' (' + entfernt + ' Positionen)' : '')
+    );
+  } catch (err) {
+    console.error(err);
+    showToast('Löschen nicht möglich');
   }
 }
 
@@ -719,9 +932,9 @@ async function createGroup() {
   fehler.hidden = true;
   input.value = '';
   const id = makeGroupId(name);
+  // Der Name wird beim Betreten zentral hinterlegt (applyGroupMeta),
+  // damit ihn auch Beitretende sehen.
   await switchGroup(id, name);
-  // Name direkt hinterlegen, damit Beitretende ihn sehen
-  await updateShared({ groupName: name });
 }
 
 function openGroupGate() {
@@ -2285,7 +2498,6 @@ function bindEvents() {
     input.value = '';
     const id = makeGroupId(name);
     await switchGroup(id, name);
-    await updateShared({ groupName: name });
   });
   document.getElementById('gate-group-name').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') document.getElementById('gate-create').click();

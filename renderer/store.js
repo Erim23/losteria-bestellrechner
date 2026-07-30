@@ -22,6 +22,8 @@ import {
   collection,
   setDoc,
   deleteDoc,
+  getDoc,
+  getDocs,
   onSnapshot,
   serverTimestamp,
   increment,
@@ -69,6 +71,38 @@ export function setStoredName(name) {
 export function setRoundId(id) {
   roundId = id;
   team.roundId = id;
+}
+
+/* ---------------- Gruppen-Stammdaten ---------------- */
+
+/**
+ * Name und Löschzustand einer Gruppe liegen in einem eigenen Dokument
+ * unterhalb von "rounds" – also nicht in der Tagesrunde. Nur so bleiben sie
+ * über Tage hinweg erhalten und gelten für alle.
+ */
+function metaRef(groupId) {
+  return doc(db, 'rounds', groupId);
+}
+
+export async function getGroupMeta(groupId) {
+  try {
+    const snap = await getDoc(metaRef(groupId));
+    return snap.exists() ? snap.data() : {};
+  } catch (err) {
+    console.error('Gruppendaten nicht lesbar:', err);
+    return {};
+  }
+}
+
+export async function setGroupMeta(groupId, patch) {
+  await setDoc(metaRef(groupId), patch, { merge: true });
+}
+
+/** Entfernt alle Positionen einer Runde (beim Löschen einer Gruppe). */
+export async function wipeRound(targetRoundId) {
+  const snap = await getDocs(collection(db, 'rounds', targetRoundId, 'items'));
+  await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+  return snap.size;
 }
 
 /* ---------------- Start ---------------- */
