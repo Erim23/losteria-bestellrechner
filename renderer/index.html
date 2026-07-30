@@ -8,6 +8,11 @@
   </head>
   <body>
     <header class="app-header">
+      <button id="menu-open" class="menu-btn" aria-label="Menü öffnen" title="Gruppen">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+        </svg>
+      </button>
       <div class="brand">
         <span class="brand-mark">L'Osteria</span>
         <span class="brand-sub">Bestellrechner</span>
@@ -193,6 +198,75 @@
           </button>
         </div>
         <div id="readout-body"></div>
+      </div>
+    </div>
+
+    <!-- Menü: Gruppen wechseln und anlegen -->
+    <div id="menu-panel" hidden>
+      <div id="menu-backdrop" class="menu-backdrop"></div>
+      <aside class="menu-drawer">
+        <div class="dialog-head">
+          <h2 class="dialog-title">Gruppen</h2>
+          <button id="menu-close" class="sheet-close is-visible" aria-label="Schließen">
+            ×
+          </button>
+        </div>
+        <p class="dialog-text">
+          Jede Gruppe sammelt ihre Bestellungen getrennt – ideal, wenn mehrere
+          Teams gleichzeitig bestellen.
+        </p>
+
+        <div id="menu-groups" class="menu-groups"></div>
+
+        <div class="menu-section">
+          <div class="people-label">Neue Gruppe</div>
+          <div class="menu-create">
+            <input
+              id="new-group-name"
+              class="text-input"
+              type="text"
+              maxlength="28"
+              placeholder="z. B. Marketing"
+              autocomplete="off"
+            />
+            <button id="new-group-save" class="primary-btn">Anlegen</button>
+          </div>
+          <div id="new-group-error" class="dialog-error" hidden>
+            Bitte gib der Gruppe einen Namen.
+          </div>
+        </div>
+
+        <button id="menu-share" class="wide-btn">Link dieser Gruppe teilen</button>
+      </aside>
+    </div>
+
+    <!-- Startseite: nur wenn noch keine Gruppe bekannt ist -->
+    <div id="group-gate" class="overlay" hidden>
+      <div class="dialog">
+        <h2 class="dialog-title">In welcher Gruppe bestellst du?</h2>
+        <p class="dialog-text">
+          Jede Gruppe hat ihren eigenen Warenkorb. Hast du einen Link von
+          Kollegen bekommen, öffne einfach diesen – dann landest du automatisch
+          richtig.
+        </p>
+        <div id="gate-groups" class="gate-groups"></div>
+        <div class="menu-section">
+          <div class="people-label">Oder neue Gruppe anlegen</div>
+          <div class="menu-create">
+            <input
+              id="gate-group-name"
+              class="text-input"
+              type="text"
+              maxlength="28"
+              placeholder="z. B. Marketing"
+              autocomplete="off"
+            />
+            <button id="gate-create" class="primary-btn">Anlegen</button>
+          </div>
+          <div id="gate-error" class="dialog-error" hidden>
+            Bitte gib der Gruppe einen Namen.
+          </div>
+        </div>
       </div>
     </div>
 

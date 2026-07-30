@@ -45,7 +45,14 @@ const state = {
   mode: 'local', // 'team' sobald Firebase läuft
   userName: null,
   items: [], // Positionen: {key, articleId, name, price, options, qty, uid, userName, mine}
-  shared: { discountActive: false, marksTotal: 0, marksByUid: {}, draw: {} },
+  shared: {
+    discountActive: false,
+    marksTotal: 0,
+    marksByUid: {},
+    draw: {},
+    groupName: '',
+  },
+  groupId: null, // aktuelle Gruppe (null = Startseite)
   articleById: new Map(),
   optionGroups: {}, // Nachschlagewerk der Optionsgruppen
   teamConfirmed: false, // true, sobald Firestore erfolgreich geliefert hat
@@ -59,6 +66,142 @@ const state = {
   drawSeen: { call: 0, pickup: 0 }, // zuletzt gesehene Ergebnisse
   drawReady: false, // erst nach dem ersten Abgleich Konfetti zeigen
 };
+
+/* ---------------- Gruppen (getrennte Bestellräume) ---------------- */
+
+const GROUPS_KEY = 'losteria.groups';
+const LAST_GROUP_KEY = 'losteria.lastGroup';
+
+/**
+ * Die ursprüngliche Gruppe behält bewusst ihre alte Runden-Kennung
+ * ("tag-JJJJ-MM-TT"). Nur so bleiben bereits laufende Bestellungen und
+ * geteilte Links unverändert gültig.
+ */
+const LEGACY_GROUP = { id: 'stamm', name: 'Stammgruppe' };
+
+function todayStamp() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+/** Jede Gruppe bekommt pro Tag eine eigene Runde – täglich frischer Start. */
+function roundIdFor(groupId) {
+  if (!groupId || groupId === LEGACY_GROUP.id) return 'tag-' + todayStamp();
+  return groupId + '__' + todayStamp();
+}
+
+function groupFromHash() {
+  const m = /[#&]g=([A-Za-z0-9_-]{1,60})/.exec(location.hash || '');
+  return m ? m[1] : null;
+}
+
+/** Nur für Tests und Altlinks: exakte Runde erzwingen. */
+function roundFromHash() {
+  const m = /[#&]r=([A-Za-z0-9_-]{1,60})/.exec(location.hash || '');
+  return m ? m[1] : null;
+}
+
+function loadGroups() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(GROUPS_KEY) || '[]');
+    return Array.isArray(raw) ? raw.filter((g) => g && g.id) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveGroups(list) {
+  try {
+    localStorage.setItem(GROUPS_KEY, JSON.stringify(list));
+  } catch {
+    /* privater Modus – dann gilt die Liste nur für diese Sitzung */
+  }
+}
+
+/** Merkt sich eine Gruppe lokal, damit sie im Menü auftaucht. */
+function rememberGroup(id, name) {
+  const list = loadGroups();
+  const found = list.find((g) => g.id === id);
+  if (found) {
+    if (name && found.name !== name) found.name = name;
+  } else {
+    list.push({ id, name: name || prettyGroupName(id) });
+  }
+  saveGroups(list);
+  try {
+    localStorage.setItem(LAST_GROUP_KEY, id);
+  } catch {
+    /* egal */
+  }
+}
+
+/** "marketing-k7m2" -> "Marketing" */
+function prettyGroupName(id) {
+  if (!id || id === LEGACY_GROUP.id) return LEGACY_GROUP.name;
+  const ohneAnhang = String(id).replace(/-[a-z0-9]{4}$/i, '');
+  const worte = ohneAnhang.split('-').filter(Boolean);
+  return (
+    worte.map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || id
+  );
+}
+
+/** Erzeugt aus einem Namen eine eindeutige Kennung. */
+function makeGroupId(name) {
+  const slug = String(name)
+    .toLowerCase()
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/ß/g, 'ss')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 28);
+  const zeichen = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  let anhang = '';
+  const zufall = new Uint32Array(4);
+  (crypto || window.crypto).getRandomValues(zufall);
+  for (let i = 0; i < 4; i++) anhang += zeichen[zufall[i] % zeichen.length];
+  return (slug || 'gruppe') + '-' + anhang;
+}
+
+/** Anzeigename der aktuellen Gruppe: geteilt > lokal > aus der Kennung. */
+function currentGroupName() {
+  if (state.shared.groupName) return state.shared.groupName;
+  const local = loadGroups().find((g) => g.id === state.groupId);
+  if (local && local.name) return local.name;
+  return prettyGroupName(state.groupId);
+}
+
+/** Link, der direkt in die aktuelle Gruppe führt. */
+function groupLink() {
+  const base = location.href.split('#')[0];
+  if (!state.groupId || state.groupId === LEGACY_GROUP.id) return base;
+  return base + '#g=' + state.groupId;
+}
+
+/**
+ * Entscheidet beim Start, in welcher Gruppe wir landen.
+ * Rückgabe null bedeutet: Startseite zur Auswahl zeigen.
+ */
+function resolveStartGroup() {
+  const ausLink = groupFromHash();
+  if (ausLink) return ausLink;
+
+  let letzte = null;
+  try {
+    letzte = localStorage.getItem(LAST_GROUP_KEY);
+  } catch {
+    /* egal */
+  }
+  if (letzte) return letzte;
+
+  // Wer die App schon benutzt hat (Name hinterlegt), gehörte bisher zur
+  // Stammgruppe – der soll nicht plötzlich vor einer Auswahl stehen.
+  if (store.getStoredName()) return LEGACY_GROUP.id;
+
+  return null;
+}
 
 /* ---------------- Optionsgruppen (Extras, Hälften, Toppings) ---------------- */
 
@@ -315,13 +458,26 @@ async function boot() {
 
   // Team-Betrieb versuchen; scheitert er, läuft alles lokal weiter.
   state.userName = store.getStoredName();
+
+  const startGruppe = resolveStartGroup();
+  const festeRunde = roundFromHash(); // Altlink/Test: exakte Runde
+  state.groupId = startGruppe;
+
   try {
-    await store.initTeam();
+    await store.initTeam(
+      festeRunde || roundIdFor(startGruppe || LEGACY_GROUP.id)
+    );
     state.mode = 'team';
     setupTeamBar();
+    // Erst die Gruppe klären, dann den Namen – sonst lägen zwei Abfragen
+    // übereinander.
+    if (!festeRunde && !startGruppe) {
+      openGroupGate();
+    }
     store.subscribe({
       onShared: (shared) => {
         state.shared = shared;
+        syncGroupName();
         renderBreakdown();
         handleDrawUpdate();
         if (!document.getElementById('detail-modal').hidden) renderDetail();
@@ -358,7 +514,9 @@ async function boot() {
         }
       },
     });
-    if (!state.userName) openNameGate();
+    if (!state.userName && document.getElementById('group-gate').hidden) {
+      openNameGate();
+    }
   } catch (err) {
     console.warn('Team-Betrieb nicht verfügbar, Einzelbetrieb:', err);
     state.mode = 'local';
@@ -403,17 +561,193 @@ function renderHeader(result) {
 function setupTeamBar() {
   const bar = document.getElementById('team-bar');
   bar.hidden = false;
-  const id = store.team.roundId || '';
-  const m = /^tag-(\d{4})-(\d{2})-(\d{2})$/.exec(id);
-  document.getElementById('team-round').textContent = m
-    ? `Bestellrunde ${m[3]}.${m[2]}.${m[1]}`
-    : `Bestellrunde ${id}`;
+  renderRoundLabel();
   updateNameLabel();
+}
+
+/** Zeigt Gruppe und Datum der laufenden Runde. */
+function renderRoundLabel() {
+  const el = document.getElementById('team-round');
+  if (!el) return;
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const datum = `${pad(d.getDate())}.${pad(d.getMonth() + 1)}.${d.getFullYear()}`;
+  el.textContent = state.groupId
+    ? `${currentGroupName()} · ${datum}`
+    : `Bestellrunde ${datum}`;
+}
+
+/**
+ * Sorgt dafür, dass der Gruppenname in der Runde hinterlegt ist – sonst sieht
+ * ihn nur, wer die Gruppe selbst angelegt hat.
+ */
+function syncGroupName() {
+  if (state.mode !== 'team') return;
+  if (!state.groupId || state.groupId === LEGACY_GROUP.id) return;
+
+  const lokal = loadGroups().find((g) => g.id === state.groupId);
+  const name = state.shared.groupName || (lokal && lokal.name);
+  if (!name) return;
+
+  if (state.shared.groupName && state.shared.groupName !== (lokal && lokal.name)) {
+    rememberGroup(state.groupId, state.shared.groupName);
+  }
+  if (!state.shared.groupName) {
+    updateShared({ groupName: name });
+  }
+  renderRoundLabel();
 }
 
 function updateNameLabel() {
   const el = document.getElementById('team-name');
   if (el) el.textContent = state.userName || '—';
+}
+
+/* ---------------- Gruppe wechseln, Menü, Startseite ---------------- */
+
+/** Wechselt die Gruppe, ohne die Seite neu zu laden. */
+async function switchGroup(groupId, name) {
+  if (state.mode !== 'team') return;
+  if (groupId === state.groupId) {
+    closeMenu();
+    return;
+  }
+
+  store.unsubscribe();
+  state.groupId = groupId;
+  state.items = [];
+  state.shared = {
+    discountActive: false,
+    marksTotal: 0,
+    marksByUid: {},
+    draw: {},
+    groupName: '',
+  };
+  state.drawSeen = { call: 0, pickup: 0 };
+  state.drawReady = false;
+  state.wheel.excluded = new Set();
+
+  rememberGroup(groupId, name);
+  store.setRoundId(roundIdFor(groupId));
+
+  // Link mitziehen, damit Teilen und Neuladen in dieser Gruppe bleiben
+  const neuerHash =
+    groupId === LEGACY_GROUP.id ? '' : '#g=' + groupId;
+  history.replaceState(null, '', location.pathname + location.search + neuerHash);
+
+  renderRoundLabel();
+  renderCart();
+  renderDrawChips();
+
+  store.subscribe({
+    onShared: (shared) => {
+      state.shared = shared;
+      syncGroupName();
+      renderBreakdown();
+      handleDrawUpdate();
+      if (!document.getElementById('detail-modal').hidden) renderDetail();
+      if (!document.getElementById('wheel-modal').hidden) {
+        renderWheelSvg();
+        updateSpinState();
+      }
+    },
+    onItems: (items) => {
+      state.items = items;
+      renderCart();
+      if (!document.getElementById('wheel-modal').hidden) {
+        renderPeopleChips();
+        renderWheelSvg();
+        updateSpinState();
+      }
+    },
+    onError: (err) => {
+      console.error('Firestore-Fehler:', err);
+      showToast('Verbindung zur Gruppe gestört');
+    },
+  });
+
+  closeMenu();
+  closeGroupGate();
+  showToast('Gruppe: ' + currentGroupName());
+
+  // Gruppe steht – jetzt darf nach dem Namen gefragt werden
+  if (!state.userName) openNameGate();
+}
+
+function openMenu() {
+  renderGroupList();
+  document.getElementById('menu-panel').hidden = false;
+}
+
+function closeMenu() {
+  const el = document.getElementById('menu-panel');
+  if (el) el.hidden = true;
+}
+
+function renderGroupList() {
+  const list = document.getElementById('menu-groups');
+  list.innerHTML = '';
+
+  const gruppen = loadGroups();
+  // Die Stammgruppe steht immer zur Verfügung
+  if (!gruppen.some((g) => g.id === LEGACY_GROUP.id)) {
+    gruppen.unshift({ id: LEGACY_GROUP.id, name: LEGACY_GROUP.name });
+  }
+
+  for (const g of gruppen) {
+    const row = document.createElement('button');
+    const aktiv = g.id === state.groupId;
+    row.className = 'menu-group' + (aktiv ? ' is-active' : '');
+    row.innerHTML =
+      '<span class="mg-name">' +
+      esc(g.name || prettyGroupName(g.id)) +
+      '</span>' +
+      (aktiv ? '<span class="mg-tag">hier</span>' : '');
+    row.addEventListener('click', () => switchGroup(g.id, g.name));
+    list.appendChild(row);
+  }
+}
+
+async function createGroup() {
+  const input = document.getElementById('new-group-name');
+  const name = input.value.trim();
+  const fehler = document.getElementById('new-group-error');
+  if (!name) {
+    fehler.hidden = false;
+    return;
+  }
+  fehler.hidden = true;
+  input.value = '';
+  const id = makeGroupId(name);
+  await switchGroup(id, name);
+  // Name direkt hinterlegen, damit Beitretende ihn sehen
+  await updateShared({ groupName: name });
+}
+
+function openGroupGate() {
+  renderGroupGate();
+  document.getElementById('group-gate').hidden = false;
+}
+
+function closeGroupGate() {
+  const el = document.getElementById('group-gate');
+  if (el) el.hidden = true;
+}
+
+function renderGroupGate() {
+  const box = document.getElementById('gate-groups');
+  box.innerHTML = '';
+  const gruppen = loadGroups();
+  if (!gruppen.some((g) => g.id === LEGACY_GROUP.id)) {
+    gruppen.unshift({ id: LEGACY_GROUP.id, name: LEGACY_GROUP.name });
+  }
+  for (const g of gruppen) {
+    const btn = document.createElement('button');
+    btn.className = 'gate-group';
+    btn.textContent = g.name || prettyGroupName(g.id);
+    btn.addEventListener('click', () => switchGroup(g.id, g.name));
+    box.appendChild(btn);
+  }
 }
 
 /* ---------------- Namensabfrage ---------------- */
@@ -1900,7 +2234,7 @@ function bindEvents() {
 
   // Link teilen
   document.getElementById('btn-share').addEventListener('click', async () => {
-    const link = store.roundLink();
+    const link = groupLink();
     try {
       await navigator.clipboard.writeText(link);
       showToast('Link kopiert – jetzt an die Kollegen schicken');
@@ -1923,6 +2257,39 @@ function bindEvents() {
   // Zusammenstellen
   document.getElementById('config-close').addEventListener('click', closeConfig);
   document.getElementById('config-add').addEventListener('click', confirmConfig);
+
+  // Menü und Gruppen
+  document.getElementById('menu-open').addEventListener('click', openMenu);
+  document.getElementById('menu-close').addEventListener('click', closeMenu);
+  document.getElementById('menu-backdrop').addEventListener('click', closeMenu);
+  document.getElementById('new-group-save').addEventListener('click', createGroup);
+  document.getElementById('new-group-name').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') createGroup();
+  });
+  document.getElementById('menu-share').addEventListener('click', async () => {
+    const link = groupLink();
+    try {
+      await navigator.clipboard.writeText(link);
+      showToast('Link zu „' + currentGroupName() + '" kopiert');
+    } catch {
+      showToast(link);
+    }
+  });
+  document.getElementById('gate-create').addEventListener('click', async () => {
+    const input = document.getElementById('gate-group-name');
+    const name = input.value.trim();
+    if (!name) {
+      document.getElementById('gate-error').hidden = false;
+      return;
+    }
+    input.value = '';
+    const id = makeGroupId(name);
+    await switchGroup(id, name);
+    await updateShared({ groupName: name });
+  });
+  document.getElementById('gate-group-name').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('gate-create').click();
+  });
 
   // Glücksrad
   document.getElementById('wheel-open').addEventListener('click', openWheel);

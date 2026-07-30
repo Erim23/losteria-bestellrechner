@@ -65,22 +65,10 @@ export function setStoredName(name) {
 
 /* ---------------- Bestellrunde ---------------- */
 
-/**
- * Bestimmt die Runden-Kennung: entweder aus dem Link (#r=…) oder – der
- * Normalfall – der heutige Tag, damit alle automatisch zusammenfinden.
- */
-export function resolveRoundId() {
-  const m = /[#&?]r=([A-Za-z0-9_-]{1,60})/.exec(location.hash || '');
-  if (m) return m[1];
-  const d = new Date();
-  const pad = (n) => String(n).padStart(2, '0');
-  return `tag-${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-}
-
-/** Verlinkbare Adresse der aktuellen Runde. */
-export function roundLink() {
-  const base = location.href.split('#')[0];
-  return `${base}#r=${roundId}`;
+/** Wechselt die Runde (z. B. beim Gruppenwechsel). */
+export function setRoundId(id) {
+  roundId = id;
+  team.roundId = id;
 }
 
 /* ---------------- Start ---------------- */
@@ -89,14 +77,14 @@ export function roundLink() {
  * Startet die Team-Schicht. Wirft, wenn Firebase nicht erreichbar ist –
  * die App läuft dann im Einzelbetrieb weiter.
  */
-export async function initTeam() {
+export async function initTeam(initialRoundId) {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   db = getFirestore(app);
 
   const cred = await signInAnonymously(auth);
   uid = cred.user.uid;
-  roundId = resolveRoundId();
+  roundId = initialRoundId;
 
   team.ready = true;
   team.uid = uid;
@@ -141,6 +129,8 @@ export function subscribe({ onShared, onItems, onError }) {
         marksByUid: d.marksByUid && typeof d.marksByUid === 'object' ? d.marksByUid : {},
         // Ergebnisse des Glücksrads (wer ruft an, wer holt ab)
         draw: d.draw && typeof d.draw === 'object' ? d.draw : {},
+        // Anzeigename der Gruppe – damit Beitretende ihn auch sehen
+        groupName: typeof d.groupName === 'string' ? d.groupName : '',
       });
     },
     onError

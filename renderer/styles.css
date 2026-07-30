@@ -1043,6 +1043,130 @@ body.searching .cat-nav {
   font-size: 17px;
 }
 
+/* ---- Menü und Gruppen ---- */
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  margin-right: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 65;
+}
+.menu-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 30, 20, 0.5);
+}
+.menu-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(88vw, 340px);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.menu-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+}
+.menu-group:hover {
+  border-color: var(--primary);
+  background: var(--primary-tint);
+}
+.menu-group.is-active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.mg-name {
+  font-weight: 600;
+}
+.mg-tag {
+  font-size: 11.5px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.menu-section {
+  margin-bottom: 18px;
+}
+.menu-create {
+  display: flex;
+  gap: 8px;
+}
+.menu-create .text-input {
+  flex: 1;
+  min-width: 0;
+}
+.menu-create .primary-btn {
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+
+.gate-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.gate-group {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--primary);
+  background: var(--paper);
+  color: var(--primary-dark);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.gate-group:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
 /* ---- Glücksrad ---- */
 .wheel-btn {
   display: inline-flex;
