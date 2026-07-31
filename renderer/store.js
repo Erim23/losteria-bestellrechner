@@ -24,6 +24,7 @@ import {
   deleteDoc,
   getDoc,
   getDocs,
+  deleteField,
   onSnapshot,
   serverTimestamp,
   increment,
@@ -96,6 +97,55 @@ export async function getGroupMeta(groupId) {
 
 export async function setGroupMeta(groupId, patch) {
   await setDoc(metaRef(groupId), patch, { merge: true });
+}
+
+/* ---------------- Gruppenverzeichnis ---------------- */
+
+/**
+ * Ein einzelnes Dokument listet alle Gruppen. Dadurch sieht jeder im Menü
+ * sämtliche Gruppen und braucht keinen Link mehr, um beizutreten.
+ * Es liegt unter "rounds", damit die vorhandenen Zugriffsregeln greifen.
+ */
+const DIRECTORY_ID = '_verzeichnis';
+
+function directoryRef() {
+  return doc(db, 'rounds', DIRECTORY_ID);
+}
+
+/** Liefert { gruppenId: { name } } – fehlerhafte Einträge werden übersprungen. */
+export async function getGroupDirectory() {
+  try {
+    const snap = await getDoc(directoryRef());
+    const data = snap.exists() ? snap.data() : {};
+    const raw = data.groups && typeof data.groups === 'object' ? data.groups : {};
+    const out = {};
+    for (const [id, eintrag] of Object.entries(raw)) {
+      if (!eintrag || typeof eintrag !== 'object') continue;
+      out[id] = { name: typeof eintrag.name === 'string' ? eintrag.name : '' };
+    }
+    return out;
+  } catch (err) {
+    console.error('Gruppenverzeichnis nicht lesbar:', err);
+    return null; // null = unbekannt, damit die App auf die lokale Liste ausweicht
+  }
+}
+
+/** Trägt eine Gruppe ins Verzeichnis ein bzw. aktualisiert ihren Namen. */
+export async function registerGroup(groupId, name) {
+  await setDoc(
+    directoryRef(),
+    { groups: { [groupId]: { name: name || '' } } },
+    { merge: true }
+  );
+}
+
+/** Nimmt eine Gruppe aus dem Verzeichnis. */
+export async function unregisterGroup(groupId) {
+  await setDoc(
+    directoryRef(),
+    { groups: { [groupId]: deleteField() } },
+    { merge: true }
+  );
 }
 
 /** Entfernt alle Positionen einer Runde (beim Löschen einer Gruppe). */

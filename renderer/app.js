@@ -56,6 +56,7 @@ const state = {
   groupMetaName: '', // zentral hinterlegter Gruppenname
   articleById: new Map(),
   optionGroups: {}, // Nachschlagewerk der Optionsgruppen
+  registered: new Set(), // bereits ins Verzeichnis eingetragene Gruppen
   teamConfirmed: false, // true, sobald Firestore erfolgreich geliefert hat
   config: null, // aktuell offener Zusammenstellen-Dialog
   wheel: {
@@ -605,6 +606,7 @@ async function applyGroupMeta(groupId, nameVorschlag) {
   if (meta.name) {
     rememberGroup(groupId, meta.name);
     state.groupMetaName = meta.name;
+    ensureRegistered(groupId, meta.name);
   } else {
     // Noch kein Name hinterlegt: einmalig nachtragen, damit ihn alle sehen.
     const lokal = loadGroups().find((g) => g.id === groupId);
@@ -615,6 +617,7 @@ async function applyGroupMeta(groupId, nameVorschlag) {
     state.groupMetaName = name;
     try {
       await store.setGroupMeta(groupId, { name });
+      await ensureRegistered(groupId, name);
     } catch (err) {
       console.error('Gruppenname nicht speicherbar:', err);
     }
@@ -737,9 +740,56 @@ async function switchGroup(groupId, name) {
   if (!state.userName) openNameGate();
 }
 
+/**
+ * Alle bekannten Gruppen: zuerst aus dem gemeinsamen Verzeichnis, ergänzt um
+ * lokal bekannte (falls das Verzeichnis gerade nicht erreichbar ist).
+ */
+async function allGroups() {
+  const verzeichnis = await store.getGroupDirectory();
+  const map = new Map();
+
+  // Die Hauptgruppe steht immer zur Verfügung
+  map.set(LEGACY_GROUP.id, { id: LEGACY_GROUP.id, name: LEGACY_GROUP.name });
+
+  if (verzeichnis) {
+    for (const [id, eintrag] of Object.entries(verzeichnis)) {
+      map.set(id, { id, name: eintrag.name || prettyGroupName(id) });
+    }
+  }
+  for (const g of loadGroups()) {
+    if (!map.has(g.id)) {
+      map.set(g.id, { id: g.id, name: g.name || prettyGroupName(g.id) });
+    }
+  }
+  if (state.groupId && !map.has(state.groupId)) {
+    map.set(state.groupId, { id: state.groupId, name: currentGroupName() });
+  }
+
+  const list = Array.from(map.values());
+  // Hauptgruppe oben, Rest alphabetisch
+  list.sort((a, b) => {
+    if (a.id === LEGACY_GROUP.id) return -1;
+    if (b.id === LEGACY_GROUP.id) return 1;
+    return String(a.name).localeCompare(String(b.name), 'de');
+  });
+  return list;
+}
+
+/** Sorgt dafür, dass die Gruppe im gemeinsamen Verzeichnis steht. */
+async function ensureRegistered(groupId, name) {
+  if (!groupId || state.registered.has(groupId)) return;
+  state.registered.add(groupId);
+  try {
+    await store.registerGroup(groupId, name);
+  } catch (err) {
+    console.error('Gruppe nicht eintragbar:', err);
+    state.registered.delete(groupId);
+  }
+}
+
 function openMenu() {
-  renderGroupList();
   document.getElementById('menu-panel').hidden = false;
+  renderGroupList();
 }
 
 function closeMenu() {
@@ -747,15 +797,12 @@ function closeMenu() {
   if (el) el.hidden = true;
 }
 
-function renderGroupList() {
+async function renderGroupList() {
   const list = document.getElementById('menu-groups');
-  list.innerHTML = '';
+  list.innerHTML = '<div class="menu-loading">Gruppen werden geladen …</div>';
 
-  const gruppen = loadGroups();
-  // Die Stammgruppe steht immer zur Verfügung
-  if (!gruppen.some((g) => g.id === LEGACY_GROUP.id)) {
-    gruppen.unshift({ id: LEGACY_GROUP.id, name: LEGACY_GROUP.name });
-  }
+  const gruppen = await allGroups();
+  list.innerHTML = '';
 
   for (const g of gruppen) {
     const aktiv = g.id === state.groupId;
@@ -872,6 +919,7 @@ async function renameGroup(groupId, neuerName) {
   if (!name) return;
   try {
     await store.setGroupMeta(groupId, { name });
+    await store.registerGroup(groupId, name); // Verzeichnis mitziehen
     rememberGroup(groupId, name);
     if (groupId === state.groupId) {
       state.groupMetaName = name;
@@ -894,6 +942,8 @@ async function deleteGroup(groupId) {
   try {
     const entfernt = await store.wipeRound(roundIdFor(groupId));
     await store.setGroupMeta(groupId, { deleted: true });
+    await store.unregisterGroup(groupId); // aus dem Verzeichnis nehmen
+    state.registered.delete(groupId);
     forgetGroup(groupId);
 
     if (groupId === state.groupId) {
@@ -947,13 +997,11 @@ function closeGroupGate() {
   if (el) el.hidden = true;
 }
 
-function renderGroupGate() {
+async function renderGroupGate() {
   const box = document.getElementById('gate-groups');
+  box.innerHTML = '<div class="menu-loading">Gruppen werden geladen …</div>';
+  const gruppen = await allGroups();
   box.innerHTML = '';
-  const gruppen = loadGroups();
-  if (!gruppen.some((g) => g.id === LEGACY_GROUP.id)) {
-    gruppen.unshift({ id: LEGACY_GROUP.id, name: LEGACY_GROUP.name });
-  }
   for (const g of gruppen) {
     const btn = document.createElement('button');
     btn.className = 'gate-group';

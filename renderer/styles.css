@@ -1204,6 +1204,12 @@ body.searching .cat-nav {
   background: var(--primary-light);
 }
 
+.menu-loading {
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 10px 4px;
+}
+
 .menu-section {
   margin-bottom: 18px;
 }
