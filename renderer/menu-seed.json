@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-07-31T07:17:14.794Z",
+  "fetchedAt": "2026-08-07T05:52:35.346Z",
   "categories": [
     {
       "id": "67b87e5fe1690c89bedff290",
@@ -275,14 +275,14 @@
       "name": "Menu della Casa",
       "articles": [
         {
-          "id": "6a67841d45bc6dbce6fc9b9c",
+          "id": "6a56197c993488a2bc597909",
           "name": "Insalata Nettarina con Feta",
           "description": "gemischter Baby-Leaf-Salat mit gebratenen Nektarinen, Feta, Kirschtomaten, Pinienkernen und fruchtigem Himbeerdressing",
           "price": 13.95,
           "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f887b41ef8ac314e47b22_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f887b41ef8ac314e47b22_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f887b41ef8ac314e47b22_photo_large.png"
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f887b41ef8ac314e47b22_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f887b41ef8ac314e47b22_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f887b41ef8ac314e47b22_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [
@@ -292,7 +292,7 @@
           "configurable": true
         },
         {
-          "id": "6a67841d45bc6dbce6fc9b9d",
+          "id": "6a56197c993488a2bc59790a",
           "name": "Insalata Riviera Tonno",
           "description": "gemischter Baby-Leaf-Salat mit Thunfisch, gekochtem Ei, Gurken-Radieschen-Mix, Kirschtomaten, Kichererbsen, Zwiebeln, schwarzen Oliven und Hausdressing",
           "price": 14.5,
@@ -309,14 +309,14 @@
           "configurable": true
         },
         {
-          "id": "6a67841d45bc6dbce6fc9b9e",
+          "id": "6a56197c993488a2bc59790b",
           "name": "Insalata Gallinacci e Mela",
           "description": "gemischter Baby-Leaf-Salat mit gebratenen Pfifferlingen, Cipolle Borretana, Apfel und Hausdressing",
           "price": 14.95,
           "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f7b03159c524efdb8c520_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f7b03159c524efdb8c520_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f7b03159c524efdb8c520_photo_large.png"
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f7b03159c524efdb8c520_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f7b03159c524efdb8c520_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f7b03159c524efdb8c520_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [
@@ -326,35 +326,35 @@
           "configurable": true
         },
         {
-          "id": "6a67841d45bc6dbce6fc9b9f",
+          "id": "6a56197c993488a2bc59790c",
+          "name": "Pizza Gallinacci Cremosa",
+          "description": "Pizza mit Pfifferlingen, Pecorino-DOP-Sauce, Käse, Zwiebeln, Petersilie und Pfeffer",
+          "price": 16.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f93d79f756ffc1753622f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f93d79f756ffc1753622f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f93d79f756ffc1753622f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [
+            "6a0c35598a48338f78561bd0"
+          ],
+          "configurable": true
+        },
+        {
+          "id": "6a56197c993488a2bc59790d",
           "name": "Spaghetti Chitarra Gallinacci e Pollo",
           "description": "Pasta mit Hähnchenbruststreifen, gebratenen Pfifferlingen, Kirschtomaten, Mascarpone, Zwiebeln, Knoblauch, Pfeffer, Zitrone und Rucola",
           "price": 15.95,
           "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f8c54a5994b02956dd889_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f8c54a5994b02956dd889_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f8c54a5994b02956dd889_photo_large.png"
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f8c54a5994b02956dd889_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f8c54a5994b02956dd889_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f8c54a5994b02956dd889_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [
             "67b87e57e1690c89bedfe160",
             "67b87e58e1690c89bedfe1e4"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "6a67841d45bc6dbce6fc9ba0",
-          "name": "Pizza Gallinacci Cremosa",
-          "description": "Pizza mit Pfifferlingen, Pecorino-DOP-Sauce, Käse, Zwiebeln, Petersilie und Pfeffer",
-          "price": 16.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a4f93d79f756ffc1753622f_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a4f93d79f756ffc1753622f_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a4f93d79f756ffc1753622f_photo_large.png"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a0c35598a48338f78561bd0"
           ],
           "configurable": true
         }
@@ -1443,14 +1443,14 @@
           "configurable": true
         },
         {
-          "id": "695f7875355c0504466d601b",
-          "name": "Penne Pollo Aurora",
+          "id": "699460597ebe4e44b6c7a89d",
+          "name": "Penne Pollo Aurora - no",
           "description": "gebratene Hähnchenbruststreifen, Sugo Aurora, Zwiebeln, Karotten-Zucchini-Julienne, Knoblauch, Oregano, ital. Hartkäse, Petersilie",
-          "price": 14.95,
+          "price": 14.5,
           "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_large.jpeg"
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc29_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc29_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc29_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [
@@ -1673,180 +1673,158 @@
       "name": "Bibite",
       "articles": [
         {
-          "id": "67b87e61e1690c89bedff2fb",
-          "name": "San Pellegrino 0,5l PET",
-          "description": "Natürliches Mineralwasser mit Kohlensäure einfügen 0,5l PET",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f6808d"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e61e1690c89bedff2fc",
-          "name": "Acqua Panna 0,5l PET",
-          "description": "Natürliches Mineralwasser 0,5l PET",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f6808d"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e61e1690c89bedff2fe",
-          "name": "Coca Cola 0,5l PET",
-          "description": "koffein- und kohlensäurehaltiges Erfrischungsgetränk 0,5l PET",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f6808d"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e61e1690c89bedff300",
-          "name": "Ice Tea Peach 0,33l",
-          "description": "Schwarzteegetränk mit Pfirsich-Geschmack 0,33l",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e61e1690c89bedff301",
-          "name": "Ice Tea Pomegranate 0,33l",
-          "description": "Fruchteegetränk mit Granatapfel-Acai-Geschmack 0,33l",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e61e1690c89bedff302",
-          "name": "Ice Tea Lemon Lime 0,33l",
-          "description": "Schwarzteegetränk mit Zitronen-Limetten-Geschmack 0,33l",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e61e1690c89bedff306",
+          "id": "6a744bfbc6ca4946217cfe46",
           "name": "Peroni Alkoholfrei 0,33l",
           "description": "alkoholfreies italienisches Bier (Akoholgehalt: 0%)",
-          "price": 2.5,
+          "price": 2.58,
           "image": {
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4b_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4b_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4b_photo_large.jpeg"
           },
           "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f6808b"
-          ],
-          "configurable": true
+          "groupIds": [],
+          "configurable": false
         },
         {
-          "id": "67b87e61e1690c89bedff307",
+          "id": "6a744bfbc6ca4946217cfe47",
+          "name": "San Pellegrino 0,5l PET",
+          "description": "Natürliches Mineralwasser mit Kohlensäure einfügen 0,5l PET",
+          "price": 2.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc3f_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe48",
+          "name": "Acqua Panna 0,5l PET",
+          "description": "Natürliches Mineralwasser 0,5l PET",
+          "price": 2.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc40_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe49",
+          "name": "Coca Cola 0,5l PET",
+          "description": "koffein- und kohlensäurehaltiges Erfrischungsgetränk 0,5l PET",
+          "price": 2.75,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc43_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe4a",
+          "name": "Ice Tea Peach 0,33l",
+          "description": "Schwarzteegetränk mit Pfirsich-Geschmack 0,33l",
+          "price": 2.65,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc45_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe4b",
           "name": "Ice Tea Peach 0,33l ZERO",
           "description": "Erfrischungsgetränk mit Pfirsichgeschmack und Süßungsmitteln 0,33l",
-          "price": 2.5,
+          "price": 2.65,
           "image": {
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_large.jpeg"
           },
           "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
+          "groupIds": [],
+          "configurable": false
         },
         {
-          "id": "695f7875355c0504466d601c",
+          "id": "6a744bfbc6ca4946217cfe4c",
+          "name": "Ice Tea Pomegranate 0,33l",
+          "description": "Fruchteegetränk mit Granatapfel-Acai-Geschmack 0,33l",
+          "price": 2.65,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe4d",
+          "name": "Ice Tea Lemon Lime 0,33l",
+          "description": "Schwarzteegetränk mit Zitronen-Limetten-Geschmack 0,33l",
+          "price": 2.65,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc47_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe4e",
           "name": "Ice Tea Lemon Lime Zero",
           "description": "Erfrischungsgetränk mit Limettengeschmack und Süßungsmitteln 0,33l",
-          "price": 2.5,
+          "price": 2.65,
           "image": {
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da1be64b0a5c772e856b3_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/695da1be64b0a5c772e856b3_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/695da1be64b0a5c772e856b3_photo_large.jpeg"
           },
           "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
+          "groupIds": [],
+          "configurable": false
         },
         {
-          "id": "695f7875355c0504466d601d",
+          "id": "6a744bfbc6ca4946217cfe4f",
           "name": "Limonata L'Osteria 0,33l",
           "description": "Kohlensäurehaltiges Zitronenfruchtsaftgetränk. Fruchtgehalt: 18%.",
-          "price": 2.5,
+          "price": 2.65,
           "image": {
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da551577802cbff98ba35_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/695da551577802cbff98ba35_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/695da551577802cbff98ba35_photo_large.jpeg"
           },
           "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
+          "groupIds": [],
+          "configurable": false
         },
         {
-          "id": "695f7875355c0504466d601e",
+          "id": "6a744bfbc6ca4946217cfe50",
           "name": "Aranciata L'Osteria 0,33l",
           "description": "Kohlensäurehaltiges Orangenfruchtsaftgetränk. Fruchtgehalt: 22%.",
-          "price": 2.5,
+          "price": 2.65,
           "image": {
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/695da6082f68e161d7b7b9eb_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/695da6082f68e161d7b7b9eb_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/695da6082f68e161d7b7b9eb_photo_large.jpeg"
           },
           "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f68089"
-          ],
-          "configurable": true
+          "groupIds": [],
+          "configurable": false
         }
       ]
     },
@@ -1854,22 +1832,6 @@
       "id": "67b87e61e1690c89bedff308",
       "name": "Alcoholici",
       "articles": [
-        {
-          "id": "67b87e61e1690c89bedff309",
-          "name": "Peroni Nastro Azzurro 0,33l",
-          "description": "italienisches Bier 5,1 % vol, keine Abgabe unter 16 Jährige",
-          "price": 2.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6a4d135852eeae4071f6808b"
-          ],
-          "configurable": true
-        },
         {
           "id": "67b87e61e1690c89bedff30d",
           "name": "Valdo Prosecco Spumante 0,75l",
@@ -1921,6 +1883,20 @@
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/695e83c764b0a5c7725215af_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/695e83c764b0a5c7725215af_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/695e83c764b0a5c7725215af_photo_large.jpeg"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6a744bfbc6ca4946217cfe51",
+          "name": "Peroni Nastro Azzurro 0,33l",
+          "description": "italienisches Bier 5,1 % vol, keine Abgabe unter 16 Jährige",
+          "price": 2.58,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0f044b15e6fcd81cc57_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [],
