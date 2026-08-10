@@ -549,15 +549,21 @@ function renderHeader(result) {
   const badge = document.getElementById('data-source');
   badge.hidden = true;
 
-  const fetchedAt = state.menu.fetchedAt ? new Date(state.menu.fetchedAt) : null;
-  if (fetchedAt && !isNaN(fetchedAt)) {
-    const days = (Date.now() - fetchedAt.getTime()) / 86400000;
-    if (days > 7) {
+  // Entscheidend ist, wann zuletzt NACHGESEHEN wurde (checkedAt) – nicht, wann
+  // sich die Karte zuletzt geändert hat. Eine Speisekarte, die seit Wochen
+  // gleich ist, ist ja nicht veraltet.
+  const stempel = state.menu.checkedAt || state.menu.fetchedAt;
+  const geprueft = stempel ? new Date(stempel) : null;
+  if (geprueft && !isNaN(geprueft)) {
+    const tage = (Date.now() - geprueft.getTime()) / 86400000;
+    if (tage > 7) {
       badge.hidden = false;
       badge.className = 'source-badge offline';
-      badge.textContent =
-        'Speisekarte vom ' + fetchedAt.toLocaleDateString('de-DE');
-      badge.title = 'Die automatische Aktualisierung lief länger nicht.';
+      badge.textContent = 'Stand: ' + geprueft.toLocaleDateString('de-DE');
+      badge.title =
+        'Seit ' +
+        Math.floor(tage) +
+        ' Tagen keine erfolgreiche Aktualisierung. Preise können veraltet sein.';
     }
   }
 }

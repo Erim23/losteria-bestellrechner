@@ -71,22 +71,40 @@ async function main() {
   }
   // ---------------------------------------------------------------------
 
-  // Nur schreiben, wenn sich inhaltlich etwas geändert hat – sonst würde der
-  // Zeitstempel allein täglich einen Commit auslösen.
-  const withoutTimestamp = (m) => {
+  // Zwei verschiedene Zeitpunkte, die man nicht verwechseln darf:
+  //   fetchedAt  – wann sich die Speisekarte zuletzt tatsächlich geändert hat
+  //   checkedAt  – wann zuletzt erfolgreich nachgesehen wurde
+  // Die Speisekarte ändert sich selten. Würde man die Aktualität an fetchedAt
+  // messen, sähe eine völlig gesunde Einrichtung nach wenigen Wochen "veraltet"
+  // aus. Deshalb wird checkedAt regelmäßig aufgefrischt.
+  const ohneZeitstempel = (m) => {
     const copy = Object.assign({}, m);
     delete copy.fetchedAt;
+    delete copy.checkedAt;
     return JSON.stringify(copy);
   };
-  let unchanged = false;
-  try {
-    const previous = JSON.parse(fs.readFileSync(outPath, 'utf8'));
-    unchanged = withoutTimestamp(previous) === withoutTimestamp(menu);
-  } catch {
-    /* noch keine Datei vorhanden */
-  }
 
-  if (!unchanged) {
+  const unchanged = previous
+    ? ohneZeitstempel(previous) === ohneZeitstempel(menu)
+    : false;
+
+  if (unchanged) {
+    // Inhalt gleich geblieben: Änderungsdatum beibehalten
+    menu.fetchedAt = previous.fetchedAt || menu.fetchedAt;
+  }
+  menu.checkedAt = new Date().toISOString();
+
+  // Bei unverändertem Inhalt nur alle paar Tage schreiben – sonst gäbe es
+  // täglich einen Commit, nur damit der Zeitstempel wandert.
+  const stempelAlterTage = (() => {
+    const vorher = previous && (previous.checkedAt || previous.fetchedAt);
+    if (!vorher) return Infinity;
+    const d = new Date(vorher);
+    return isNaN(d) ? Infinity : (Date.now() - d.getTime()) / 86400000;
+  })();
+
+  const schreiben = !unchanged || stempelAlterTage > 2;
+  if (schreiben) {
     fs.writeFileSync(outPath, JSON.stringify(menu, null, 2), 'utf8');
   }
 
@@ -122,9 +140,11 @@ async function main() {
     console.log(`  - ${c.name}: ${c.articles.length}`);
   }
   console.log(
-    unchanged
+    !schreiben
       ? `\nUnverändert – Datei nicht angefasst: ${outPath}`
-      : `\nGespeichert: ${outPath}`
+      : unchanged
+        ? `\nInhalt unverändert, Prüfdatum aufgefrischt: ${outPath}`
+        : `\nGespeichert: ${outPath}`
   );
 }
 
