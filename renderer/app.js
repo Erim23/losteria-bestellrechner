@@ -1313,21 +1313,19 @@ function dishCard(article, categoryName) {
   const mustConfig = needsConfig(article);
   const canConfig = hasOptions(article);
 
-  // Herz nur bei Gerichten ohne Pflichtauswahl – sonst wäre ein "pures"
-  // Merken sinnlos (z. B. Halb|Halb ohne gewählte Hälften).
-  if (!mustConfig) {
-    const herz = document.createElement('button');
-    herz.className =
-      'fav-btn' + (isFavorite(article.id, [], '') ? ' is-on' : '');
-    herz.textContent = isFavorite(article.id, [], '') ? '♥' : '♡';
-    herz.title = 'Zu den Favoriten';
-    herz.setAttribute('aria-label', 'Zu den Favoriten');
-    herz.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleFavorite(article, [], '');
-    });
-    card.appendChild(herz);
-  }
+  // Herz öffnet das Auswahlfenster: dort lassen sich Extras und eine Notiz
+  // festlegen, die mit in den Favoriten wandern.
+  const schonGemerkt = state.favorites.some((f) => f.articleId === article.id);
+  const herz = document.createElement('button');
+  herz.className = 'fav-btn' + (schonGemerkt ? ' is-on' : '');
+  herz.textContent = schonGemerkt ? '♥' : '♡';
+  herz.title = 'Als Favorit merken – mit Extras und Notiz';
+  herz.setAttribute('aria-label', 'Als Favorit merken');
+  herz.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openConfig(article, 'favorite');
+  });
+  card.appendChild(herz);
 
   const body = document.createElement('div');
   body.className = 'dish-body';
@@ -1372,14 +1370,29 @@ function dishCard(article, categoryName) {
 
 /* ---------------- Zusammenstellen-Dialog ---------------- */
 
-function openConfig(article) {
+/**
+ * Öffnet das Auswahlfenster.
+ * mode 'cart'     – zusammenstellen und bestellen
+ * mode 'favorite' – zusammenstellen und als Favorit ablegen
+ */
+function openConfig(article, mode) {
   if (state.mode === 'team' && !state.userName) {
     openNameGate();
     return;
   }
-  state.config = { article, selection: new Map() };
+  state.config = { article, selection: new Map(), mode: mode || 'cart' };
   document.getElementById('config-note').value = '';
   document.getElementById('config-title').textContent = article.name;
+
+  const hinweis = document.getElementById('config-mode');
+  const alsFavorit = state.config.mode === 'favorite';
+  hinweis.hidden = !alsFavorit;
+  hinweis.textContent =
+    '♥ Wird als Favorit gespeichert – Extras und Notiz kommen mit.';
+
+  // Der eigene Merken-Knopf wäre hier doppelt gemoppelt
+  document.getElementById('config-fav').hidden = alsFavorit;
+
   const desc = document.getElementById('config-desc');
   desc.textContent = article.description || '';
   desc.hidden = !article.description;
@@ -1514,13 +1527,26 @@ function toggleOption(groupId, optionId) {
 }
 
 function updateConfigFoot() {
-  const { article, selection, groups } = state.config;
+  const { article, selection, groups, mode } = state.config;
   const price = priceForSelection(article, groups, selection);
   const missing = missingRequired(groups, selection);
+  const note = document.getElementById('config-note').value.trim();
 
-  document.getElementById('config-price').textContent = fmt(price);
   const hint = document.getElementById('config-hint');
   const addBtn = document.getElementById('config-add');
+
+  if (mode === 'favorite') {
+    const options = missing.length ? [] : selectedOptions(groups, selection);
+    const drin = !missing.length && isFavorite(article.id, options, note);
+    addBtn.innerHTML = drin
+      ? 'Aus Favoriten entfernen'
+      : '♥ Als Favorit speichern · <span id="config-price">' +
+        fmt(price) +
+        '</span>';
+  } else {
+    addBtn.innerHTML =
+      'Hinzufügen · <span id="config-price">' + fmt(price) + '</span>';
+  }
 
   if (missing.length) {
     hint.textContent = 'Bitte noch wählen: ' + missing.join(', ');
@@ -1530,17 +1556,25 @@ function updateConfigFoot() {
     hint.hidden = true;
     addBtn.disabled = false;
   }
-  updateConfigFavButton();
+  if (mode !== 'favorite') updateConfigFavButton();
 }
 
 async function confirmConfig() {
   if (!state.config) return;
-  const { article, selection, groups } = state.config;
+  const { article, selection, groups, mode } = state.config;
   if (missingRequired(groups, selection).length) return;
 
   const options = selectedOptions(groups, selection);
   const unitPrice = priceForSelection(article, groups, selection);
   const note = document.getElementById('config-note').value.trim();
+
+  // Aus dem Herz heraus: nur merken, nicht bestellen
+  if (mode === 'favorite') {
+    closeConfig();
+    await toggleFavorite(article, options, note);
+    return;
+  }
+
   closeConfig();
   await addToCart(article, {
     options,
@@ -3015,9 +3049,11 @@ function bindEvents() {
   document.getElementById('fav-open').addEventListener('click', openFavorites);
   document.getElementById('fav-close').addEventListener('click', closeFavorites);
   document.getElementById('config-fav').addEventListener('click', favoriteFromConfig);
-  document
-    .getElementById('config-note')
-    .addEventListener('input', updateConfigFavButton);
+  // Die Notiz gehört zur Zusammenstellung – sie beeinflusst also auch, ob
+  // dieser Favorit schon existiert. Deshalb den ganzen Fuß aktualisieren.
+  document.getElementById('config-note').addEventListener('input', () => {
+    if (state.config) updateConfigFoot();
+  });
 
   // Glücksrad
   document.getElementById('wheel-open').addEventListener('click', openWheel);

@@ -1200,6 +1200,16 @@ body.searching .cat-nav {
 }
 
 /* Notiz */
+.config-mode {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--primary-tint);
+  border-radius: 9px;
+  padding: 9px 12px;
+  margin-bottom: 12px;
+}
+
 .config-note-row {
   margin-top: 14px;
 }
