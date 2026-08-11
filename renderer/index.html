@@ -262,6 +262,7 @@
         </div>
 
         <button id="menu-share" class="wide-btn">Link dieser Gruppe teilen</button>
+        <button id="menu-news" class="wide-btn menu-news">Neuerungen ansehen</button>
       </aside>
     </div>
 
@@ -291,6 +292,44 @@
           <div id="gate-error" class="dialog-error" hidden>
             Bitte gib der Gruppe einen Namen.
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Einmaliger Hinweis auf Neuerungen -->
+    <div id="news-modal" class="overlay" hidden>
+      <div class="dialog news-dialog">
+        <h2 class="dialog-title news-title">
+          Notizen und Favoriten jetzt verfügbar
+        </h2>
+
+        <div class="news-item">
+          <span class="news-icon" aria-hidden="true">♥</span>
+          <div>
+            <b>Favoriten</b>
+            <p>
+              Gerichte – auch mit Extras – einmal merken und später mit einem
+              Klick bestellen. Über das Herz auf der Gerichtekarte, beim
+              Zusammenstellen oder an einer Zeile im Warenkorb. Das Herz oben
+              rechts öffnet die Liste.
+            </p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <span class="news-icon" aria-hidden="true">📝</span>
+          <div>
+            <b>Notizen</b>
+            <p>
+              Sonderwünsche wie „ohne Zwiebeln" direkt an eine Bestellung
+              schreiben. Die Notiz steht im Warenkorb und wird beim Ablesen am
+              Telefon mit vorgelesen.
+            </p>
+          </div>
+        </div>
+
+        <div class="dialog-actions news-actions">
+          <button id="news-ok" class="primary-btn">Alles klar</button>
         </div>
       </div>
     </div>

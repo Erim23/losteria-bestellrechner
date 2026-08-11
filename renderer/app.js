@@ -70,6 +70,58 @@ const state = {
   drawReady: false, // erst nach dem ersten Abgleich Konfetti zeigen
 };
 
+/* ---------------- Hinweis auf Neuerungen ---------------- */
+
+/**
+ * Kennung der aktuellen Nachricht. Für die nächste Neuerung genügt es, hier
+ * eine neue Kennung zu vergeben und den Text in index.html zu tauschen –
+ * dann sehen alle den Hinweis genau einmal erneut.
+ */
+const NEWS_ID = '2026-08-favoriten-notizen';
+const NEWS_KEY = 'losteria.newsSeen';
+
+function newsAlreadySeen() {
+  try {
+    return localStorage.getItem(NEWS_KEY) === NEWS_ID;
+  } catch {
+    return false;
+  }
+}
+
+function markNewsSeen() {
+  try {
+    localStorage.setItem(NEWS_KEY, NEWS_ID);
+  } catch {
+    /* privater Modus – dann eben nochmal beim nächsten Mal */
+  }
+}
+
+function openNews() {
+  document.getElementById('news-modal').hidden = false;
+}
+
+/**
+ * Schließt den Hinweis. Nur der Knopf merkt ihn als gelesen – bei Escape oder
+ * Klick daneben erscheint er wieder, damit er nicht durch einen Fehlklick
+ * verlorengeht.
+ */
+function closeNews(gelesen) {
+  document.getElementById('news-modal').hidden = true;
+  if (gelesen) markNewsSeen();
+}
+
+/**
+ * Zeigt den Hinweis, sobald Gruppen- und Namensabfrage erledigt sind –
+ * sonst lägen mehrere Fenster übereinander.
+ */
+function maybeShowNews() {
+  if (newsAlreadySeen()) return;
+  const gruppeOffen = !document.getElementById('group-gate').hidden;
+  const nameOffen = !document.getElementById('name-gate').hidden;
+  if (gruppeOffen || nameOffen) return;
+  openNews();
+}
+
 /* ---------------- Favoriten ---------------- */
 
 /** Der Name dient als Schlüssel – daher robust vereinfachen. */
@@ -657,6 +709,7 @@ async function boot() {
     });
     if (state.groupId) applyGroupMeta(state.groupId);
     loadFavorites();
+    maybeShowNews();
     if (!state.userName && document.getElementById('group-gate').hidden) {
       openNameGate();
     }
@@ -883,6 +936,7 @@ async function switchGroup(groupId, name) {
 
   // Gruppe steht – jetzt darf nach dem Namen gefragt werden
   if (!state.userName) openNameGate();
+  else maybeShowNews();
 }
 
 /**
@@ -1203,6 +1257,7 @@ async function saveName() {
 
   renderMenu();
   renderCart();
+  maybeShowNews(); // Name steht – jetzt darf der Hinweis erscheinen
 }
 
 /* ---------------- Navigation ---------------- */
@@ -2949,6 +3004,13 @@ function bindEvents() {
     if (e.key === 'Enter') document.getElementById('gate-create').click();
   });
 
+  // Hinweis auf Neuerungen
+  document.getElementById('news-ok').addEventListener('click', () => closeNews(true));
+  document.getElementById('menu-news').addEventListener('click', () => {
+    closeMenu();
+    openNews();
+  });
+
   // Favoriten
   document.getElementById('fav-open').addEventListener('click', openFavorites);
   document.getElementById('fav-close').addEventListener('click', closeFavorites);
@@ -2979,6 +3041,7 @@ function bindEvents() {
     closeCartSheet();
     closeConfig();
     closeFavorites();
+    closeNews(false); // ohne "gelesen" – kommt beim nächsten Mal wieder
     if (!state.wheel.spinning) closeWheel();
     document.getElementById('detail-modal').hidden = true;
     document.getElementById('readout-modal').hidden = true;
@@ -3002,6 +3065,10 @@ function bindEvents() {
   const favModal = document.getElementById('fav-modal');
   favModal.addEventListener('click', (e) => {
     if (e.target === favModal) closeFavorites();
+  });
+  const newsModal = document.getElementById('news-modal');
+  newsModal.addEventListener('click', (e) => {
+    if (e.target === newsModal) closeNews(false);
   });
 }
 
