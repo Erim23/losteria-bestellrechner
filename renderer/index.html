@@ -22,6 +22,15 @@
         <div id="venue-addr" class="venue-addr muted"></div>
       </div>
       <div id="data-source" class="source-badge" hidden></div>
+      <button id="fav-open" class="wheel-btn fav-open" title="Favoriten" aria-label="Favoriten öffnen">
+        <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true">
+          <path
+            d="M12 20.5 3.8 12.3a5 5 0 0 1 7.1-7.1l1.1 1.1 1.1-1.1a5 5 0 1 1 7.1 7.1z"
+            fill="currentColor"
+          />
+        </svg>
+        <span id="fav-count" class="fav-count" hidden>0</span>
+      </button>
       <button id="wheel-open" class="wheel-btn" title="Glücksrad: Wer ruft an?" aria-label="Glücksrad öffnen">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
           <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
@@ -166,8 +175,24 @@
         </div>
         <div id="config-desc" class="dialog-text"></div>
         <div id="config-body" class="config-body"></div>
+
+        <div class="config-note-row">
+          <label class="people-label" for="config-note">
+            Notiz <span class="muted">· wird beim Bestellen vorgelesen</span>
+          </label>
+          <input
+            id="config-note"
+            class="text-input"
+            type="text"
+            maxlength="80"
+            placeholder="z. B. ohne Zwiebeln"
+            autocomplete="off"
+          />
+        </div>
+
         <div class="config-foot">
           <div id="config-hint" class="config-hint"></div>
+          <button id="config-fav" class="ghost-btn fav-toggle">♡ Favorit</button>
           <button id="config-add" class="primary-btn">
             Hinzufügen · <span id="config-price">0,00 €</span>
           </button>
@@ -267,6 +292,23 @@
             Bitte gib der Gruppe einen Namen.
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Favoriten: oft bestellte Zusammenstellungen -->
+    <div id="fav-modal" class="overlay" hidden>
+      <div class="dialog dialog-wide">
+        <div class="dialog-head">
+          <h2 class="dialog-title">Favoriten</h2>
+          <button id="fav-close" class="sheet-close is-visible" aria-label="Schließen">
+            ×
+          </button>
+        </div>
+        <div id="fav-body"></div>
+        <p class="dialog-text fav-hinweis">
+          Favoriten hängen an deinem Namen – du hast sie also auch auf anderen
+          Geräten, sobald du dort denselben Namen einträgst.
+        </p>
       </div>
     </div>
 

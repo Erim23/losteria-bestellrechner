@@ -148,6 +148,40 @@ export async function unregisterGroup(groupId) {
   );
 }
 
+/* ---------------- Favoriten ---------------- */
+
+/**
+ * Favoriten hängen am eingetragenen Namen, nicht am Gerät – dadurch hat man
+ * am Rechner und am Handy dieselben. Alles liegt in einem Dokument unterhalb
+ * von "rounds", damit die vorhandenen Zugriffsregeln greifen.
+ */
+const FAVORITES_ID = '_favoriten';
+
+function favoritesRef() {
+  return doc(db, 'rounds', FAVORITES_ID);
+}
+
+export async function getFavorites(nameKey) {
+  try {
+    const snap = await getDoc(favoritesRef());
+    const data = snap.exists() ? snap.data() : {};
+    const alle = data.byName && typeof data.byName === 'object' ? data.byName : {};
+    const eintrag = alle[nameKey];
+    return eintrag && Array.isArray(eintrag.items) ? eintrag.items : [];
+  } catch (err) {
+    console.error('Favoriten nicht lesbar:', err);
+    return null; // null = unbekannt (Unterschied zu "keine vorhanden")
+  }
+}
+
+export async function setFavorites(nameKey, displayName, items) {
+  await setDoc(
+    favoritesRef(),
+    { byName: { [nameKey]: { name: displayName, items } } },
+    { merge: true }
+  );
+}
+
 /** Entfernt alle Positionen einer Runde (beim Löschen einer Gruppe). */
 export async function wipeRound(targetRoundId) {
   const snap = await getDocs(collection(db, 'rounds', targetRoundId, 'items'));
@@ -236,6 +270,7 @@ export function subscribe({ onShared, onItems, onError }) {
           price: Number(d.price) || 0,
           basePrice: Number(d.basePrice ?? d.price) || 0,
           options: Array.isArray(d.options) ? d.options : [],
+          note: typeof d.note === 'string' ? d.note : '',
           image: d.image || null,
           qty,
           uid: d.uid,
@@ -278,6 +313,7 @@ export async function addItem(article, userName, config) {
       price: unitPrice,
       basePrice: article.price,
       options,
+      note: (config && config.note) || '',
       image: article.image ? article.image.thumb : null,
       uid,
       userName,
@@ -297,6 +333,15 @@ export async function setQtyByKey(key, qty) {
   await setDoc(
     itemRefByKey(key),
     { qty, updatedAt: serverTimestamp() },
+    { merge: true }
+  );
+}
+
+/** Ändert die Notiz an einer Position. */
+export async function setNote(key, note) {
+  await setDoc(
+    itemRefByKey(key),
+    { note: String(note || ''), updatedAt: serverTimestamp() },
     { merge: true }
   );
 }

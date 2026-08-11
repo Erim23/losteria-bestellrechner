@@ -56,6 +56,7 @@ const state = {
   groupMetaName: '', // zentral hinterlegter Gruppenname
   articleById: new Map(),
   optionGroups: {}, // Nachschlagewerk der Optionsgruppen
+  favorites: [], // eigene Favoriten (am Namen hängend)
   registered: new Set(), // bereits ins Verzeichnis eingetragene Gruppen
   teamConfirmed: false, // true, sobald Firestore erfolgreich geliefert hat
   config: null, // aktuell offener Zusammenstellen-Dialog
@@ -68,6 +69,136 @@ const state = {
   drawSeen: { call: 0, pickup: 0 }, // zuletzt gesehene Ergebnisse
   drawReady: false, // erst nach dem ersten Abgleich Konfetti zeigen
 };
+
+/* ---------------- Favoriten ---------------- */
+
+/** Der Name dient als Schlüssel – daher robust vereinfachen. */
+function favKeyFor(name) {
+  return fold(name).replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'ohne_namen';
+}
+
+/** Stabile Kennung einer Zusammenstellung (Gericht + Extras + Notiz). */
+function favIdFor(articleId, options, note) {
+  const teile =
+    articleId +
+    '|' +
+    (options || [])
+      .map((o) => o.id)
+      .sort()
+      .join(',') +
+    '|' +
+    fold(note || '').trim();
+  return hashString(teile);
+}
+
+async function loadFavorites() {
+  if (state.mode !== 'team' || !state.userName) {
+    state.favorites = [];
+    return;
+  }
+  const list = await store.getFavorites(favKeyFor(state.userName));
+  state.favorites = Array.isArray(list) ? list : [];
+  renderFavCount();
+}
+
+async function saveFavorites() {
+  if (state.mode !== 'team' || !state.userName) return;
+  try {
+    await store.setFavorites(
+      favKeyFor(state.userName),
+      state.userName,
+      state.favorites
+    );
+  } catch (err) {
+    console.error(err);
+    showToast('Favorit konnte nicht gespeichert werden');
+  }
+}
+
+function isFavorite(articleId, options, note) {
+  const fid = favIdFor(articleId, options, note);
+  return state.favorites.some((f) => f.fid === fid);
+}
+
+/** Legt eine Zusammenstellung als Favorit ab (oder entfernt sie wieder). */
+async function toggleFavorite(article, options, note) {
+  if (!state.userName) {
+    openNameGate();
+    return;
+  }
+  const fid = favIdFor(article.id, options, note);
+  const vorhanden = state.favorites.findIndex((f) => f.fid === fid);
+
+  if (vorhanden >= 0) {
+    state.favorites.splice(vorhanden, 1);
+    showToast('Aus Favoriten entfernt');
+  } else {
+    state.favorites.push({
+      fid,
+      articleId: article.id,
+      articleName: article.name,
+      options: (options || []).map((o) => ({
+        id: o.id,
+        name: o.name,
+        price: o.price,
+        half: !!o.half,
+      })),
+      note: String(note || '').trim(),
+    });
+    showToast('Zu den Favoriten gelegt');
+  }
+  await saveFavorites();
+  renderFavCount();
+  renderMenu();
+  renderCart();
+  if (!document.getElementById('fav-modal').hidden) renderFavorites();
+}
+
+/**
+ * Bringt einen Favoriten mit der aktuellen Speisekarte zusammen: Preise
+ * werden frisch berechnet, verschwundene Gerichte erkannt.
+ */
+function resolveFavorite(fav) {
+  const article = state.articleById.get(fav.articleId);
+  if (!article) {
+    return { fav, article: null, verfuegbar: false, preis: 0, optionen: [] };
+  }
+
+  let extra = 0;
+  let halfMax = 0;
+  let halfUsed = false;
+  const optionen = [];
+
+  for (const gespeichert of fav.options || []) {
+    // Aktuelle Fassung der Option suchen; sonst gespeicherte Werte nutzen
+    let aktuell = null;
+    for (const gid of article.groupIds || []) {
+      const gruppe = state.optionGroups[gid];
+      if (!gruppe) continue;
+      const treffer = gruppe.options.find((o) => o.id === gespeichert.id);
+      if (treffer) {
+        aktuell = { ...treffer, half: isHalfGroup(gruppe.name) };
+        break;
+      }
+    }
+    const o = aktuell || gespeichert;
+    optionen.push(o);
+    if (o.half) {
+      halfUsed = true;
+      halfMax = Math.max(halfMax, o.price);
+    } else {
+      extra += o.price;
+    }
+  }
+
+  return {
+    fav,
+    article,
+    verfuegbar: true,
+    preis: round2(article.price + extra + (halfUsed ? halfMax : 0)),
+    optionen,
+  };
+}
 
 /* ---------------- Gruppen (getrennte Bestellräume) ---------------- */
 
@@ -371,13 +502,20 @@ function hashString(s) {
   return (h >>> 0).toString(36);
 }
 
-function variantOf(options) {
-  if (!options.length) return '';
+/**
+ * Kennzeichnet eine Zusammenstellung. Die Notiz zählt mit: zwei gleiche
+ * Gerichte mit unterschiedlicher Notiz müssen getrennte Positionen bleiben.
+ */
+function variantOf(options, note) {
+  const n = fold(note || '').trim();
+  if (!options.length && !n) return '';
   return hashString(
     options
       .map((o) => o.id)
       .sort()
-      .join(',')
+      .join(',') +
+      '|' +
+      n
   );
 }
 
@@ -518,6 +656,7 @@ async function boot() {
       },
     });
     if (state.groupId) applyGroupMeta(state.groupId);
+    loadFavorites();
     if (!state.userName && document.getElementById('group-gate').hidden) {
       openNameGate();
     }
@@ -1049,6 +1188,20 @@ async function saveName() {
       console.error('Umbenennen fehlgeschlagen:', err);
     }
   }
+
+  // Favoriten hängen am Namen: beim Wechsel übernehmen, sofern der neue Name
+  // noch keine hat – so gehen sie beim Umbenennen nicht verloren.
+  if (state.mode === 'team') {
+    const alte = state.favorites.slice();
+    await loadFavorites();
+    if (previous && previous !== name && alte.length && !state.favorites.length) {
+      state.favorites = alte;
+      await saveFavorites();
+      renderFavCount();
+    }
+  }
+
+  renderMenu();
   renderCart();
 }
 
@@ -1105,6 +1258,22 @@ function dishCard(article, categoryName) {
   const mustConfig = needsConfig(article);
   const canConfig = hasOptions(article);
 
+  // Herz nur bei Gerichten ohne Pflichtauswahl – sonst wäre ein "pures"
+  // Merken sinnlos (z. B. Halb|Halb ohne gewählte Hälften).
+  if (!mustConfig) {
+    const herz = document.createElement('button');
+    herz.className =
+      'fav-btn' + (isFavorite(article.id, [], '') ? ' is-on' : '');
+    herz.textContent = isFavorite(article.id, [], '') ? '♥' : '♡';
+    herz.title = 'Zu den Favoriten';
+    herz.setAttribute('aria-label', 'Zu den Favoriten');
+    herz.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFavorite(article, [], '');
+    });
+    card.appendChild(herz);
+  }
+
   const body = document.createElement('div');
   body.className = 'dish-body';
   body.innerHTML =
@@ -1154,6 +1323,7 @@ function openConfig(article) {
     return;
   }
   state.config = { article, selection: new Map() };
+  document.getElementById('config-note').value = '';
   document.getElementById('config-title').textContent = article.name;
   const desc = document.getElementById('config-desc');
   desc.textContent = article.description || '';
@@ -1305,6 +1475,7 @@ function updateConfigFoot() {
     hint.hidden = true;
     addBtn.disabled = false;
   }
+  updateConfigFavButton();
 }
 
 async function confirmConfig() {
@@ -1314,12 +1485,39 @@ async function confirmConfig() {
 
   const options = selectedOptions(groups, selection);
   const unitPrice = priceForSelection(article, groups, selection);
+  const note = document.getElementById('config-note').value.trim();
   closeConfig();
   await addToCart(article, {
     options,
     unitPrice,
-    variant: variantOf(options),
+    variant: variantOf(options, note),
+    note,
   });
+}
+
+/** Merkt die aktuelle Zusammenstellung als Favorit, ohne sie zu bestellen. */
+async function favoriteFromConfig() {
+  if (!state.config) return;
+  const { article, selection, groups } = state.config;
+  if (missingRequired(groups, selection).length) {
+    showToast('Bitte zuerst die Pflichtauswahl treffen');
+    return;
+  }
+  const options = selectedOptions(groups, selection);
+  const note = document.getElementById('config-note').value.trim();
+  await toggleFavorite(article, options, note);
+  updateConfigFavButton();
+}
+
+function updateConfigFavButton() {
+  const btn = document.getElementById('config-fav');
+  if (!btn || !state.config) return;
+  const { article, selection, groups } = state.config;
+  const options = selectedOptions(groups, selection);
+  const note = document.getElementById('config-note').value.trim();
+  const drin = isFavorite(article.id, options, note);
+  btn.textContent = drin ? '♥ gemerkt' : '♡ Favorit';
+  btn.classList.toggle('is-on', drin);
 }
 
 function renderMenu() {
@@ -1434,6 +1632,7 @@ async function addToCart(article, config) {
       ? config.unitPrice
       : article.price;
   const variant = (config && config.variant) || '';
+  const note = (config && config.note) || '';
 
   if (state.mode === 'team') {
     try {
@@ -1441,6 +1640,7 @@ async function addToCart(article, config) {
         options,
         unitPrice,
         variant,
+        note,
       });
       showToast(article.name + ' hinzugefügt');
     } catch (err) {
@@ -1461,6 +1661,7 @@ async function addToCart(article, config) {
       price: unitPrice,
       basePrice: article.price,
       options,
+      note,
       image: article.image ? article.image.thumb : null,
       qty: 1,
       uid: 'local',
@@ -1526,6 +1727,9 @@ function cartRow(entry) {
         esc(optionsSummary(entry.options)) +
         '</div>'
       : '') +
+    (entry.note
+      ? '<div class="cart-note">📝 ' + esc(entry.note) + '</div>'
+      : '') +
     '<div class="cart-unit">' +
     fmt(entry.price) +
     ' / Stück' +
@@ -1559,11 +1763,91 @@ function cartRow(entry) {
     row
       .querySelector('[data-act="plus"]')
       .addEventListener('click', () => changeQty(entry, +1));
+
+    // Eigene Zeile: Notiz schreiben und als Favorit merken
+    const leiste = document.createElement('div');
+    leiste.className = 'cart-actions';
+
+    const notiz = document.createElement('button');
+    notiz.className = 'row-tool';
+    notiz.textContent = entry.note ? '📝 Notiz ändern' : '📝 Notiz';
+    notiz.addEventListener('click', () => startNoteEdit(row, entry));
+    leiste.appendChild(notiz);
+
+    const herz = document.createElement('button');
+    const drin = isFavorite(entry.articleId, entry.options || [], entry.note);
+    herz.className = 'row-tool' + (drin ? ' is-on' : '');
+    herz.textContent = drin ? '♥ gemerkt' : '♡ merken';
+    herz.title = 'Diese Zusammenstellung als Favorit';
+    herz.addEventListener('click', () => {
+      const article = state.articleById.get(entry.articleId);
+      if (article) toggleFavorite(article, entry.options || [], entry.note);
+    });
+    leiste.appendChild(herz);
+
+    row.querySelector('.cart-info').appendChild(leiste);
   } else {
     const rm = row.querySelector('.remove-foreign');
     if (rm) rm.addEventListener('click', () => removeForeign(entry));
   }
   return row;
+}
+
+/** Notiz an einer eigenen Position schreiben oder ändern. */
+function startNoteEdit(row, entry) {
+  const info = row.querySelector('.cart-info');
+  const alt = info.querySelector('.cart-actions');
+  if (alt) alt.remove();
+
+  const box = document.createElement('div');
+  box.className = 'note-edit';
+
+  const feld = document.createElement('input');
+  feld.className = 'text-input note-input';
+  feld.placeholder = 'z. B. ohne Zwiebeln';
+  feld.maxLength = 80;
+  feld.value = entry.note || '';
+
+  const ok = document.createElement('button');
+  ok.className = 'row-tool';
+  ok.textContent = '✓';
+  ok.title = 'Speichern';
+
+  const ab = document.createElement('button');
+  ab.className = 'row-tool';
+  ab.textContent = '✕';
+  ab.title = 'Abbrechen';
+
+  const speichern = async () => {
+    const text = feld.value.trim();
+    if (state.mode === 'team') {
+      try {
+        await store.setNote(entry.key, text);
+      } catch (err) {
+        console.error(err);
+        showToast('Notiz nicht speicherbar');
+      }
+    } else {
+      entry.note = text;
+      renderCart();
+    }
+  };
+
+  ok.addEventListener('click', speichern);
+  ab.addEventListener('click', () => renderCart());
+  feld.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') speichern();
+    if (e.key === 'Escape') {
+      e.stopPropagation();
+      renderCart();
+    }
+  });
+
+  box.appendChild(feld);
+  box.appendChild(ok);
+  box.appendChild(ab);
+  info.appendChild(box);
+  feld.focus();
 }
 
 /** Entfernt eine fremde Position (Aufräumen für die ganze Runde). */
@@ -1872,6 +2156,9 @@ function renderDetail() {
                 esc(optionsSummary(i.options)) +
                 ')</span>'
               : '') +
+            (i.note
+              ? '<span class="person-line-opts"> · 📝 ' + esc(i.note) + '</span>'
+              : '') +
             '</span><span>' +
             fmt(round2(i.price * i.qty)) +
             '</span></div>'
@@ -1985,7 +2272,8 @@ function renderReadout() {
       .map((o) => o.id || o.name)
       .sort()
       .join(',');
-    const key = e.articleId + '|' + optKey;
+    // Notiz gehört zum Schlüssel – sonst verschwände sie beim Zusammenfassen
+    const key = e.articleId + '|' + optKey + '|' + (e.note || '');
     const cur = agg.get(key);
     if (cur) cur.qty += e.qty;
     else
@@ -1994,6 +2282,7 @@ function renderReadout() {
         price: e.price,
         qty: e.qty,
         options: e.options || [],
+        note: e.note || '',
       });
   }
   const lines = Array.from(agg.values()).sort((a, b) =>
@@ -2015,6 +2304,7 @@ function renderReadout() {
       (l.options && l.options.length
         ? '<span class="ro-opts">' + esc(optionsSummary(l.options)) + '</span>'
         : '') +
+      (l.note ? '<span class="ro-note">📝 ' + esc(l.note) + '</span>' : '') +
       '</span><span class="ro-sum">' +
       fmt(round2(l.price * l.qty)) +
       '</span></li>';
@@ -2044,6 +2334,108 @@ function renderReadout() {
     '</div>';
 
   body.innerHTML = html;
+}
+
+/* ---------------- Favoriten-Fenster ---------------- */
+
+function renderFavCount() {
+  const el = document.getElementById('fav-count');
+  if (!el) return;
+  const n = state.favorites.length;
+  el.textContent = n;
+  el.hidden = n === 0;
+}
+
+function openFavorites() {
+  document.getElementById('fav-modal').hidden = false;
+  renderFavorites();
+}
+
+function closeFavorites() {
+  document.getElementById('fav-modal').hidden = true;
+}
+
+function renderFavorites() {
+  const body = document.getElementById('fav-body');
+
+  if (!state.userName) {
+    body.innerHTML =
+      '<p class="dialog-text">Trag zuerst deinen Namen ein – die Favoriten hängen daran.</p>';
+    return;
+  }
+  if (!state.favorites.length) {
+    body.innerHTML =
+      '<p class="dialog-text">Noch keine Favoriten.<br><br>' +
+      'Leg eines über das <b>♥</b> auf einer Gerichtekarte ab, beim ' +
+      'Zusammenstellen von Extras oder direkt an einer Zeile im Warenkorb – ' +
+      'dann kommen Extras und Notiz gleich mit.</p>';
+    return;
+  }
+
+  const wrap = document.createElement('div');
+  wrap.className = 'fav-list';
+
+  for (const fav of state.favorites) {
+    const r = resolveFavorite(fav);
+    const zeile = document.createElement('div');
+    zeile.className = 'fav-row' + (r.verfuegbar ? '' : ' nicht-verfuegbar');
+
+    const info = document.createElement('div');
+    info.className = 'fav-info';
+    info.innerHTML =
+      '<div class="fav-name">' +
+      esc(r.verfuegbar ? r.article.name : fav.articleName) +
+      '</div>' +
+      (r.optionen.length
+        ? '<div class="fav-opts">' + esc(optionsSummary(r.optionen)) + '</div>'
+        : '') +
+      (fav.note ? '<div class="fav-note">📝 ' + esc(fav.note) + '</div>' : '') +
+      (r.verfuegbar
+        ? '<div class="fav-price">' + fmt(r.preis) + '</div>'
+        : '<div class="fav-weg">steht nicht mehr auf der Karte</div>');
+    zeile.appendChild(info);
+
+    const werkzeuge = document.createElement('div');
+    werkzeuge.className = 'fav-tools';
+
+    if (r.verfuegbar) {
+      const add = document.createElement('button');
+      add.className = 'add-btn';
+      add.textContent = '+';
+      add.title = 'In den Warenkorb';
+      add.addEventListener('click', () => addFavoriteToCart(r));
+      werkzeuge.appendChild(add);
+    }
+
+    const weg = document.createElement('button');
+    weg.className = 'mg-tool';
+    weg.textContent = '🗑️';
+    weg.title = 'Favorit entfernen';
+    weg.addEventListener('click', async () => {
+      state.favorites = state.favorites.filter((f) => f.fid !== fav.fid);
+      await saveFavorites();
+      renderFavCount();
+      renderFavorites();
+      renderMenu();
+      renderCart();
+    });
+    werkzeuge.appendChild(weg);
+
+    zeile.appendChild(werkzeuge);
+    wrap.appendChild(zeile);
+  }
+
+  body.innerHTML = '';
+  body.appendChild(wrap);
+}
+
+async function addFavoriteToCart(r) {
+  await addToCart(r.article, {
+    options: r.optionen,
+    unitPrice: r.preis,
+    variant: variantOf(r.optionen, r.fav.note),
+    note: r.fav.note,
+  });
 }
 
 /* ---------------- Glücksrad: wer ruft an, wer holt ab ---------------- */
@@ -2557,6 +2949,14 @@ function bindEvents() {
     if (e.key === 'Enter') document.getElementById('gate-create').click();
   });
 
+  // Favoriten
+  document.getElementById('fav-open').addEventListener('click', openFavorites);
+  document.getElementById('fav-close').addEventListener('click', closeFavorites);
+  document.getElementById('config-fav').addEventListener('click', favoriteFromConfig);
+  document
+    .getElementById('config-note')
+    .addEventListener('input', updateConfigFavButton);
+
   // Glücksrad
   document.getElementById('wheel-open').addEventListener('click', openWheel);
   document.getElementById('wheel-close').addEventListener('click', closeWheel);
@@ -2578,6 +2978,7 @@ function bindEvents() {
     if (e.key !== 'Escape') return;
     closeCartSheet();
     closeConfig();
+    closeFavorites();
     if (!state.wheel.spinning) closeWheel();
     document.getElementById('detail-modal').hidden = true;
     document.getElementById('readout-modal').hidden = true;
@@ -2597,6 +2998,10 @@ function bindEvents() {
   const wheelModal = document.getElementById('wheel-modal');
   wheelModal.addEventListener('click', (e) => {
     if (e.target === wheelModal && !state.wheel.spinning) closeWheel();
+  });
+  const favModal = document.getElementById('fav-modal');
+  favModal.addEventListener('click', (e) => {
+    if (e.target === favModal) closeFavorites();
   });
 }
 
