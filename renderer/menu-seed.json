@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-08-18T04:54:24.130Z",
+  "fetchedAt": "2026-08-25T04:56:23.329Z",
   "categories": [
     {
       "id": "67b87e5fe1690c89bedff290",
@@ -2167,54 +2167,6 @@
         }
       ]
     },
-    "69efe25379c6c6baff564005": {
-      "id": "69efe25379c6c6baff564005",
-      "name": "Bitte folgende Zutat weglassen (Spaghetti alla Carbonara con Asparagi)",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "69efe25379c6c6baff564006",
-          "name": "ohne ital. Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "69efe25379c6c6baff564007",
-          "name": "ohne Petersilie",
-          "price": 0
-        },
-        {
-          "id": "69efe25379c6c6baff564008",
-          "name": "ohne Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "69efe25379c6c6baff564009",
-          "name": "ohne Speck",
-          "price": 0
-        }
-      ]
-    },
-    "69efe25379c6c6baff56400a": {
-      "id": "69efe25379c6c6baff56400a",
-      "name": "Bitte folgende Zutat weglassen (Risotto alla Milanese con Asparagi)",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "69efe25379c6c6baff56400b",
-          "name": "ohne Knoblauchöl",
-          "price": 0
-        },
-        {
-          "id": "69efe25379c6c6baff56400c",
-          "name": "ohne ital. Hartkäse",
-          "price": 0
-        }
-      ]
-    },
     "69efe25379c6c6baff563ff8": {
       "id": "69efe25379c6c6baff563ff8",
       "name": "Bitte folgende Zutat weglassen (Insalata di Asparagi con Feta e Olive)",
@@ -2264,6 +2216,54 @@
         {
           "id": "69efe25379c6c6baff564000",
           "name": "ohne Burrata",
+          "price": 0
+        }
+      ]
+    },
+    "69efe25379c6c6baff564005": {
+      "id": "69efe25379c6c6baff564005",
+      "name": "Bitte folgende Zutat weglassen (Spaghetti alla Carbonara con Asparagi)",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69efe25379c6c6baff564006",
+          "name": "ohne ital. Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "69efe25379c6c6baff564007",
+          "name": "ohne Petersilie",
+          "price": 0
+        },
+        {
+          "id": "69efe25379c6c6baff564008",
+          "name": "ohne Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "69efe25379c6c6baff564009",
+          "name": "ohne Speck",
+          "price": 0
+        }
+      ]
+    },
+    "69efe25379c6c6baff56400a": {
+      "id": "69efe25379c6c6baff56400a",
+      "name": "Bitte folgende Zutat weglassen (Risotto alla Milanese con Asparagi)",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69efe25379c6c6baff56400b",
+          "name": "ohne Knoblauchöl",
+          "price": 0
+        },
+        {
+          "id": "69efe25379c6c6baff56400c",
+          "name": "ohne ital. Hartkäse",
           "price": 0
         }
       ]
@@ -2853,54 +2853,6 @@
         }
       ]
     },
-    "697236348f45f126757c9e1f": {
-      "id": "697236348f45f126757c9e1f",
-      "name": "Bitte folgende Zutat weglassen (Risotto alla Zucca e Rucola)",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "697236348f45f126757c9e20",
-          "name": "Ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9e21",
-          "name": "Ohne Rucola",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9e22",
-          "name": "Ohne Kürbiskerne",
-          "price": 0
-        }
-      ]
-    },
-    "697236348f45f126757c9e1a": {
-      "id": "697236348f45f126757c9e1a",
-      "name": "Bitte folgende Zutat weglassen (Mezzalune al Tartufo e Funghi)",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "697236348f45f126757c9e1c",
-          "name": "Ohne Frische Champignons",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9e1d",
-          "name": "Ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9e1e",
-          "name": "Ohne Rucola",
-          "price": 0
-        }
-      ]
-    },
     "697236348f45f126757c9e0e": {
       "id": "697236348f45f126757c9e0e",
       "name": "Bitte folgende Zutat weglassen (Zucca e Spinaci)",
@@ -2964,6 +2916,54 @@
         }
       ]
     },
+    "697236348f45f126757c9e1a": {
+      "id": "697236348f45f126757c9e1a",
+      "name": "Bitte folgende Zutat weglassen (Mezzalune al Tartufo e Funghi)",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "697236348f45f126757c9e1c",
+          "name": "Ohne Frische Champignons",
+          "price": 0
+        },
+        {
+          "id": "697236348f45f126757c9e1d",
+          "name": "Ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "697236348f45f126757c9e1e",
+          "name": "Ohne Rucola",
+          "price": 0
+        }
+      ]
+    },
+    "697236348f45f126757c9e1f": {
+      "id": "697236348f45f126757c9e1f",
+      "name": "Bitte folgende Zutat weglassen (Risotto alla Zucca e Rucola)",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "697236348f45f126757c9e20",
+          "name": "Ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "697236348f45f126757c9e21",
+          "name": "Ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "697236348f45f126757c9e22",
+          "name": "Ohne Kürbiskerne",
+          "price": 0
+        }
+      ]
+    },
     "6a4d135852eeae4071f68089": {
       "id": "6a4d135852eeae4071f68089",
       "name": "Pfand 0.15€.-",
@@ -2975,6 +2975,20 @@
           "id": "6a4d135852eeae4071f6808a",
           "name": "Pfand 0,15€",
           "price": 0.15
+        }
+      ]
+    },
+    "6a4d135852eeae4071f6808d": {
+      "id": "6a4d135852eeae4071f6808d",
+      "name": "Pfand 0.25€ -",
+      "min": 1,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6a4d135852eeae4071f6808e",
+          "name": "Pfand 0,25€",
+          "price": 0.25
         }
       ]
     },
@@ -2992,17 +3006,51 @@
         }
       ]
     },
-    "6a4d135852eeae4071f6808d": {
-      "id": "6a4d135852eeae4071f6808d",
-      "name": "Pfand 0.25€ -",
+    "6a561949993488a2bc568b43": {
+      "id": "6a561949993488a2bc568b43",
+      "name": "Bitte folgende Zutat weglassen (Gnocchi Prosciutto e Panna).",
       "min": 1,
       "max": 1,
       "multiple": false,
       "options": [
         {
-          "id": "6a4d135852eeae4071f6808e",
-          "name": "Pfand 0,25€",
-          "price": 0.25
+          "id": "6a561949993488a2bc568b44",
+          "name": "Hinterschinken",
+          "price": 0
+        },
+        {
+          "id": "6a561949993488a2bc568b45",
+          "name": "Ital. Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "6a561949993488a2bc568b46",
+          "name": "Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6a561949993488a2bc568b47",
+          "name": "Petersilie",
+          "price": 0
+        }
+      ]
+    },
+    "6a561949993488a2bc568b48": {
+      "id": "6a561949993488a2bc568b48",
+      "name": "Bitte folgende Zutat weglassen (Penne Pollo).",
+      "min": 1,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6a561949993488a2bc568b49",
+          "name": "Paprika",
+          "price": 0
+        },
+        {
+          "id": "6a561949993488a2bc568b4a",
+          "name": "Hähnchenbruststreifen",
+          "price": 0
         }
       ]
     },
@@ -3075,54 +3123,6 @@
         {
           "id": "6a561949993488a2bc568b57",
           "name": "ohne Kirschtomaten",
-          "price": 0
-        }
-      ]
-    },
-    "6a561949993488a2bc568b43": {
-      "id": "6a561949993488a2bc568b43",
-      "name": "Bitte folgende Zutat weglassen (Gnocchi Prosciutto e Panna).",
-      "min": 1,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6a561949993488a2bc568b44",
-          "name": "Hinterschinken",
-          "price": 0
-        },
-        {
-          "id": "6a561949993488a2bc568b45",
-          "name": "Ital. Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6a561949993488a2bc568b46",
-          "name": "Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6a561949993488a2bc568b47",
-          "name": "Petersilie",
-          "price": 0
-        }
-      ]
-    },
-    "6a561949993488a2bc568b48": {
-      "id": "6a561949993488a2bc568b48",
-      "name": "Bitte folgende Zutat weglassen (Penne Pollo).",
-      "min": 1,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6a561949993488a2bc568b49",
-          "name": "Paprika",
-          "price": 0
-        },
-        {
-          "id": "6a561949993488a2bc568b4a",
-          "name": "Hähnchenbruststreifen",
           "price": 0
         }
       ]
@@ -3666,20 +3666,6 @@
         }
       ]
     },
-    "69120d08185f3607703ee5ff": {
-      "id": "69120d08185f3607703ee5ff",
-      "name": "Pop up BBQ Chicken.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "69120d08185f3607703ee600",
-          "name": "Mais",
-          "price": 1
-        }
-      ]
-    },
     "69120d08185f3607703ee601": {
       "id": "69120d08185f3607703ee601",
       "name": "Pop up Vegetariana.",
@@ -3694,50 +3680,17 @@
         }
       ]
     },
-    "69120d08185f3607703ee603": {
-      "id": "69120d08185f3607703ee603",
-      "name": "Pop up Quattro Formaggi.",
+    "69120d08185f3607703ee5ff": {
+      "id": "69120d08185f3607703ee5ff",
+      "name": "Pop up BBQ Chicken.",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "69120d08185f3607703ee604",
-          "name": "Gegrilltes Gemüse",
-          "price": 3
-        }
-      ]
-    },
-    "69120d08185f3607703ee605": {
-      "id": "69120d08185f3607703ee605",
-      "name": "Pop up Prosciutto e Funghi.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "69120d08185f3607703ee606",
+          "id": "69120d08185f3607703ee600",
           "name": "Mais",
           "price": 1
-        },
-        {
-          "id": "69120d08185f3607703ee607",
-          "name": "Salami",
-          "price": 2.5
-        }
-      ]
-    },
-    "69120d08185f3607703ee608": {
-      "id": "69120d08185f3607703ee608",
-      "name": "Pop up Prosciutto.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "69120d08185f3607703ee609",
-          "name": "Peperoni",
-          "price": 1.25
         }
       ]
     },
@@ -3775,6 +3728,25 @@
         }
       ]
     },
+    "69120d08185f3607703ee605": {
+      "id": "69120d08185f3607703ee605",
+      "name": "Pop up Prosciutto e Funghi.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69120d08185f3607703ee606",
+          "name": "Mais",
+          "price": 1
+        },
+        {
+          "id": "69120d08185f3607703ee607",
+          "name": "Salami",
+          "price": 2.5
+        }
+      ]
+    },
     "69120d08185f3607703ee60f": {
       "id": "69120d08185f3607703ee60f",
       "name": "Pop up Hawaii.",
@@ -3786,6 +3758,48 @@
           "id": "69120d08185f3607703ee610",
           "name": "Salsiccia piccante",
           "price": 2.5
+        }
+      ]
+    },
+    "69120d08185f3607703ee608": {
+      "id": "69120d08185f3607703ee608",
+      "name": "Pop up Prosciutto.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69120d08185f3607703ee609",
+          "name": "Peperoni",
+          "price": 1.25
+        }
+      ]
+    },
+    "69120d08185f3607703ee603": {
+      "id": "69120d08185f3607703ee603",
+      "name": "Pop up Quattro Formaggi.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69120d08185f3607703ee604",
+          "name": "Gegrilltes Gemüse",
+          "price": 3
+        }
+      ]
+    },
+    "6964d704355c050446455733": {
+      "id": "6964d704355c050446455733",
+      "name": "Pop up Prosciutto Crudo.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6964d704355c050446455734",
+          "name": "Rucola",
+          "price": 2.75
         }
       ]
     },
@@ -3814,20 +3828,6 @@
           "id": "6964d704355c050446455732",
           "name": "Garnelen",
           "price": 5
-        }
-      ]
-    },
-    "6964d704355c050446455733": {
-      "id": "6964d704355c050446455733",
-      "name": "Pop up Prosciutto Crudo.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6964d704355c050446455734",
-          "name": "Rucola",
-          "price": 2.75
         }
       ]
     },
@@ -4964,30 +4964,35 @@
         }
       ]
     },
-    "67b87e51e1690c89bedfddcf": {
-      "id": "67b87e51e1690c89bedfddcf",
-      "name": "Bitte folgende Zutat weglassen (Tonno).",
+    "67b87e51e1690c89bedfddc3": {
+      "id": "67b87e51e1690c89bedfddc3",
+      "name": "Bitte folgende Zutat weglassen (Quattro Formaggi).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "67b87e51e1690c89bedfddd0",
-          "name": "ohne Thunfisch",
+          "id": "67b87e51e1690c89bedfddc4",
+          "name": "ohne Edamer",
           "price": 0
         },
         {
-          "id": "67b87e51e1690c89bedfddd1",
-          "name": "ohne Edamer gewürfelt",
+          "id": "67b87e51e1690c89bedfddc5",
+          "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "67b87e51e1690c89bedfddd2",
-          "name": "ohne Rote Zwiebeln",
+          "id": "67b87e51e1690c89bedfddc6",
+          "name": "ohne Gorgonzola",
           "price": 0
         },
         {
-          "id": "67b87e51e1690c89bedfddd3",
+          "id": "67b87e51e1690c89bedfddc7",
+          "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "67b87e51e1690c89bedfddc8",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -5027,35 +5032,30 @@
         }
       ]
     },
-    "67b87e51e1690c89bedfddc3": {
-      "id": "67b87e51e1690c89bedfddc3",
-      "name": "Bitte folgende Zutat weglassen (Quattro Formaggi).",
+    "67b87e51e1690c89bedfddcf": {
+      "id": "67b87e51e1690c89bedfddcf",
+      "name": "Bitte folgende Zutat weglassen (Tonno).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "67b87e51e1690c89bedfddc4",
-          "name": "ohne Edamer",
+          "id": "67b87e51e1690c89bedfddd0",
+          "name": "ohne Thunfisch",
           "price": 0
         },
         {
-          "id": "67b87e51e1690c89bedfddc5",
-          "name": "ohne Mozzarella Würfel",
+          "id": "67b87e51e1690c89bedfddd1",
+          "name": "ohne Edamer gewürfelt",
           "price": 0
         },
         {
-          "id": "67b87e51e1690c89bedfddc6",
-          "name": "ohne Gorgonzola",
+          "id": "67b87e51e1690c89bedfddd2",
+          "name": "ohne Rote Zwiebeln",
           "price": 0
         },
         {
-          "id": "67b87e51e1690c89bedfddc7",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "67b87e51e1690c89bedfddc8",
+          "id": "67b87e51e1690c89bedfddd3",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -6608,50 +6608,6 @@
         }
       ]
     },
-    "6887685f03c43c6d55ee7291": {
-      "id": "6887685f03c43c6d55ee7291",
-      "name": "Bitte folgende Zutat weglassen (Spaghetti Chitarra Gallinacci e Limone).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6887685f03c43c6d55ee7292",
-          "name": "Ohne Mascarpone-Zitronen-Sauce",
-          "price": 0
-        },
-        {
-          "id": "6887685f03c43c6d55ee7293",
-          "name": "Ohne Pfifferlinge",
-          "price": 0
-        },
-        {
-          "id": "6887685f03c43c6d55ee7294",
-          "name": "Ohne Hähnchenbruststreifen gebraten",
-          "price": 0
-        },
-        {
-          "id": "6887685f03c43c6d55ee7295",
-          "name": "Ohne Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6887685f03c43c6d55ee7296",
-          "name": "Ohne Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6887685f03c43c6d55ee7297",
-          "name": "Ohne Rucola",
-          "price": 0
-        },
-        {
-          "id": "68a03caaf002a9d0fd6ecb51",
-          "name": "--- Spagh. Chitarra",
-          "price": 0
-        }
-      ]
-    },
     "6887685f03c43c6d55ee7276": {
       "id": "6887685f03c43c6d55ee7276",
       "name": "Bitte folgende Zutat weglassen (Tre Funghi).",
@@ -6710,6 +6666,50 @@
         }
       ]
     },
+    "6887685f03c43c6d55ee7291": {
+      "id": "6887685f03c43c6d55ee7291",
+      "name": "Bitte folgende Zutat weglassen (Spaghetti Chitarra Gallinacci e Limone).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6887685f03c43c6d55ee7292",
+          "name": "Ohne Mascarpone-Zitronen-Sauce",
+          "price": 0
+        },
+        {
+          "id": "6887685f03c43c6d55ee7293",
+          "name": "Ohne Pfifferlinge",
+          "price": 0
+        },
+        {
+          "id": "6887685f03c43c6d55ee7294",
+          "name": "Ohne Hähnchenbruststreifen gebraten",
+          "price": 0
+        },
+        {
+          "id": "6887685f03c43c6d55ee7295",
+          "name": "Ohne Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6887685f03c43c6d55ee7296",
+          "name": "Ohne Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6887685f03c43c6d55ee7297",
+          "name": "Ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "68a03caaf002a9d0fd6ecb51",
+          "name": "--- Spagh. Chitarra",
+          "price": 0
+        }
+      ]
+    },
     "68ef68d49f0418e528229d96": {
       "id": "68ef68d49f0418e528229d96",
       "name": "Bitte folgende Zutat weglassen (Triangoli Salmone).",
@@ -6720,20 +6720,6 @@
         {
           "id": "68ef68d49f0418e528229d97",
           "name": "Ohne Zwiebeln",
-          "price": 0
-        }
-      ]
-    },
-    "68ef68d49f0418e528229da4": {
-      "id": "68ef68d49f0418e528229da4",
-      "name": "Bitte folgende Zutat weglassen (Ravioli Dolci Viola).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "68ef68d49f0418e528229da5",
-          "name": "ohne Minze",
           "price": 0
         }
       ]
@@ -6786,226 +6772,16 @@
         }
       ]
     },
-    "69317e80d047f6fdb9c5b506": {
-      "id": "69317e80d047f6fdb9c5b506",
-      "name": "WÄHLE DEIN HAUPTGERICHT! (1. Amici Speziale)",
-      "min": 1,
-      "max": 1,
+    "68ef68d49f0418e528229da4": {
+      "id": "68ef68d49f0418e528229da4",
+      "name": "Bitte folgende Zutat weglassen (Ravioli Dolci Viola).",
+      "min": 0,
+      "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "69317e80d047f6fdb9c5b508",
-          "name": "BBQ Chicken",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b509",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50a",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50b",
-          "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50c",
-          "name": "Caprese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50e",
-          "name": "Margherita",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50f",
-          "name": "Degli Artisti",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b510",
-          "name": "Funghi Freschi",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b511",
-          "name": "Forza",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b512",
-          "name": "Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b513",
-          "name": "Hawaii",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b514",
-          "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b515",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b516",
-          "name": "Parmigiana",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b517",
-          "name": "Prosciutto",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b518",
-          "name": "Prosciutto Crudo",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b519",
-          "name": "Prosciutto e Funghi",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b51a",
-          "name": "Quattro Formaggi",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b51b",
-          "name": "Rucola",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b51c",
-          "name": "Rustica",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b51d",
-          "name": "Salami",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b51e",
-          "name": "Salsiccia Piccante",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b51f",
-          "name": "Tonno",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b520",
-          "name": "Vegetariana",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b521",
-          "name": "Spaghetti Pomodoro e Basilico",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b522",
-          "name": "Penne Arrabiata",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b523",
-          "name": "Spaghetti Aglio e Olio",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b524",
-          "name": "Maccheroncini Gorgonzola",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b525",
-          "name": "Mezzalune Spinaci",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b526",
-          "name": "Spaghetti Rucola e Pomodorini",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b527",
-          "name": "Maccheroncini Pesto Genovese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b528",
-          "name": "Risotto Funghi",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b529",
-          "name": "Lasagne",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b52a",
-          "name": "Tortelloni Prosciutto e Panna",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b52b",
-          "name": "Spaghetti Carbonara",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b52c",
-          "name": "Spaghetti Chitarra Ragù alla Bolognese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b52d",
-          "name": "Orecchiette di Manzo al Limone",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b52e",
-          "name": "Zoodles Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b52f",
-          "name": "Gnocchi Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b530",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b531",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
-          "id": "695f7843355c0504466b3888",
-          "name": "Pizza Marinara Speciale",
-          "price": 0
-        },
-        {
-          "id": "695f7843355c0504466b3889",
-          "name": "Penne Pollo Aurora",
+          "id": "68ef68d49f0418e528229da5",
+          "name": "ohne Minze",
           "price": 0
         }
       ]
@@ -7274,6 +7050,230 @@
         }
       ]
     },
+    "69317e80d047f6fdb9c5b506": {
+      "id": "69317e80d047f6fdb9c5b506",
+      "name": "WÄHLE DEIN HAUPTGERICHT! (1. Amici Speziale)",
+      "min": 1,
+      "max": 1,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69317e80d047f6fdb9c5b508",
+          "name": "BBQ Chicken",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b509",
+          "name": "Braccio di Ferro",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b50a",
+          "name": "Canarino",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b50b",
+          "name": "Caesare e Pollo",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b50c",
+          "name": "Caprese",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b50e",
+          "name": "Margherita",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b50f",
+          "name": "Degli Artisti",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b510",
+          "name": "Funghi Freschi",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b511",
+          "name": "Forza",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b512",
+          "name": "Gamberetti",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b513",
+          "name": "Hawaii",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b514",
+          "name": "Frutti di Mare",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b515",
+          "name": "Nduja Calabrese",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b516",
+          "name": "Parmigiana",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b517",
+          "name": "Prosciutto",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b518",
+          "name": "Prosciutto Crudo",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b519",
+          "name": "Prosciutto e Funghi",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b51a",
+          "name": "Quattro Formaggi",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b51b",
+          "name": "Rucola",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b51c",
+          "name": "Rustica",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b51d",
+          "name": "Salami",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b51e",
+          "name": "Salsiccia Piccante",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b51f",
+          "name": "Tonno",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b520",
+          "name": "Vegetariana",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b521",
+          "name": "Spaghetti Pomodoro e Basilico",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b522",
+          "name": "Penne Arrabiata",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b523",
+          "name": "Spaghetti Aglio e Olio",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b524",
+          "name": "Maccheroncini Gorgonzola",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b525",
+          "name": "Mezzalune Spinaci",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b526",
+          "name": "Spaghetti Rucola e Pomodorini",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b527",
+          "name": "Maccheroncini Pesto Genovese",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b528",
+          "name": "Risotto Funghi",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b529",
+          "name": "Lasagne",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b52a",
+          "name": "Tortelloni Prosciutto e Panna",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b52b",
+          "name": "Spaghetti Carbonara",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b52c",
+          "name": "Spaghetti Chitarra Ragù alla Bolognese",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b52d",
+          "name": "Orecchiette di Manzo al Limone",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b52e",
+          "name": "Zoodles Gamberetti",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b52f",
+          "name": "Gnocchi Gamberetti",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b530",
+          "name": "Conchiglie di Fiume",
+          "price": 0
+        },
+        {
+          "id": "69317e80d047f6fdb9c5b531",
+          "name": "Maccheroncini Colorati",
+          "price": 0
+        },
+        {
+          "id": "695f7843355c0504466b3888",
+          "name": "Pizza Marinara Speciale",
+          "price": 0
+        },
+        {
+          "id": "695f7843355c0504466b3889",
+          "name": "Penne Pollo Aurora",
+          "price": 0
+        }
+      ]
+    },
     "695f7822355c05044669b4d7": {
       "id": "695f7822355c05044669b4d7",
       "name": "Bitte folgende Zutat weglassen (Pizza Marinara Speciale).",
@@ -7289,6 +7289,220 @@
         {
           "id": "695f7822355c05044669b4d9",
           "name": "ohne  Basilikum",
+          "price": 0
+        }
+      ]
+    },
+    "697236338f45f126757c9d5e": {
+      "id": "697236338f45f126757c9d5e",
+      "name": "AMICI SPEZIALE - delete",
+      "min": 1,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "697236338f45f126757c9d60",
+          "name": "BBQ Chicken",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d61",
+          "name": "Braccio di Ferro",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d62",
+          "name": "Canarino",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d63",
+          "name": "Caesare e Pollo",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d64",
+          "name": "Caprese",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d66",
+          "name": "Margherita",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d67",
+          "name": "Degli Artisti",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d68",
+          "name": "Funghi Freschi",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d69",
+          "name": "Forza",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d6a",
+          "name": "Gamberetti",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d6b",
+          "name": "Hawaii",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d6c",
+          "name": "Marinara",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d6d",
+          "name": "Nduja Calabrese",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d6e",
+          "name": "Parmigiana",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d6f",
+          "name": "Prosciutto",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d70",
+          "name": "Prosciutto Crudo",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d71",
+          "name": "Prosciutto e Funghi",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d72",
+          "name": "Quattro Formaggi",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d73",
+          "name": "Rucola",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d74",
+          "name": "Rustica",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d75",
+          "name": "Salami",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d76",
+          "name": "Salsiccia Piccante",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d77",
+          "name": "Tonno",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d78",
+          "name": "Vegetariana",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d79",
+          "name": "Spaghetti Pomodoro e Basilico",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d7a",
+          "name": "Penne Arrabiata",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d7b",
+          "name": "Spaghetti Aglio e Olio",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d7c",
+          "name": "Maccheroncini Gorgonzola",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d7d",
+          "name": "Mezzalune Spinaci",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d7e",
+          "name": "Spaghetti Rucola e Pomodorini",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d7f",
+          "name": "Maccheroncini Pesto Genovese",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d80",
+          "name": "Risotto Funghi",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d81",
+          "name": "Lasagne",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d82",
+          "name": "Tortelloni Prosciutto e Panna",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d83",
+          "name": "Spaghetti Carbonara",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d84",
+          "name": "Spaghetti Chitarra Ragù alla Bolognese",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d85",
+          "name": "Orecchiette di Manzo al Limone",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d86",
+          "name": "Zoodles Gamberetti",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d87",
+          "name": "Gnocchi Gamberetti",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d88",
+          "name": "Conchiglie di Fiume",
+          "price": 0
+        },
+        {
+          "id": "697236338f45f126757c9d89",
+          "name": "Maccheroncini Colorati",
           "price": 0
         }
       ]
@@ -7547,220 +7761,6 @@
         }
       ]
     },
-    "697236338f45f126757c9d5e": {
-      "id": "697236338f45f126757c9d5e",
-      "name": "AMICI SPEZIALE - delete",
-      "min": 1,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "697236338f45f126757c9d60",
-          "name": "BBQ Chicken",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d61",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d62",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d63",
-          "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d64",
-          "name": "Caprese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d66",
-          "name": "Margherita",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d67",
-          "name": "Degli Artisti",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d68",
-          "name": "Funghi Freschi",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d69",
-          "name": "Forza",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6a",
-          "name": "Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6b",
-          "name": "Hawaii",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6c",
-          "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6d",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6e",
-          "name": "Parmigiana",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6f",
-          "name": "Prosciutto",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d70",
-          "name": "Prosciutto Crudo",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d71",
-          "name": "Prosciutto e Funghi",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d72",
-          "name": "Quattro Formaggi",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d73",
-          "name": "Rucola",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d74",
-          "name": "Rustica",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d75",
-          "name": "Salami",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d76",
-          "name": "Salsiccia Piccante",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d77",
-          "name": "Tonno",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d78",
-          "name": "Vegetariana",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d79",
-          "name": "Spaghetti Pomodoro e Basilico",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d7a",
-          "name": "Penne Arrabiata",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d7b",
-          "name": "Spaghetti Aglio e Olio",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d7c",
-          "name": "Maccheroncini Gorgonzola",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d7d",
-          "name": "Mezzalune Spinaci",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d7e",
-          "name": "Spaghetti Rucola e Pomodorini",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d7f",
-          "name": "Maccheroncini Pesto Genovese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d80",
-          "name": "Risotto Funghi",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d81",
-          "name": "Lasagne",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d82",
-          "name": "Tortelloni Prosciutto e Panna",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d83",
-          "name": "Spaghetti Carbonara",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d84",
-          "name": "Spaghetti Chitarra Ragù alla Bolognese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d85",
-          "name": "Orecchiette di Manzo al Limone",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d86",
-          "name": "Zoodles Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d87",
-          "name": "Gnocchi Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d88",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d89",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        }
-      ]
-    },
     "69a14305e1964652e41e8482": {
       "id": "69a14305e1964652e41e8482",
       "name": "Bitte folgende Zutat weglassen (Insalata Gamberi e Ceci)",
@@ -7808,20 +7808,6 @@
         }
       ]
     },
-    "69a14305e1964652e41e848c": {
-      "id": "69a14305e1964652e41e848c",
-      "name": "Bitte folgende Zutat weglassen (Insalata Pollo e Ceci).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "69a14305e1964652e41e848d",
-          "name": "ohne Hähnchen",
-          "price": 0
-        }
-      ]
-    },
     "69a14305e1964652e41e8489": {
       "id": "69a14305e1964652e41e8489",
       "name": "Bitte folgende Zutat weglassen (Pizza Carbonara).",
@@ -7837,6 +7823,20 @@
         {
           "id": "69a14305e1964652e41e848b",
           "name": "ohne  Petersilie",
+          "price": 0
+        }
+      ]
+    },
+    "69a14305e1964652e41e848c": {
+      "id": "69a14305e1964652e41e848c",
+      "name": "Bitte folgende Zutat weglassen (Insalata Pollo e Ceci).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "69a14305e1964652e41e848d",
+          "name": "ohne Hähnchen",
           "price": 0
         }
       ]
@@ -7880,6 +7880,35 @@
         }
       ]
     },
+    "6a0c35598a48338f78561c04": {
+      "id": "6a0c35598a48338f78561c04",
+      "name": "Bitte folgende Zutat weglassen (Zoodles Genovese al Limone)",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6a0c35598a48338f78561c05",
+          "name": "Hähnchenbruststreifen",
+          "price": 0
+        },
+        {
+          "id": "6a0c35598a48338f78561c06",
+          "name": "Oliven",
+          "price": 0
+        },
+        {
+          "id": "6a0c35598a48338f78561c07",
+          "name": "Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "6a0c35598a48338f78561c08",
+          "name": "ital. Hartkäse",
+          "price": 0
+        }
+      ]
+    },
     "6a0c35598a48338f78561bfd": {
       "id": "6a0c35598a48338f78561bfd",
       "name": "Bitte folgende Zutat weglassen (Die beste beste Pizza zum Match)",
@@ -7919,35 +7948,6 @@
         {
           "id": "6a0c35598a48338f78561c03",
           "name": "Basilikum",
-          "price": 0
-        }
-      ]
-    },
-    "6a0c35598a48338f78561c04": {
-      "id": "6a0c35598a48338f78561c04",
-      "name": "Bitte folgende Zutat weglassen (Zoodles Genovese al Limone)",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6a0c35598a48338f78561c05",
-          "name": "Hähnchenbruststreifen",
-          "price": 0
-        },
-        {
-          "id": "6a0c35598a48338f78561c06",
-          "name": "Oliven",
-          "price": 0
-        },
-        {
-          "id": "6a0c35598a48338f78561c07",
-          "name": "Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "6a0c35598a48338f78561c08",
-          "name": "ital. Hartkäse",
           "price": 0
         }
       ]
@@ -10091,6 +10091,54 @@
         }
       ]
     },
+    "695f7822355c05044669b4e5": {
+      "id": "695f7822355c05044669b4e5",
+      "name": "Bitte folgende Zutat weglassen (Conchiglie Gorgonzola Spinaci).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "695f7822355c05044669b4e6",
+          "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "695f7822355c05044669b4e7",
+          "name": "ohne Spinat",
+          "price": 0
+        },
+        {
+          "id": "695f7822355c05044669b4e8",
+          "name": "ohne Pfeffer",
+          "price": 0
+        }
+      ]
+    },
+    "695f7822355c05044669b4e9": {
+      "id": "695f7822355c05044669b4e9",
+      "name": "Bitte folgende Zutat weglassen (Penne Salsiccia Pomodorini).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "695f7822355c05044669b4ea",
+          "name": "ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "695f7822355c05044669b4eb",
+          "name": "ohne Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "695f7822355c05044669b4ec",
+          "name": "ohne scharfes Öl",
+          "price": 0
+        }
+      ]
+    },
     "695f7822355c05044669b4e1": {
       "id": "695f7822355c05044669b4e1",
       "name": "Bitte folgende Zutat weglassen (Maccheroncini Saporite).",
@@ -10150,54 +10198,6 @@
         {
           "id": "695f7822355c05044669b4e0",
           "name": "ohne Oregano",
-          "price": 0
-        }
-      ]
-    },
-    "695f7822355c05044669b4e5": {
-      "id": "695f7822355c05044669b4e5",
-      "name": "Bitte folgende Zutat weglassen (Conchiglie Gorgonzola Spinaci).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "695f7822355c05044669b4e6",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "695f7822355c05044669b4e7",
-          "name": "ohne Spinat",
-          "price": 0
-        },
-        {
-          "id": "695f7822355c05044669b4e8",
-          "name": "ohne Pfeffer",
-          "price": 0
-        }
-      ]
-    },
-    "695f7822355c05044669b4e9": {
-      "id": "695f7822355c05044669b4e9",
-      "name": "Bitte folgende Zutat weglassen (Penne Salsiccia Pomodorini).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "695f7822355c05044669b4ea",
-          "name": "ohne Rucola",
-          "price": 0
-        },
-        {
-          "id": "695f7822355c05044669b4eb",
-          "name": "ohne Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "695f7822355c05044669b4ec",
-          "name": "ohne scharfes Öl",
           "price": 0
         }
       ]
@@ -10485,20 +10485,6 @@
         }
       ]
     },
-    "697236348f45f126757c9e23": {
-      "id": "697236348f45f126757c9e23",
-      "name": "Panna Cotta 2 for 1 free",
-      "min": 1,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "697236348f45f126757c9e24",
-          "name": "Panna Cotta",
-          "price": 0
-        }
-      ]
-    },
     "697236338f45f126757c9d8a": {
       "id": "697236338f45f126757c9d8a",
       "name": "AMICI SPEZIALE  2 - delete",
@@ -10709,6 +10695,20 @@
         {
           "id": "697236348f45f126757c9db5",
           "name": "Maccheroncini Colorati",
+          "price": 0
+        }
+      ]
+    },
+    "697236348f45f126757c9e23": {
+      "id": "697236348f45f126757c9e23",
+      "name": "Panna Cotta 2 for 1 free",
+      "min": 1,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "697236348f45f126757c9e24",
+          "name": "Panna Cotta",
           "price": 0
         }
       ]
@@ -14393,5 +14393,5 @@
       ]
     }
   },
-  "checkedAt": "2026-08-23T04:54:08.756Z"
+  "checkedAt": "2026-08-25T04:56:23.335Z"
 }
