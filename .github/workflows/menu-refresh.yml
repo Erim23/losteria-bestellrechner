@@ -2,7 +2,10 @@ name: Speisekarte aktualisieren
 
 # Holt die aktuelle Speisekarte (Preise, neue Gerichte, Optionen) von der
 # Smoothr-Schnittstelle und committet sie, wenn sich etwas geändert hat.
-# Der Commit löst automatisch das Pages-Deployment aus.
+#
+# Wichtig: Ein Commit, den eine Action mit dem eingebauten Token macht, löst
+# absichtlich KEINE weiteren Abläufe aus. Die Veröffentlichung würde also nie
+# starten. Deshalb wird sie hier zum Schluss ausdrücklich angestoßen.
 
 on:
   schedule:
@@ -12,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: menu-refresh
@@ -33,9 +37,11 @@ jobs:
         run: node scripts/snapshot.js
 
       - name: Bei Änderungen committen
+        id: commit
         run: |
           if [ -z "$(git status --porcelain renderer/menu-seed.json)" ]; then
             echo "Keine Änderungen an der Speisekarte."
+            echo "geaendert=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -43,3 +49,13 @@ jobs:
           git add renderer/menu-seed.json
           git commit -m "Speisekarte automatisch aktualisiert"
           git push
+          echo "geaendert=true" >> "$GITHUB_OUTPUT"
+
+      - name: Veröffentlichung anstoßen
+        if: steps.commit.outputs.geaendert == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run "Deploy to GitHub Pages" \
+            --repo "$GITHUB_REPOSITORY" --ref main
+          echo "Veröffentlichung angestoßen."
