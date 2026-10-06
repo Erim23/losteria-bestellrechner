@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-09-30T10:32:18.755Z",
+  "fetchedAt": "2026-10-06T11:19:40.074Z",
   "categories": [
     {
       "id": "67b87e5fe1690c89bedff290",
@@ -275,52 +275,32 @@
       "name": "Menu della Casa",
       "articles": [
         {
-          "id": "6a744bfbc6ca4946217cfe55",
-          "name": "Pizza con Zucca e Mela",
-          "description": "Pizza mit mascarpone-Sauce, Käse, gebratenem Kürbis, Zwiebeln, Apfel, Knoblauch, Pfeffer und Babyspinat",
-          "price": 14.95,
+          "id": "6ac3c4bf40ba0e772663dc6c",
+          "name": "Piccola Bruschette Tacchino Rustica",
+          "description": "Zwei Stück Bruschetta mit Pulled Turkey, eingelegten Zwiebeln, Petersilie, cremigem Ricotta und Rucola",
+          "price": 6.5,
           "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a71a3a65d2e9c80cea0ddd0_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a71a3a65d2e9c80cea0ddd0_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a71a3a65d2e9c80cea0ddd0_photo_large.png"
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_large.png"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6ac3c4bf40ba0e772663dc6d",
+          "name": "Pizza Bianca Tacchino e Cipolle",
+          "description": "Pizza Bianca mit Mozzarella, Pulled Turkey, eingelegten Zwiebeln, Olio Extra Vergine, Pfeffer, Radicchio und Romanasalat",
+          "price": 18.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_large.png"
           },
           "kcal": 0,
           "groupIds": [
             "6a0c35598a48338f78561bd0"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "6a744bfbc6ca4946217cfe54",
-          "name": "Spaghetti Chitarra alla Zucca",
-          "description": "in Sahnesauce mit gebratenem Kürbis, Salbei, Zwiebeln, gerösteten Kürbiskernen, Knoblauch, Pfeffer und ital. Hartkäse",
-          "price": 13.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a71b04e8b20571493ba337e_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a71b04e8b20571493ba337e_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a71b04e8b20571493ba337e_photo_large.png"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e57e1690c89bedfe160",
-            "67b87e58e1690c89bedfe1e4"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "6a744bfbc6ca4946217cfe53",
-          "name": "Insalata di Zucca e Feta",
-          "description": "gemischter Baby-Leaf-Salat mit gebratenem Kürbis, Heidelbeeren, gerösteten Kürbiskernen, Feta und Hausdressing",
-          "price": 13.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a71ae2a5b1cd69fd44e6c4c_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a71ae2a5b1cd69fd44e6c4c_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a71ae2a5b1cd69fd44e6c4c_photo_large.png"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e55e1690c89bedfe00f",
-            "67b87e59e1690c89bedfe2c3"
           ],
           "configurable": true
         }
@@ -1409,14 +1389,14 @@
           "configurable": true
         },
         {
-          "id": "699460597ebe4e44b6c7a89d",
-          "name": "Penne Pollo Aurora - no",
+          "id": "695f7875355c0504466d601b",
+          "name": "Penne Pollo Aurora",
           "description": "gebratene Hähnchenbruststreifen, Sugo Aurora, Zwiebeln, Karotten-Zucchini-Julienne, Knoblauch, Oregano, ital. Hartkäse, Petersilie",
-          "price": 14.5,
+          "price": 14.95,
           "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc29_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc29_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc29_photo_large.jpeg"
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_thumb.jpeg",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_medium.jpeg",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/695f5eafb2429a896c388f15_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [
@@ -14359,5 +14339,5 @@
       ]
     }
   },
-  "checkedAt": "2026-10-04T10:37:04.224Z"
+  "checkedAt": "2026-10-06T11:19:40.079Z"
 }
