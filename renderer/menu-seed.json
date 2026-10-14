@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-10-13T11:52:27.497Z",
+  "fetchedAt": "2026-10-14T09:33:51.674Z",
   "categories": [
     {
       "id": "67b87e5fe1690c89bedff290",
@@ -3703,11 +3703,6 @@
           "id": "69120d08185f3607703ee60c",
           "name": "Peperoni",
           "price": 1.25
-        },
-        {
-          "id": "69120d08185f3607703ee60d",
-          "name": "Prosciutto Crudo",
-          "price": 2.5
         },
         {
           "id": "69120d08185f3607703ee60e",
@@ -14339,5 +14334,5 @@
       ]
     }
   },
-  "checkedAt": "2026-10-13T11:52:27.502Z"
+  "checkedAt": "2026-10-14T09:33:51.678Z"
 }
