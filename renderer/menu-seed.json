@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-10-27T09:51:30.173Z",
+  "fetchedAt": "2026-10-28T10:37:56.104Z",
   "categories": [
     {
       "id": "67b87e5fe1690c89bedff290",
@@ -537,24 +537,6 @@
           "configurable": true
         },
         {
-          "id": "67b87e60e1690c89bedff2b6",
-          "name": "Insalata Casa",
-          "description": "gemischter Baby-Leaf-Salat, Kirschtomaten, Käse, Thunfisch, Hinterschinken, Artischocke, Oliven, Zwiebeln, Hausdressing",
-          "price": 13.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc08_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc08_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc08_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e55e1690c89bedfe00f",
-            "67b87e55e1690c89bedfe03a",
-            "67b87e59e1690c89bedfe2c3"
-          ],
-          "configurable": true
-        },
-        {
           "id": "67b87e60e1690c89bedff2b7",
           "name": "Insalata Campagnola",
           "description": "gemischter Baby-Leaf-Salat, Rote Beete, gebratener Ziegenkäse, Apfel, Walnüsse, Honig, Hausdressing",
@@ -568,24 +550,6 @@
           "groupIds": [
             "67b87e55e1690c89bedfe00f",
             "67b87e55e1690c89bedfe035",
-            "67b87e59e1690c89bedfe2c3"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2b8",
-          "name": "Insalata Pollo",
-          "description": "Pflücksalat, Kirschtomaten, Hähnchen, Grana Padano, Pfeffer, Rucoladressing",
-          "price": 14.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc0a_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc0a_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0dd44b15e6fcd81cc0a_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e55e1690c89bedfe00f",
-            "67b87e55e1690c89bedfe027",
             "67b87e59e1690c89bedfe2c3"
           ],
           "configurable": true
@@ -702,23 +666,6 @@
           "configurable": true
         },
         {
-          "id": "67b87e60e1690c89bedff2c1",
-          "name": "Braccio di Ferro",
-          "description": "Käse, Spinat, Ei, Knoblauch",
-          "price": 15.75,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc13_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc13_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc13_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e52e1690c89bedfde0d",
-            "6a0c35598a48338f78561bd0"
-          ],
-          "configurable": true
-        },
-        {
           "id": "67b87e60e1690c89bedff2c2",
           "name": "Rustica",
           "description": "Mozzarella, Kirschtomaten, Oliven, Zwiebeln, Oregano",
@@ -731,40 +678,6 @@
           "kcal": 0,
           "groupIds": [
             "67b87e52e1690c89bedfddf2",
-            "6a0c35598a48338f78561bd0"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2c3",
-          "name": "Parmigiana",
-          "description": "Mozzarella, Aubergine, ital. Hartkäse, Oregano",
-          "price": 15.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc15_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc15_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc15_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e52e1690c89bedfdde7",
-            "6a0c35598a48338f78561bd0"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2c4",
-          "name": "Caprese",
-          "description": "Mozzarella in Scheiben, Kirschtomaten, Basilikum",
-          "price": 15.75,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc16_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc16_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc16_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e52e1690c89bedfddda",
             "6a0c35598a48338f78561bd0"
           ],
           "configurable": true
@@ -907,40 +820,6 @@
           "groupIds": [
             "67b87e51e1690c89bedfdd8a",
             "69120d08185f3607703ee5ff",
-            "6a0c35598a48338f78561bd0"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2cd",
-          "name": "Canarino",
-          "description": "Käse, Hinterschinken, frische Champignons, Salami, Sardellen",
-          "price": 17.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc20_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc20_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc20_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e51e1690c89bedfdd9d",
-            "6a0c35598a48338f78561bd0"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2ce",
-          "name": "Nduja Calabrese",
-          "description": "Mozzarella, ital. Streichsalami, halbgetrocknete Kirschtomaten, Rucola",
-          "price": 18.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc21_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc21_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0df44b15e6fcd81cc21_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e51e1690c89bedfddb9",
             "6a0c35598a48338f78561bd0"
           ],
           "configurable": true
@@ -1157,60 +1036,6 @@
           "configurable": true
         },
         {
-          "id": "67b87e60e1690c89bedff2d8",
-          "name": "Maccheroncini Pesto Genovese",
-          "description": "Maccheroncini mit Basilikum Pesto, Knoblauchöl, Petersilie, Basilikum,Pfeffer,  ital. Hartkäse und",
-          "price": 13.75,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2a_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2a_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2a_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e53e1690c89bedfdeb7",
-            "67b87e57e1690c89bedfe160",
-            "67b87e58e1690c89bedfe1e4"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2d9",
-          "name": "Maccheroncini Gorgonzola",
-          "description": "Gorgonzola, Sahne, ital. Hartkäse, Petersilie",
-          "price": 13.75,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2b_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2b_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2b_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e51e1690c89bedfdd1d",
-            "67b87e57e1690c89bedfe160",
-            "67b87e58e1690c89bedfe1e4"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2da",
-          "name": "Maccheroncini Colorati",
-          "description": "Sugo di Pomodoro, gegrilltes Gemüse, Zwiebeln, Kirschtomaten, Basilikum",
-          "price": 13.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2c_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2c_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc2c_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e53e1690c89bedfdeb2",
-            "67b87e57e1690c89bedfe160",
-            "67b87e58e1690c89bedfe1e4"
-          ],
-          "configurable": true
-        },
-        {
           "id": "67b87e60e1690c89bedff2db",
           "name": "Mezzalune Spinaci",
           "description": "Spinat, Sahnesauce, Zwiebeln, Knoblauch, ital. Hartkäse",
@@ -1347,24 +1172,6 @@
           "kcal": 0,
           "groupIds": [
             "67b87e53e1690c89bedfdeac",
-            "67b87e57e1690c89bedfe160",
-            "67b87e58e1690c89bedfe1e4"
-          ],
-          "configurable": true
-        },
-        {
-          "id": "67b87e60e1690c89bedff2e4",
-          "name": "Conchiglie di Fiume",
-          "description": "Flusskrebse, Karotten-Zucchini-Julienne, Zwiebeln, Hummersauce, Rosmarin",
-          "price": 16.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc36_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc36_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0e644b15e6fcd81cc36_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "67b87e53e1690c89bedfdea8",
             "67b87e57e1690c89bedfe160",
             "67b87e58e1690c89bedfe1e4"
           ],
@@ -1515,20 +1322,6 @@
           "configurable": false
         },
         {
-          "id": "67b87e61e1690c89bedff2f0",
-          "name": "Tartufo",
-          "description": "Schokoladen-Eiscreme mit Erdbeersauce",
-          "price": 6.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc39_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc39_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0ea44b15e6fcd81cc39_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [],
-          "configurable": false
-        },
-        {
           "id": "67b87e61e1690c89bedff2f1",
           "name": "Panna Cotta",
           "description": "mit frischen Erdbeeren und Erdbeersauce",
@@ -1551,20 +1344,6 @@
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/672e61163c38114ac9549f0d_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/672e61163c38114ac9549f0d_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/672e61163c38114ac9549f0d_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [],
-          "configurable": false
-        },
-        {
-          "id": "67b87e61e1690c89bedff2f6",
-          "name": "L'Osteria Gelato Joghurt Amarena (120ml)",
-          "description": "Joghurteis mit Sauerkirschsauce (23%)",
-          "price": 3.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/672e6116d21b140ffab9613e_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/672e6116d21b140ffab9613e_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/672e6116d21b140ffab9613e_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [],
@@ -1697,20 +1476,6 @@
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_thumb.jpeg",
             "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_medium.jpeg",
             "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc4c_photo_large.jpeg"
-          },
-          "kcal": 0,
-          "groupIds": [],
-          "configurable": false
-        },
-        {
-          "id": "6a744bfbc6ca4946217cfe4c",
-          "name": "Ice Tea Pomegranate 0,33l",
-          "description": "Fruchteegetränk mit Granatapfel-Acai-Geschmack 0,33l",
-          "price": 2.65,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_thumb.jpeg",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_medium.jpeg",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/66bed0eb44b15e6fcd81cc46_photo_large.jpeg"
           },
           "kcal": 0,
           "groupIds": [],
@@ -2290,11 +2055,6 @@
           "price": 0
         },
         {
-          "id": "67b87e53e1690c89bedfdea4",
-          "name": "Rucola-Dressing",
-          "price": 0
-        },
-        {
           "id": "67b87e53e1690c89bedfdea6",
           "name": "Orange-Ingwer-Dressing",
           "price": 0
@@ -2636,19 +2396,9 @@
           "price": 14.75
         },
         {
-          "id": "6888b8f82aecb4561d8341ec",
-          "name": "1/2 Braccio di Ferro",
-          "price": 15.75
-        },
-        {
           "id": "6888b8f82aecb4561d8341ed",
           "name": "1/2 Rustica",
           "price": 15.75
-        },
-        {
-          "id": "6888b8f82aecb4561d8341ee",
-          "name": "1/2 Parmigiana",
-          "price": 15.95
         },
         {
           "id": "6888b8f82aecb4561d8341ef",
@@ -2681,11 +2431,6 @@
           "price": 16.95
         },
         {
-          "id": "6888b8f82aecb4561d8341f6",
-          "name": "1/2 Canarino",
-          "price": 17.95
-        },
-        {
           "id": "6888b8f82aecb4561d8341f7",
           "name": "1/2 Degli Artisti",
           "price": 18.5
@@ -2693,11 +2438,6 @@
         {
           "id": "6888b8f82aecb4561d8341f9",
           "name": "1/2 Frutti di Mare",
-          "price": 18.5
-        },
-        {
-          "id": "6888b8f82aecb4561d8341fa",
-          "name": "1/2 Nduja Calabrese",
           "price": 18.5
         },
         {
@@ -2724,11 +2464,6 @@
           "id": "6888b8f82aecb4561d8341ff",
           "name": "1/2 Salsiccia Piccante",
           "price": 16.5
-        },
-        {
-          "id": "6888b8f82aecb4561d834200",
-          "name": "1/2 Caprese",
-          "price": 15.75
         },
         {
           "id": "6888b8f82aecb4561d834201",
@@ -3274,11 +3009,6 @@
           "price": 1
         },
         {
-          "id": "67b87e57e1690c89bedfe13b",
-          "name": "Mango",
-          "price": 1.25
-        },
-        {
           "id": "67b87e57e1690c89bedfe13c",
           "name": "Oliven schwarz ohne Stein",
           "price": 1.25
@@ -3322,11 +3052,6 @@
           "id": "67b87e57e1690c89bedfe14d",
           "name": "Burrata",
           "price": 5
-        },
-        {
-          "id": "67b87e57e1690c89bedfe151",
-          "name": "Ei",
-          "price": 1
         }
       ]
     },
@@ -3358,18 +3083,8 @@
           "price": 0.5
         },
         {
-          "id": "67b87e58e1690c89bedfe1eb",
-          "name": "Conchiglie",
-          "price": 0.5
-        },
-        {
           "id": "67b87e58e1690c89bedfe1ef",
           "name": "Gnocchi",
-          "price": 0.5
-        },
-        {
-          "id": "67b87e58e1690c89bedfe1f0",
-          "name": "Maccheroncini",
           "price": 0.5
         },
         {
@@ -3530,11 +3245,6 @@
           "id": "67b87e59e1690c89bedfe2de",
           "name": "Mais",
           "price": 1
-        },
-        {
-          "id": "67b87e59e1690c89bedfe2df",
-          "name": "Mango",
-          "price": 1.25
         },
         {
           "id": "67b87e59e1690c89bedfe2e0",
@@ -3860,11 +3570,6 @@
           "price": 1.25
         },
         {
-          "id": "6994602f7ebe4e44b6c5ef2e",
-          "name": "+++ Aubergine",
-          "price": 3
-        },
-        {
           "id": "6994602f7ebe4e44b6c5ef2f",
           "name": "+++ Frische Champignons",
           "price": 1.75
@@ -3918,11 +3623,6 @@
           "id": "6994602f7ebe4e44b6c5ef39",
           "name": "+++ Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6994602f7ebe4e44b6c5ef3a",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "6994602f7ebe4e44b6c5ef3b",
@@ -4079,11 +3779,6 @@
           "price": 1.25
         },
         {
-          "id": "6a0c35598a48338f78561be2",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "6a0c35598a48338f78561be3",
           "name": "Frische Champignons",
           "price": 1.75
@@ -4137,11 +3832,6 @@
           "id": "6a0c35598a48338f78561bee",
           "name": "Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6a0c35598a48338f78561bef",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "6a0c35598a48338f78561bf0",
@@ -4308,11 +3998,6 @@
           "price": 1.25
         },
         {
-          "id": "67b87e58e1690c89bedfe249",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "67b87e58e1690c89bedfe24a",
           "name": "Frische Champignons",
           "price": 1.75
@@ -4361,11 +4046,6 @@
           "id": "67b87e58e1690c89bedfe255",
           "name": "Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "67b87e58e1690c89bedfe259",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "68d9e3d70ec16f024e2779a1",
@@ -5119,11 +4799,6 @@
         {
           "id": "67b87e52e1690c89bedfdde8",
           "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "67b87e52e1690c89bedfdde9",
-          "name": "ohne  Aubergine",
           "price": 0
         },
         {
@@ -6159,11 +5834,6 @@
           "price": 0
         },
         {
-          "id": "67b87e54e1690c89bedfdfd1",
-          "name": "ohne Aubergine",
-          "price": 0
-        },
-        {
           "id": "67b87e54e1690c89bedfdfd2",
           "name": "ohne Kirschtomaten",
           "price": 0
@@ -6740,23 +6410,8 @@
           "price": 0
         },
         {
-          "id": "69317e80d047f6fdb9c5b509",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50a",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "69317e80d047f6fdb9c5b50b",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b50c",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -6792,16 +6447,6 @@
         {
           "id": "69317e80d047f6fdb9c5b514",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b515",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b516",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -6930,16 +6575,6 @@
           "price": 0
         },
         {
-          "id": "69317e80d047f6fdb9c5b530",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b531",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "695f7843355c0504466b3888",
           "name": "Pizza Marinara Speciale",
           "price": 0
@@ -6964,23 +6599,8 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b5b9",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5ba",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b5bb",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5bc",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -7016,16 +6636,6 @@
         {
           "id": "69317e81d047f6fdb9c5b5c4",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5c5",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5c6",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -7154,16 +6764,6 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b5e0",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5e1",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b5e2",
           "name": "Insalata Caesare con Pollo",
           "price": 0
@@ -7189,18 +6789,8 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b5e7",
-          "name": "Insalata Casa",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b5e8",
           "name": "Insalata Campagnola",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5e9",
-          "name": "Insalata Pollo",
           "price": 0
         },
         {
@@ -7247,23 +6837,8 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9cf9",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9cfa",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9cfb",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9cfc",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -7299,16 +6874,6 @@
         {
           "id": "697236338f45f126757c9d04",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d05",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d06",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -7437,16 +7002,6 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d20",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d21",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9d22",
           "name": "Insalata Caesare con Pollo",
           "price": 0
@@ -7472,18 +7027,8 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d27",
-          "name": "Insalata Casa",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9d28",
           "name": "Insalata Campagnola",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d29",
-          "name": "Insalata Pollo",
           "price": 0
         }
       ]
@@ -7501,23 +7046,8 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d61",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d62",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9d63",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d64",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -7553,16 +7083,6 @@
         {
           "id": "697236338f45f126757c9d6c",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6d",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d6e",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -7688,16 +7208,6 @@
         {
           "id": "697236338f45f126757c9d87",
           "name": "Gnocchi Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d88",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d89",
-          "name": "Maccheroncini Colorati",
           "price": 0
         }
       ]
@@ -7906,23 +7416,8 @@
           "price": 0
         },
         {
-          "id": "6a1eb9a991868095867e29a0",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29a1",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "6a1eb9a991868095867e29a2",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29a3",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -7958,16 +7453,6 @@
         {
           "id": "6a1eb9a991868095867e29ab",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29ac",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29ad",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -8096,16 +7581,6 @@
           "price": 0
         },
         {
-          "id": "6a1eb9a991868095867e29c7",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29c8",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "6a1eb9a991868095867e29c9",
           "name": "Pizza Marinara Speciale",
           "price": 0
@@ -8210,11 +7685,6 @@
           "price": 1.25
         },
         {
-          "id": "6895fcfbb2224a1172ba07cb",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "6895fcfbb2224a1172ba07cc",
           "name": "Frische Champignons",
           "price": 1.75
@@ -8263,11 +7733,6 @@
           "id": "6895fcfbb2224a1172ba07d7",
           "name": "Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6895fcfbb2224a1172ba07de",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "695f783d355c0504466b3884",
@@ -8578,11 +8043,6 @@
           "price": 1
         },
         {
-          "id": "689abc8f5d62431924859545",
-          "name": "Mango",
-          "price": 1.25
-        },
-        {
           "id": "689abc8f5d62431924859546",
           "name": "Oliven schwarz ohne Stein",
           "price": 1.25
@@ -8787,11 +8247,6 @@
           "price": 0
         },
         {
-          "id": "67b87e55e1690c89bedfe062",
-          "name": "ohne Aubergine",
-          "price": 0
-        },
-        {
           "id": "67b87e55e1690c89bedfe063",
           "name": "ohne Bruschetta Tomaten",
           "price": 0
@@ -8849,11 +8304,6 @@
         {
           "id": "67b87e55e1690c89bedfe06f",
           "name": "ohne Mais",
-          "price": 0
-        },
-        {
-          "id": "67b87e55e1690c89bedfe070",
-          "name": "ohne Mango",
           "price": 0
         },
         {
@@ -9041,11 +8491,6 @@
           "price": 1.25
         },
         {
-          "id": "67b87e56e1690c89bedfe098",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "67b87e56e1690c89bedfe099",
           "name": "Frische Champignons",
           "price": 1.75
@@ -9104,11 +8549,6 @@
           "id": "67b87e56e1690c89bedfe0a5",
           "name": "Rinderfiletstreifen",
           "price": 5
-        },
-        {
-          "id": "67b87e56e1690c89bedfe0aa",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "68d9e3d40ec16f024e27797d",
@@ -9268,11 +8708,6 @@
           "id": "67b87e56e1690c89bedfe109",
           "name": "Artischocken",
           "price": 1.25
-        },
-        {
-          "id": "67b87e56e1690c89bedfe10a",
-          "name": "Aubergine",
-          "price": 3
         },
         {
           "id": "67b87e56e1690c89bedfe10b",
@@ -9438,19 +8873,9 @@
           "price": 14.75
         },
         {
-          "id": "68a33432f002a9d0fd57293f",
-          "name": "1/2 Braccio di Ferro",
-          "price": 15.75
-        },
-        {
           "id": "68a33432f002a9d0fd572940",
           "name": "1/2 Rustica",
           "price": 15.75
-        },
-        {
-          "id": "68a33432f002a9d0fd572941",
-          "name": "1/2 Parmigiana",
-          "price": 15.95
         },
         {
           "id": "68a33432f002a9d0fd572942",
@@ -9483,11 +8908,6 @@
           "price": 16.95
         },
         {
-          "id": "68a33432f002a9d0fd572949",
-          "name": "1/2 Canarino",
-          "price": 17.95
-        },
-        {
           "id": "68a33432f002a9d0fd57294a",
           "name": "1/2 Degli Artisti",
           "price": 18.5
@@ -9495,11 +8915,6 @@
         {
           "id": "68a33432f002a9d0fd57294c",
           "name": "1/2 Frutti di Mare",
-          "price": 18.5
-        },
-        {
-          "id": "68a33432f002a9d0fd57294d",
-          "name": "1/2 Nduja Calabrese",
           "price": 18.5
         },
         {
@@ -9528,11 +8943,6 @@
           "price": 16.5
         },
         {
-          "id": "68a33432f002a9d0fd572953",
-          "name": "1/2 Caprese",
-          "price": 15.75
-        },
-        {
           "id": "68a33432f002a9d0fd572954",
           "name": "1/2 Hawaii",
           "price": 15.75
@@ -9557,23 +8967,8 @@
           "price": 0
         },
         {
-          "id": "69317e80d047f6fdb9c5b535",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b536",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "69317e80d047f6fdb9c5b537",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b538",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -9609,16 +9004,6 @@
         {
           "id": "69317e80d047f6fdb9c5b540",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b541",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b542",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -9747,16 +9132,6 @@
           "price": 0
         },
         {
-          "id": "69317e80d047f6fdb9c5b55c",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b55d",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "695f7843355c0504466b388a",
           "name": "Pizza Marinara Speciale",
           "price": 0
@@ -9781,23 +9156,8 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b5ed",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5ee",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b5ef",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5f0",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -9833,16 +9193,6 @@
         {
           "id": "69317e81d047f6fdb9c5b5f8",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5f9",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5fa",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -9971,16 +9321,6 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b614",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b615",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b616",
           "name": "Insalata Caesare con Pollo",
           "price": 0
@@ -10006,18 +9346,8 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b61b",
-          "name": "Insalata Casa",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b61c",
           "name": "Insalata Campagnola",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b61d",
-          "name": "Insalata Pollo",
           "price": 0
         },
         {
@@ -10161,11 +9491,6 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9cea",
-          "name": "Ohne Rucola-Dressing",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9cec",
           "name": "Ohne Orange-Ingwer-Dressing",
           "price": 0
@@ -10185,23 +9510,8 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d2d",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d2e",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9d2f",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d30",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -10237,16 +9547,6 @@
         {
           "id": "697236338f45f126757c9d38",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d39",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d3a",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -10375,16 +9675,6 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d54",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d55",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9d56",
           "name": "Insalata Caesare con Pollo",
           "price": 0
@@ -10410,18 +9700,8 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d5b",
-          "name": "Insalata Casa",
-          "price": 0
-        },
-        {
           "id": "697236338f45f126757c9d5c",
           "name": "Insalata Campagnola",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d5d",
-          "name": "Insalata Pollo",
           "price": 0
         }
       ]
@@ -10453,23 +9733,8 @@
           "price": 0
         },
         {
-          "id": "697236338f45f126757c9d8d",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236338f45f126757c9d8e",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "697236348f45f126757c9d8f",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9d90",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -10505,16 +9770,6 @@
         {
           "id": "697236348f45f126757c9d98",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9d99",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9d9a",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -10641,16 +9896,6 @@
           "id": "697236348f45f126757c9db3",
           "name": "Gnocchi Gamberetti",
           "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9db4",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9db5",
-          "name": "Maccheroncini Colorati",
-          "price": 0
         }
       ]
     },
@@ -10667,23 +9912,8 @@
           "price": 0
         },
         {
-          "id": "6a1eb9a991868095867e29ce",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29cf",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "6a1eb9a991868095867e29d0",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29d1",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -10719,16 +9949,6 @@
         {
           "id": "6a1eb9a991868095867e29d9",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29da",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29db",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -10854,16 +10074,6 @@
         {
           "id": "6a1eb9a991868095867e29f4",
           "name": "Gnocchi Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29f5",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29f6",
-          "name": "Maccheroncini Colorati",
           "price": 0
         },
         {
@@ -11135,11 +10345,6 @@
           "price": 1.25
         },
         {
-          "id": "6896ab435d624319249a43bc",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "6896ab435d624319249a43bd",
           "name": "Frische Champignons",
           "price": 1.75
@@ -11188,11 +10393,6 @@
           "id": "6896ab435d624319249a43c8",
           "name": "Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6896ab435d624319249a43cf",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "695f783f355c0504466b3885",
@@ -11339,11 +10539,6 @@
           "price": 1
         },
         {
-          "id": "689abc8f5d62431924859585",
-          "name": "Mango",
-          "price": 1.25
-        },
-        {
           "id": "689abc8f5d62431924859586",
           "name": "Oliven schwarz ohne Stein",
           "price": 1.25
@@ -11417,23 +10612,8 @@
           "price": 0
         },
         {
-          "id": "69317e80d047f6fdb9c5b561",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b562",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "69317e80d047f6fdb9c5b563",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b564",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -11469,16 +10649,6 @@
         {
           "id": "69317e80d047f6fdb9c5b56c",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b56d",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b56e",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -11607,16 +10777,6 @@
           "price": 0
         },
         {
-          "id": "69317e80d047f6fdb9c5b588",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e80d047f6fdb9c5b589",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "695f7843355c0504466b388c",
           "name": "Pizza Marinara Special",
           "price": 0
@@ -11655,23 +10815,8 @@
           "price": 0
         },
         {
-          "id": "697236348f45f126757c9db9",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9dba",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "697236348f45f126757c9dbb",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9dbc",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -11707,16 +10852,6 @@
         {
           "id": "697236348f45f126757c9dc4",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9dc5",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9dc6",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -11843,16 +10978,6 @@
           "id": "697236348f45f126757c9ddf",
           "name": "Gnocchi Gamberetti",
           "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9de0",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9de1",
-          "name": "Maccheroncini Colorati",
-          "price": 0
         }
       ]
     },
@@ -11869,23 +10994,8 @@
           "price": 0
         },
         {
-          "id": "6a1eb9a991868095867e29fc",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29fd",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "6a1eb9a991868095867e29fe",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e29ff",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -11921,16 +11031,6 @@
         {
           "id": "6a1eb9a991868095867e2a07",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e2a08",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e2a09",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -12056,16 +11156,6 @@
         {
           "id": "6a1eb9a991868095867e2a22",
           "name": "Gnocchi Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e2a23",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9a991868095867e2a24",
-          "name": "Maccheroncini Colorati",
           "price": 0
         },
         {
@@ -12337,11 +11427,6 @@
           "price": 1.25
         },
         {
-          "id": "6896ab435d624319249a43ed",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "6896ab435d624319249a43ee",
           "name": "Frische Champignons",
           "price": 1.75
@@ -12390,11 +11475,6 @@
           "id": "6896ab435d624319249a43f9",
           "name": "Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6896ab435d624319249a4400",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "695f783f355c0504466b3886",
@@ -12633,23 +11713,8 @@
           "price": 0
         },
         {
-          "id": "6851686ee19395a3e7f04cfc",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "6851686ee19395a3e7f04cfd",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "6851686ee19395a3e7f04cfe",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6851686ee19395a3e7f04cff",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -12690,16 +11755,6 @@
         {
           "id": "6851686ee19395a3e7f04d07",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "6851686ee19395a3e7f04d08",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "6851686ee19395a3e7f04d09",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -12826,11 +11881,6 @@
           "id": "6851686ee19395a3e7f04d22",
           "name": "Gnocchi Gamberetti",
           "price": 0
-        },
-        {
-          "id": "6851686ee19395a3e7f04d23",
-          "name": "Conchiglie di Fiume",
-          "price": 0
         }
       ]
     },
@@ -12927,11 +11977,6 @@
           "price": 1.25
         },
         {
-          "id": "6895fcfbb2224a1172ba07fc",
-          "name": "+++ Aubergine",
-          "price": 3
-        },
-        {
           "id": "6895fcfbb2224a1172ba07fd",
           "name": "+++ Frische Champignons",
           "price": 1.75
@@ -12985,11 +12030,6 @@
           "id": "6895fcfbb2224a1172ba0808",
           "name": "+++ Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6895fcfbb2224a1172ba080f",
-          "name": "Ei",
-          "price": 1
         }
       ]
     },
@@ -13006,23 +12046,8 @@
           "price": 0
         },
         {
-          "id": "6896ab425d624319249a4279",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "6896ab425d624319249a427a",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "6896ab425d624319249a427b",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6896ab425d624319249a427c",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -13058,16 +12083,6 @@
         {
           "id": "6896ab425d624319249a4284",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "6896ab425d624319249a4285",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "6896ab425d624319249a4286",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -13194,11 +12209,6 @@
           "id": "6896ab425d624319249a429f",
           "name": "Gnocchi Gamberetti",
           "price": 0
-        },
-        {
-          "id": "6896ab425d624319249a42a0",
-          "name": "Conchiglie di Fiume",
-          "price": 0
         }
       ]
     },
@@ -13215,23 +12225,8 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b58d",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b58e",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "69317e81d047f6fdb9c5b58f",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b590",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -13267,16 +12262,6 @@
         {
           "id": "69317e81d047f6fdb9c5b598",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b599",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b59a",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -13405,16 +12390,6 @@
           "price": 0
         },
         {
-          "id": "69317e81d047f6fdb9c5b5b4",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "69317e81d047f6fdb9c5b5b5",
-          "name": "Maccheroncini Colorati",
-          "price": 0
-        },
-        {
           "id": "695f7844355c0504466b388e",
           "name": "Pizza Marinara Special",
           "price": 0
@@ -13439,23 +12414,8 @@
           "price": 0
         },
         {
-          "id": "697236348f45f126757c9de5",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9de6",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "697236348f45f126757c9de7",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9de8",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -13491,16 +12451,6 @@
         {
           "id": "697236348f45f126757c9df0",
           "name": "Marinara",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9df1",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9df2",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -13627,16 +12577,6 @@
           "id": "697236348f45f126757c9e0b",
           "name": "Gnocchi Gamberetti",
           "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9e0c",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "697236348f45f126757c9e0d",
-          "name": "Maccheroncini Colorati",
-          "price": 0
         }
       ]
     },
@@ -13653,23 +12593,8 @@
           "price": 0
         },
         {
-          "id": "6a1eb9aa91868095867e2a2a",
-          "name": "Braccio di Ferro",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9aa91868095867e2a2b",
-          "name": "Canarino",
-          "price": 0
-        },
-        {
           "id": "6a1eb9aa91868095867e2a2c",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9aa91868095867e2a2d",
-          "name": "Caprese",
           "price": 0
         },
         {
@@ -13705,16 +12630,6 @@
         {
           "id": "6a1eb9aa91868095867e2a35",
           "name": "Frutti di Mare",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9aa91868095867e2a36",
-          "name": "Nduja Calabrese",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9aa91868095867e2a37",
-          "name": "Parmigiana",
           "price": 0
         },
         {
@@ -13840,16 +12755,6 @@
         {
           "id": "6a1eb9aa91868095867e2a50",
           "name": "Gnocchi Gamberetti",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9aa91868095867e2a51",
-          "name": "Conchiglie di Fiume",
-          "price": 0
-        },
-        {
-          "id": "6a1eb9aa91868095867e2a52",
-          "name": "Maccheroncini Colorati",
           "price": 0
         },
         {
@@ -14141,11 +13046,6 @@
           "price": 1.25
         },
         {
-          "id": "6896ab435d624319249a441e",
-          "name": "Aubergine",
-          "price": 3
-        },
-        {
           "id": "6896ab435d624319249a441f",
           "name": "Frische Champignons",
           "price": 1.75
@@ -14194,11 +13094,6 @@
           "id": "6896ab445d624319249a442a",
           "name": "Rote Zwiebeln",
           "price": 1.25
-        },
-        {
-          "id": "6896ab445d624319249a4431",
-          "name": "Ei",
-          "price": 1
         },
         {
           "id": "695f783f355c0504466b3887",
@@ -14334,5 +13229,5 @@
       ]
     }
   },
-  "checkedAt": "2026-10-27T09:51:30.178Z"
+  "checkedAt": "2026-10-28T10:37:56.109Z"
 }
