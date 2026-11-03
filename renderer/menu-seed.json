@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-11-02T12:32:05.900Z",
+  "fetchedAt": "2026-11-03T11:59:23.008Z",
   "categories": [
     {
       "id": "6ae7b987c66f7c80e16a87c8",
@@ -275,36 +275,6 @@
       "name": "Menu della Casa",
       "articles": [
         {
-          "id": "6ae7b987c66f7c80e16a87d6",
-          "name": "Piccola Bruschette Tacchino Rustica",
-          "description": "Zwei Stück Bruschetta mit Pulled Turkey, eingelegten Zwiebeln, Petersilie, cremigem Ricotta und Rucola",
-          "price": 6.5,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_large.png"
-          },
-          "kcal": 0,
-          "groupIds": [],
-          "configurable": false
-        },
-        {
-          "id": "6ae7b987c66f7c80e16a87d7",
-          "name": "Pizza Bianca Tacchino e Cipolle",
-          "description": "Pizza Bianca mit Mozzarella, Pulled Turkey, eingelegten Zwiebeln, Olio Extra Vergine, Pfeffer, Radicchio und Romanasalat",
-          "price": 18.95,
-          "image": {
-            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_thumb.png",
-            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_medium.png",
-            "large": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_large.png"
-          },
-          "kcal": 0,
-          "groupIds": [
-            "6ae7b96bc66f7c80e168cb6e"
-          ],
-          "configurable": true
-        },
-        {
           "id": "6ae7b987c66f7c80e16a87d8",
           "name": "Crema di Patate con Tartufo",
           "description": "Kartoffelsuppe mit Sahne, Pfeffer und schwarzem Trüffel",
@@ -371,7 +341,7 @@
         {
           "id": "6ae7b987c66f7c80e16a87dd",
           "name": "Antipasti della Casa",
-          "description": "Prosciutto Crudo, Artischocke , Zucchini, Aubergine, Cipolle Borettane, schwarze Oliven, Burrata, Basilikum-Pesto, Bruschetta, Vitello Tonnato",
+          "description": "Prosciutto Crudo, Artischocke, Zucchini, Aubergine, Cipolle Borettane, schwarze Oliven, Burrata, Basilikum-Pesto, Bruschetta, Vitello Tonnato",
           "price": 25.5,
           "image": {
             "thumb": "https://storage.googleapis.com/smoothr-images-prod/66bed0db44b15e6fcd81cbfe_photo_thumb.jpeg",
@@ -478,7 +448,7 @@
       "articles": [
         {
           "id": "6ae7b987c66f7c80e16a87e5",
-          "name": "Insalata Caesare con Pollo",
+          "name": "Caesare con Pollo",
           "description": "mit Hähnchenbruststreifen, Romanasalat, Knoblauch-Croûtons, ital. Hartkäse, Caesare-Dressing",
           "price": 15.5,
           "image": {
@@ -496,7 +466,7 @@
         },
         {
           "id": "6ae7b987c66f7c80e16a87e6",
-          "name": "Insalata Mista",
+          "name": "Mista",
           "description": "Beilagensalat – gemischter Baby-Leaf-Salat, Kirschtomaten, Gurken-Radieschen-Mix, Hausdressing",
           "price": 5.95,
           "image": {
@@ -514,7 +484,7 @@
         },
         {
           "id": "6ae7b987c66f7c80e16a87e7",
-          "name": "Insalata Avocado e Gamberetti",
+          "name": "Avocado e Gamberetti",
           "description": "gemischter Baby-Leaf-Salat, Gurken-Radieschen-Mix, Kirschtomaten, Avocado, Garnelen, Hausdressing",
           "price": 15.95,
           "image": {
@@ -532,7 +502,7 @@
         },
         {
           "id": "6ae7b987c66f7c80e16a87e8",
-          "name": "Insalata Caesare",
+          "name": "Caesare",
           "description": "Romanasalat, Knoblauch-Croûtons, ital. Hartkäse, Caesaredressing",
           "price": 11.95,
           "image": {
@@ -550,7 +520,7 @@
         },
         {
           "id": "6ae7b987c66f7c80e16a87e9",
-          "name": "Insalata Quinoa e Avocado",
+          "name": "Quinoa e Avocado",
           "description": "gemischter Baby-Leaf-Salat, Quinoa, Granatapfel, Rote Bete, Kirschtomaten, Avocado, Haus-Dressing",
           "price": 13.95,
           "image": {
@@ -568,7 +538,7 @@
         },
         {
           "id": "6ae7b987c66f7c80e16a87ea",
-          "name": "Insalata Campagnola",
+          "name": "Campagnola",
           "description": "gemischter Baby-Leaf-Salat, Rote Bete, gebratener Ziegenkäse, Honig, Apfel, karamellisierte Walnüsse, Haus-Dressing",
           "price": 14.95,
           "image": {
@@ -1133,7 +1103,7 @@
       "articles": [
         {
           "id": "6ae7b988c66f7c80e16a8809",
-          "name": "Fusili Rucola e Pomodorini",
+          "name": "Fusilli Rucola e Pomodorini",
           "description": "Sugo di Pomodoro, Rucola, Kirschtomaten, Knoblauch",
           "price": 13.95,
           "image": {
@@ -1189,7 +1159,7 @@
         },
         {
           "id": "6ae7b988c66f7c80e16a880c",
-          "name": "Fusili Pesto Genovese",
+          "name": "Fusilli Pesto Genovese",
           "description": "Basilikum-Pesto, Pinienkerne, ital. Hartkäse",
           "price": 13.95,
           "image": {
@@ -1982,6 +1952,36 @@
             "6ae7b96cc66f7c80e168cc43"
           ],
           "configurable": true
+        },
+        {
+          "id": "6ae7b987c66f7c80e16a87d6",
+          "name": "Piccola Bruschette Tacchino Rustica",
+          "description": "Zwei Stück Bruschetta mit Pulled Turkey, eingelegten Zwiebeln, Petersilie, cremigem Ricotta und Rucola",
+          "price": 6.5,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a9fe51d2eba5ee8ab284f1e_photo_large.png"
+          },
+          "kcal": 0,
+          "groupIds": [],
+          "configurable": false
+        },
+        {
+          "id": "6ae7b987c66f7c80e16a87d7",
+          "name": "Pizza Bianca Tacchino e Cipolle",
+          "description": "Pizza Bianca mit Mozzarella, Pulled Turkey, eingelegten Zwiebeln, Olio Extra Vergine, Pfeffer, Radicchio und Romanasalat",
+          "price": 18.95,
+          "image": {
+            "thumb": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_thumb.png",
+            "medium": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_medium.png",
+            "large": "https://storage.googleapis.com/smoothr-images-prod/6a9fead39fe74a3ceed5df5e_photo_large.png"
+          },
+          "kcal": 0,
+          "groupIds": [
+            "6ae7b96bc66f7c80e168cb6e"
+          ],
+          "configurable": true
         }
       ]
     }
@@ -2245,6 +2245,11 @@
           "id": "6ae7b96ac66f7c80e168ca41",
           "name": "Ohne Dressing",
           "price": 0
+        },
+        {
+          "id": "6ae926ca4e89ee85a94e2a3f",
+          "name": "Zitronenvinaigrette",
+          "price": 0
         }
       ]
     },
@@ -2315,11 +2320,6 @@
           "price": 2
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc16",
-          "name": "Shrimps",
-          "price": 5
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc17",
           "name": "Thunfisch",
           "price": 2
@@ -2335,11 +2335,6 @@
           "price": 2
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc1b",
-          "name": "Artischocken",
-          "price": 1.5
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc1c",
           "name": "Basilikum",
           "price": 0.5
@@ -2353,11 +2348,6 @@
           "id": "6ae7b96cc66f7c80e168cc1e",
           "name": "Gegrilltes Gemüse",
           "price": 3
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc1f",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96cc66f7c80e168cc20",
@@ -2428,16 +2418,6 @@
           "id": "6ae7b96cc66f7c80e168cc2e",
           "name": "Mozzarella di Bufala",
           "price": 3.5
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc2f",
-          "name": "Karamellisiert Walnüsse",
-          "price": 2
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc30",
-          "name": "Friggione",
-          "price": 2.5
         }
       ]
     },
@@ -2729,7 +2709,7 @@
         },
         {
           "id": "6ae7b970c66f7c80e168cf45",
-          "name": "Salat Dressing Zitronenvinaigrette",
+          "name": "Zitronenvinaigrette",
           "price": 0
         }
       ]
@@ -2744,11 +2724,6 @@
         {
           "id": "6ae7b96bc66f7c80e168cb6f",
           "name": "Hähnchenbruststreifen frittiert",
-          "price": 4
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb70",
-          "name": "Hähnchenbruststreifen gebraten",
           "price": 4
         },
         {
@@ -2770,11 +2745,6 @@
           "id": "6ae7b96bc66f7c80e168cb74",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb75",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96bc66f7c80e168cb76",
@@ -2835,11 +2805,6 @@
           "id": "6ae7b96bc66f7c80e168cb81",
           "name": "Gegrilltes Gemüse",
           "price": 3
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb82",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96bc66f7c80e168cb83",
@@ -2995,19 +2960,9 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96bc66f7c80e168cbce",
-          "name": "Hähnchenbruststreifen frittiert",
-          "price": 4
-        },
-        {
           "id": "6ae7b96bc66f7c80e168cbcf",
           "name": "Hähnchenbruststreifen gebraten",
           "price": 4
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd0",
-          "name": "Hinterschinken",
-          "price": 3
         },
         {
           "id": "6ae7b96bc66f7c80e168cbd1",
@@ -3030,11 +2985,6 @@
           "price": 1.75
         },
         {
-          "id": "6ae7b96bc66f7c80e168cbd6",
-          "name": "Shrimps",
-          "price": 3.5
-        },
-        {
           "id": "6ae7b96bc66f7c80e168cbd7",
           "name": "Thunfisch",
           "price": 2
@@ -3045,29 +2995,19 @@
           "price": 2
         },
         {
-          "id": "6ae7b96bc66f7c80e168cbda",
-          "name": "Edamer gewürfelt",
-          "price": 2.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbdb",
-          "name": "Mozzarella Scheiben",
+          "id": "6ae7b96bc66f7c80e168cbdc",
+          "name": "Ziegenkäse",
           "price": 3
         },
         {
-          "id": "6ae7b96bc66f7c80e168cbdc",
-          "name": "Ziegenkäse",
+          "id": "6ae7b96bc66f7c80e168cbdd",
+          "name": "Veganer Pizzaschmelz",
           "price": 3
         },
         {
           "id": "6ae7b96bc66f7c80e168cbde",
           "name": "Vegane Streifen",
           "price": 4
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbdf",
-          "name": "Ananas",
-          "price": 2
         },
         {
           "id": "6ae7b96bc66f7c80e168cbe0",
@@ -3088,16 +3028,6 @@
           "id": "6ae7b96bc66f7c80e168cbe3",
           "name": "Basilikum",
           "price": 0.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe4",
-          "name": "Frische Champignons",
-          "price": 1.75
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe5",
-          "name": "Gegrilltes Gemüse",
-          "price": 3
         },
         {
           "id": "6ae7b96bc66f7c80e168cbe6",
@@ -3128,11 +3058,6 @@
           "id": "6ae7b96bc66f7c80e168cbeb",
           "name": "Oliven schwarz ohne Stein",
           "price": 1.25
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbec",
-          "name": "Paprika",
-          "price": 1.75
         },
         {
           "id": "6ae7b96bc66f7c80e168cbed",
@@ -3179,29 +3104,14 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96cc66f7c80e168cc7a",
-          "name": "Hähnchenbruststreifen frittiert",
-          "price": 4
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc7b",
           "name": "Hähnchenbruststreifen gebraten",
           "price": 4
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc7c",
-          "name": "Hinterschinken",
-          "price": 3
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc7d",
           "name": "Rinderfiletstreifen",
           "price": 6.5
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc7e",
-          "name": "Hinterschinken gewürfelt",
-          "price": 1.75
         },
         {
           "id": "6ae7b96cc66f7c80e168cc7f",
@@ -3214,19 +3124,9 @@
           "price": 2
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc81",
-          "name": "Shrimps",
-          "price": 5
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc82",
           "name": "Thunfisch",
           "price": 2
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc83",
-          "name": "Edamer gewürfelt",
-          "price": 2.5
         },
         {
           "id": "6ae7b96cc66f7c80e168cc84",
@@ -3234,19 +3134,9 @@
           "price": 2
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc85",
-          "name": "Mozzarella Scheiben",
-          "price": 3
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc86",
           "name": "Ziegenkäse",
           "price": 3.5
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc87",
-          "name": "Ananas",
-          "price": 2
         },
         {
           "id": "6ae7b96cc66f7c80e168cc88",
@@ -3272,11 +3162,6 @@
           "id": "6ae7b96cc66f7c80e168cc8c",
           "name": "Basilikum",
           "price": 0.5
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc8d",
-          "name": "Frische Champignons",
-          "price": 2
         },
         {
           "id": "6ae7b96cc66f7c80e168cc8e",
@@ -3314,11 +3199,6 @@
           "price": 1.5
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc96",
-          "name": "Paprika",
-          "price": 2
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc97",
           "name": "Peperoni",
           "price": 1.5
@@ -3354,11 +3234,6 @@
           "price": 5
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc9e",
-          "name": "Kartoffeln",
-          "price": 1
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc9f",
           "name": "Mozzarella di Bufala",
           "price": 3.5
@@ -3372,11 +3247,6 @@
           "id": "6ae7b96cc66f7c80e168cca1",
           "name": "Karamellisiert Walnüsse",
           "price": 2
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca2",
-          "name": "Friggione",
-          "price": 2.5
         }
       ]
     },
@@ -3445,6 +3315,11 @@
         {
           "id": "6ae7b96cc66f7c80e168cc42",
           "name": "Torchio",
+          "price": 0.5
+        },
+        {
+          "id": "6ae926cb4e89ee85a94e2a40",
+          "name": "Fusilli",
           "price": 0.5
         }
       ]
@@ -3656,11 +3531,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96cc66f7c80e168cc47",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96cc66f7c80e168cc48",
           "name": "Hinterschinken",
           "price": 3
@@ -3679,11 +3549,6 @@
           "id": "6ae7b96cc66f7c80e168cc4c",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc4d",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96cc66f7c80e168cc50",
@@ -5878,11 +5743,6 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ec66f7c80e168cdca",
-          "name": "Calzone",
-          "price": 0
-        },
-        {
           "id": "6ae7b96ec66f7c80e168cdcb",
           "name": "BBQ Chicken",
           "price": 0
@@ -5890,11 +5750,6 @@
         {
           "id": "6ae7b96ec66f7c80e168cdcc",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ec66f7c80e168cdcd",
-          "name": "Capricciosa",
           "price": 0
         },
         {
@@ -6064,32 +5919,32 @@
         },
         {
           "id": "6ae7b96ec66f7c80e168cdef",
-          "name": "Insalata Pollo Italiana",
+          "name": "Pollo Italiana",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf0",
-          "name": "Insalata Mista",
+          "name": "Mista",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf1",
-          "name": "Insalata Avocado e Gamberetti",
+          "name": "Avocado e Gamberetti",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf2",
-          "name": "Insalata Caesare",
+          "name": "Caesare",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf3",
-          "name": "Insalata Quinoa e Avocado",
+          "name": "Quinoa e Avocado",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf4",
-          "name": "Insalata Campagnola",
+          "name": "Campagnola",
           "price": 0
         },
         {
@@ -6104,12 +5959,12 @@
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf7",
-          "name": "Insalata Manzo e Ceci",
+          "name": "Manzo e Ceci",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168cdf8",
-          "name": "Insalata Tonno e Limone",
+          "name": "Tonno e Limone",
           "price": 0
         },
         {
@@ -6139,7 +5994,7 @@
         },
         {
           "id": "6ae7b96ec66f7c80e168cdfe",
-          "name": "Insalata Caesare con Pollo",
+          "name": "Caesare con Pollo",
           "price": 0
         }
       ]
@@ -6171,11 +6026,6 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96fc66f7c80e168ce4b",
-          "name": "Pizza Calzone",
-          "price": 0
-        },
-        {
           "id": "6ae7b96fc66f7c80e168ce4c",
           "name": "BBQ Chicken",
           "price": 0
@@ -6183,11 +6033,6 @@
         {
           "id": "6ae7b96fc66f7c80e168ce4d",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96fc66f7c80e168ce4e",
-          "name": "Capricciosa",
           "price": 0
         },
         {
@@ -6663,11 +6508,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96dc66f7c80e168ccc4",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96dc66f7c80e168ccc5",
           "name": "Hinterschinken",
           "price": 3
@@ -6686,11 +6526,6 @@
           "id": "6ae7b96dc66f7c80e168ccc8",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168ccc9",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96dc66f7c80e168ccca",
@@ -6751,11 +6586,6 @@
           "id": "6ae7b96dc66f7c80e168ccd6",
           "name": "Gegrilltes Gemüse",
           "price": 3
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168ccd7",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96dc66f7c80e168ccd8",
@@ -6842,11 +6672,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96bc66f7c80e168cb2c",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96bc66f7c80e168cb2d",
           "name": "Hinterschinken",
           "price": 3
@@ -6865,11 +6690,6 @@
           "id": "6ae7b96bc66f7c80e168cb30",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb31",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96bc66f7c80e168cb32",
@@ -6940,11 +6760,6 @@
           "id": "6ae7b96bc66f7c80e168cb3f",
           "name": "Gegrilltes Gemüse",
           "price": 3
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb40",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96bc66f7c80e168cb41",
@@ -7186,11 +7001,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96bc66f7c80e168cba1",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96bc66f7c80e168cba2",
           "name": "Hinterschinken",
           "price": 3
@@ -7209,11 +7019,6 @@
           "id": "6ae7b96bc66f7c80e168cba5",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cba6",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96bc66f7c80e168cba7",
@@ -7284,11 +7089,6 @@
           "id": "6ae7b96bc66f7c80e168cbb4",
           "name": "Gegrilltes Gemüse",
           "price": 3
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbb5",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96bc66f7c80e168cbb6",
@@ -7549,11 +7349,6 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ec66f7c80e168ce00",
-          "name": "Calzone",
-          "price": 0
-        },
-        {
           "id": "6ae7b96ec66f7c80e168ce01",
           "name": "BBQ Chicken",
           "price": 0
@@ -7561,11 +7356,6 @@
         {
           "id": "6ae7b96ec66f7c80e168ce02",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ec66f7c80e168ce03",
-          "name": "Capricciosa",
           "price": 0
         },
         {
@@ -7715,32 +7505,32 @@
         },
         {
           "id": "6ae7b96ec66f7c80e168ce21",
-          "name": "Insalata Caesare con Pollo",
+          "name": "Caesare con Pollo",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce22",
-          "name": "Insalata Mista",
+          "name": "Mista",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce23",
-          "name": "Insalata Avocado e Gamberetti",
+          "name": "Avocado e Gamberetti",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce24",
-          "name": "Insalata Caesare",
+          "name": "Caesare",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce25",
-          "name": "Insalata Quinoa e Avocado",
+          "name": "Quinoa e Avocado",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce26",
-          "name": "Insalata Campagnola",
+          "name": "Campagnola",
           "price": 0
         },
         {
@@ -7760,17 +7550,17 @@
         },
         {
           "id": "6ae7b96ec66f7c80e168ce2a",
-          "name": "Insalata Pollo Italiana",
+          "name": "Pollo Italiana",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce2b",
-          "name": "Insalata Manzo e Ceci",
+          "name": "Manzo e Ceci",
           "price": 0
         },
         {
           "id": "6ae7b96ec66f7c80e168ce2c",
-          "name": "Insalata Tonno e Limone",
+          "name": "Tonno e Limone",
           "price": 0
         },
         {
@@ -7862,11 +7652,6 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96fc66f7c80e168ce78",
-          "name": "Calzone",
-          "price": 0
-        },
-        {
           "id": "6ae7b96fc66f7c80e168ce79",
           "name": "BBQ Chicken",
           "price": 0
@@ -7874,11 +7659,6 @@
         {
           "id": "6ae7b96fc66f7c80e168ce7a",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96fc66f7c80e168ce7b",
-          "name": "Capricciosa",
           "price": 0
         },
         {
@@ -8096,11 +7876,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96dc66f7c80e168ccf7",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96dc66f7c80e168ccf8",
           "name": "Hinterschinken",
           "price": 3
@@ -8119,11 +7894,6 @@
           "id": "6ae7b96dc66f7c80e168ccfb",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168ccfc",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96dc66f7c80e168ccfd",
@@ -8179,11 +7949,6 @@
           "id": "6ae7b96dc66f7c80e168cd08",
           "name": "Frische Champignons",
           "price": 2
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168cd0a",
-          "name": "Halbgetrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96dc66f7c80e168cd0b",
@@ -8265,11 +8030,6 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96fc66f7c80e168cea5",
-          "name": "Calzone",
-          "price": 0
-        },
-        {
           "id": "6ae7b96fc66f7c80e168cea6",
           "name": "BBQ Chicken",
           "price": 0
@@ -8277,11 +8037,6 @@
         {
           "id": "6ae7b96fc66f7c80e168cea7",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96fc66f7c80e168cea8",
-          "name": "Capricciosa",
           "price": 0
         },
         {
@@ -8499,11 +8254,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96dc66f7c80e168cd2a",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96dc66f7c80e168cd2b",
           "name": "Hinterschinken",
           "price": 3
@@ -8522,11 +8272,6 @@
           "id": "6ae7b96dc66f7c80e168cd2e",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168cd2f",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96dc66f7c80e168cd30",
@@ -8582,11 +8327,6 @@
           "id": "6ae7b96dc66f7c80e168cd3b",
           "name": "Frische Champignons",
           "price": 2
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168cd3d",
-          "name": "Halbgetrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96dc66f7c80e168cd3e",
@@ -8668,11 +8408,6 @@
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b970c66f7c80e168ced2",
-          "name": "Calzone",
-          "price": 0
-        },
-        {
           "id": "6ae7b970c66f7c80e168ced3",
           "name": "BBQ Chicken",
           "price": 0
@@ -8680,11 +8415,6 @@
         {
           "id": "6ae7b970c66f7c80e168ced4",
           "name": "Caesare e Pollo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b970c66f7c80e168ced5",
-          "name": "Capricciosa",
           "price": 0
         },
         {
@@ -8902,11 +8632,6 @@
           "price": 4
         },
         {
-          "id": "6ae7b96dc66f7c80e168cd5d",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
           "id": "6ae7b96dc66f7c80e168cd5e",
           "name": "Hinterschinken",
           "price": 3
@@ -8925,11 +8650,6 @@
           "id": "6ae7b96dc66f7c80e168cd61",
           "name": "Salsiccia piccante",
           "price": 2.5
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168cd62",
-          "name": "Speck",
-          "price": 1.75
         },
         {
           "id": "6ae7b96dc66f7c80e168cd63",
@@ -8985,11 +8705,6 @@
           "id": "6ae7b96dc66f7c80e168cd6e",
           "name": "Frische Champignons",
           "price": 2
-        },
-        {
-          "id": "6ae7b96dc66f7c80e168cd70",
-          "name": "Halbgetrocknete Kirschtomaten",
-          "price": 4
         },
         {
           "id": "6ae7b96dc66f7c80e168cd71",
@@ -9093,5 +8808,5 @@
       ]
     }
   },
-  "checkedAt": "2026-11-02T12:32:05.905Z"
+  "checkedAt": "2026-11-03T11:59:23.012Z"
 }
