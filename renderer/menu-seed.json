@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-11-03T11:59:23.008Z",
+  "fetchedAt": "2026-11-05T12:26:58.417Z",
   "categories": [
     {
       "id": "6ae7b987c66f7c80e16a87c8",
@@ -2016,7 +2016,7 @@
         },
         {
           "id": "6ae7b96ac66f7c80e168cb1a",
-          "name": "ohne Mozzarella di Bufala",
+          "name": "ohne Mini Büffel Mozzarella",
           "price": 0
         },
         {
@@ -2416,7 +2416,7 @@
         },
         {
           "id": "6ae7b96cc66f7c80e168cc2e",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         }
       ]
@@ -2908,7 +2908,7 @@
         },
         {
           "id": "6ae7b96bc66f7c80e168cb97",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -3091,7 +3091,7 @@
         },
         {
           "id": "6ae7b96cc66f7c80e168cc0a",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         }
       ]
@@ -3235,7 +3235,7 @@
         },
         {
           "id": "6ae7b96cc66f7c80e168cc9f",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -3687,7 +3687,7 @@
         },
         {
           "id": "6ae7b96cc66f7c80e168cc78",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         }
       ]
@@ -4237,7 +4237,7 @@
         },
         {
           "id": "6ae7b96ac66f7c80e168ca08",
-          "name": "ohne Mozzarella di Bufala",
+          "name": "ohne Mini Büffel Mozzarella",
           "price": 0
         }
       ]
@@ -6639,7 +6639,7 @@
         },
         {
           "id": "6ae7b96dc66f7c80e168ccf1",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -6973,7 +6973,7 @@
         },
         {
           "id": "6ae7b96bc66f7c80e168cb6b",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -7192,7 +7192,7 @@
         },
         {
           "id": "6ae7b96bc66f7c80e168cbca",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -8002,7 +8002,7 @@
         },
         {
           "id": "6ae7b96dc66f7c80e168cd24",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -8380,7 +8380,7 @@
         },
         {
           "id": "6ae7b96dc66f7c80e168cd57",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -8758,7 +8758,7 @@
         },
         {
           "id": "6ae7b96dc66f7c80e168cd8a",
-          "name": "Mozzarella di Bufala",
+          "name": "Mini Büffel Mozzarella",
           "price": 3.5
         },
         {
@@ -8808,5 +8808,5 @@
       ]
     }
   },
-  "checkedAt": "2026-11-03T11:59:23.012Z"
+  "checkedAt": "2026-11-05T12:26:58.419Z"
 }
