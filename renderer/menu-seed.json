@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-11-06T12:10:50.357Z",
+  "fetchedAt": "2026-11-07T11:07:47.017Z",
   "categories": [
     {
       "id": "6ae7b987c66f7c80e16a87c8",
@@ -1987,6 +1987,45 @@
     }
   ],
   "optionGroups": {
+    "6ae7b96ac66f7c80e168cb15": {
+      "id": "6ae7b96ac66f7c80e168cb15",
+      "name": "Bitte folgende Zutat weglassen (Pollo Italiana).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168cb16",
+          "name": "ohne Hähnchenbruststreifen gebraten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb17",
+          "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb18",
+          "name": "ohne Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb19",
+          "name": "ohne Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb1a",
+          "name": "ohne Mini Büffel Mozzarella",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb1b",
+          "name": "ohne Zitronenvinaigrette",
+          "price": 0
+        }
+      ]
+    },
     "6ae7b96ac66f7c80e168cb1c": {
       "id": "6ae7b96ac66f7c80e168cb1c",
       "name": "Bitte folgende Zutat weglassen (Insalata Caesare).",
@@ -2006,6 +2045,35 @@
         },
         {
           "id": "6ae7b96ac66f7c80e168cb1f",
+          "name": "ohne Pfeffer",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168cb10": {
+      "id": "6ae7b96ac66f7c80e168cb10",
+      "name": "Bitte folgende Zutat weglassen (Insalata Quinoa Avocado).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168cb11",
+          "name": "ohne Avocado",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb12",
+          "name": "ohne Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb13",
+          "name": "ohne Rote Bete",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb14",
           "name": "ohne Pfeffer",
           "price": 0
         }
@@ -2065,74 +2133,6 @@
         {
           "id": "6ae7b96bc66f7c80e168cb29",
           "name": "ohne Walnüsse",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168cb15": {
-      "id": "6ae7b96ac66f7c80e168cb15",
-      "name": "Bitte folgende Zutat weglassen (Pollo Italiana).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168cb16",
-          "name": "ohne Hähnchenbruststreifen gebraten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb17",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb18",
-          "name": "ohne Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb19",
-          "name": "ohne Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb1a",
-          "name": "ohne Mini Büffel Mozzarella",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb1b",
-          "name": "ohne Zitronenvinaigrette",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168cb10": {
-      "id": "6ae7b96ac66f7c80e168cb10",
-      "name": "Bitte folgende Zutat weglassen (Insalata Quinoa Avocado).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168cb11",
-          "name": "ohne Avocado",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb12",
-          "name": "ohne Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb13",
-          "name": "ohne Rote Bete",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb14",
-          "name": "ohne Pfeffer",
           "price": 0
         }
       ]
@@ -2435,6 +2435,35 @@
         }
       ]
     },
+    "6ae7b96cc66f7c80e168cca3": {
+      "id": "6ae7b96cc66f7c80e168cca3",
+      "name": "Pizzabrötchen classic Dips.",
+      "min": 0,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96cc66f7c80e168cca4",
+          "name": "Italiana DIP (Knoblauch Dip)",
+          "price": 1.75
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cca5",
+          "name": "Kräuterbutter",
+          "price": 0.75
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cca6",
+          "name": "Rosso Delizioso",
+          "price": 1.75
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cca7",
+          "name": "Tartufo Dip",
+          "price": 1.75
+        }
+      ]
+    },
     "6ae7b96cc66f7c80e168cca8": {
       "id": "6ae7b96cc66f7c80e168cca8",
       "name": "Pizza Halb | Halb 1.",
@@ -2566,35 +2595,6 @@
           "id": "6ae7b96cc66f7c80e168ccc1",
           "name": "1/2 Prosciutto",
           "price": 14.95
-        }
-      ]
-    },
-    "6ae7b96cc66f7c80e168cca3": {
-      "id": "6ae7b96cc66f7c80e168cca3",
-      "name": "Pizzabrötchen classic Dips.",
-      "min": 0,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96cc66f7c80e168cca4",
-          "name": "Italiana DIP (Knoblauch Dip)",
-          "price": 1.75
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca5",
-          "name": "Kräuterbutter",
-          "price": 0.75
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca6",
-          "name": "Rosso Delizioso",
-          "price": 1.75
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca7",
-          "name": "Tartufo Dip",
-          "price": 1.75
         }
       ]
     },
@@ -2923,6 +2923,179 @@
         }
       ]
     },
+    "6ae7b96bc66f7c80e168cb9a": {
+      "id": "6ae7b96bc66f7c80e168cb9a",
+      "name": "Pizza BYO Käse AG.",
+      "min": 1,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96bc66f7c80e168cb9b",
+          "name": "Edamer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cb9c",
+          "name": "Mozzarella Würfel 180g",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cb9d",
+          "name": "Veganer Pizzaschmelz",
+          "price": 1
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cb9e",
+          "name": "ohne Käse",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96bc66f7c80e168cbcd": {
+      "id": "6ae7b96bc66f7c80e168cbcd",
+      "name": "Salat BYO Topping AG cor.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96bc66f7c80e168cbcf",
+          "name": "Hähnchenbruststreifen gebraten",
+          "price": 4
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbd1",
+          "name": "Prosciutto Crudo",
+          "price": 5
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbd2",
+          "name": "Rinderfiletstreifen",
+          "price": 5
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbd4",
+          "name": "Garnelen",
+          "price": 5
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbd5",
+          "name": "Sardellen",
+          "price": 1.75
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbd7",
+          "name": "Thunfisch",
+          "price": 2
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbd9",
+          "name": "Italienischer Hartkäse",
+          "price": 2
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbdc",
+          "name": "Ziegenkäse",
+          "price": 3
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbdd",
+          "name": "Veganer Pizzaschmelz",
+          "price": 3
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbde",
+          "name": "Vegane Streifen",
+          "price": 4
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe0",
+          "name": "Apfelwürfel",
+          "price": 0.75
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe1",
+          "name": "Artischocken",
+          "price": 1.25
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe2",
+          "name": "Avocado",
+          "price": 2.5
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe3",
+          "name": "Basilikum",
+          "price": 0.5
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe6",
+          "name": "Gurken-Radieschen-Mix",
+          "price": 0.75
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe7",
+          "name": "Halb getrocknete Kirschtomaten",
+          "price": 4
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe8",
+          "name": "Kapern",
+          "price": 1
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbe9",
+          "name": "Kirschtomaten",
+          "price": 2.5
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbea",
+          "name": "Mais",
+          "price": 1
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbeb",
+          "name": "Oliven schwarz ohne Stein",
+          "price": 1.25
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbed",
+          "name": "Peperoni",
+          "price": 1.25
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbee",
+          "name": "Rote Bete",
+          "price": 2
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbef",
+          "name": "Rucola",
+          "price": 2.75
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbf1",
+          "name": "Rote Zwiebeln",
+          "price": 1.25
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbf3",
+          "name": "Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96bc66f7c80e168cbfb",
+          "name": "Burrata",
+          "price": 5
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cc0a",
+          "name": "Mini Büffel Mozzarella",
+          "price": 3.5
+        }
+      ]
+    },
     "6ae7b96cc66f7c80e168cc79": {
       "id": "6ae7b96cc66f7c80e168cc79",
       "name": "Salat : Möchtest du Toppings drauf?.",
@@ -3072,179 +3245,6 @@
         }
       ]
     },
-    "6ae7b96bc66f7c80e168cbcd": {
-      "id": "6ae7b96bc66f7c80e168cbcd",
-      "name": "Salat BYO Topping AG cor.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96bc66f7c80e168cbcf",
-          "name": "Hähnchenbruststreifen gebraten",
-          "price": 4
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd1",
-          "name": "Prosciutto Crudo",
-          "price": 5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd2",
-          "name": "Rinderfiletstreifen",
-          "price": 5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd4",
-          "name": "Garnelen",
-          "price": 5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd5",
-          "name": "Sardellen",
-          "price": 1.75
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd7",
-          "name": "Thunfisch",
-          "price": 2
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbd9",
-          "name": "Italienischer Hartkäse",
-          "price": 2
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbdc",
-          "name": "Ziegenkäse",
-          "price": 3
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbdd",
-          "name": "Veganer Pizzaschmelz",
-          "price": 3
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbde",
-          "name": "Vegane Streifen",
-          "price": 4
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe0",
-          "name": "Apfelwürfel",
-          "price": 0.75
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe1",
-          "name": "Artischocken",
-          "price": 1.25
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe2",
-          "name": "Avocado",
-          "price": 2.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe3",
-          "name": "Basilikum",
-          "price": 0.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe6",
-          "name": "Gurken-Radieschen-Mix",
-          "price": 0.75
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe7",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe8",
-          "name": "Kapern",
-          "price": 1
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbe9",
-          "name": "Kirschtomaten",
-          "price": 2.5
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbea",
-          "name": "Mais",
-          "price": 1
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbeb",
-          "name": "Oliven schwarz ohne Stein",
-          "price": 1.25
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbed",
-          "name": "Peperoni",
-          "price": 1.25
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbee",
-          "name": "Rote Bete",
-          "price": 2
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbef",
-          "name": "Rucola",
-          "price": 2.75
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbf1",
-          "name": "Rote Zwiebeln",
-          "price": 1.25
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbf3",
-          "name": "Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cbfb",
-          "name": "Burrata",
-          "price": 5
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cc0a",
-          "name": "Mini Büffel Mozzarella",
-          "price": 3.5
-        }
-      ]
-    },
-    "6ae7b96bc66f7c80e168cb9a": {
-      "id": "6ae7b96bc66f7c80e168cb9a",
-      "name": "Pizza BYO Käse AG.",
-      "min": 1,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96bc66f7c80e168cb9b",
-          "name": "Edamer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb9c",
-          "name": "Mozzarella Würfel 180g",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb9d",
-          "name": "Veganer Pizzaschmelz",
-          "price": 1
-        },
-        {
-          "id": "6ae7b96bc66f7c80e168cb9e",
-          "name": "ohne Käse",
-          "price": 0
-        }
-      ]
-    },
     "6ae7b96cc66f7c80e168cc36": {
       "id": "6ae7b96cc66f7c80e168cc36",
       "name": "Pasta tauschen?.",
@@ -3319,6 +3319,67 @@
         }
       ]
     },
+    "6ae7b96ec66f7c80e168cdb7": {
+      "id": "6ae7b96ec66f7c80e168cdb7",
+      "name": "Pop up BBQ Chicken.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ec66f7c80e168cdb8",
+          "name": "Mais",
+          "price": 1.5
+        }
+      ]
+    },
+    "6ae7b96ec66f7c80e168cdbd": {
+      "id": "6ae7b96ec66f7c80e168cdbd",
+      "name": "Pop up Prosciutto e Funghi.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ec66f7c80e168cdbe",
+          "name": "Mais",
+          "price": 1.5
+        },
+        {
+          "id": "6ae7b96ec66f7c80e168cdbf",
+          "name": "Salami",
+          "price": 2.5
+        }
+      ]
+    },
+    "6ae7b96ec66f7c80e168cdbb": {
+      "id": "6ae7b96ec66f7c80e168cdbb",
+      "name": "Pop up Quattro Formaggi.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ec66f7c80e168cdbc",
+          "name": "Gegrilltes Gemüse",
+          "price": 3
+        }
+      ]
+    },
+    "6ae7b96ec66f7c80e168cdb9": {
+      "id": "6ae7b96ec66f7c80e168cdb9",
+      "name": "Pop up Vegetariana.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ec66f7c80e168cdba",
+          "name": "Halb getrocknete Kirschtomaten",
+          "price": 4
+        }
+      ]
+    },
     "6ae7b96ec66f7c80e168cdc2": {
       "id": "6ae7b96ec66f7c80e168cdc2",
       "name": "Pop up Rucola.",
@@ -3345,67 +3406,6 @@
           "id": "6ae7b96ec66f7c80e168cdc6",
           "name": "Prosciutto Crudo",
           "price": 5
-        }
-      ]
-    },
-    "6ae7b96ec66f7c80e168cdbd": {
-      "id": "6ae7b96ec66f7c80e168cdbd",
-      "name": "Pop up Prosciutto e Funghi.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ec66f7c80e168cdbe",
-          "name": "Mais",
-          "price": 1.5
-        },
-        {
-          "id": "6ae7b96ec66f7c80e168cdbf",
-          "name": "Salami",
-          "price": 2.5
-        }
-      ]
-    },
-    "6ae7b96ec66f7c80e168cdb9": {
-      "id": "6ae7b96ec66f7c80e168cdb9",
-      "name": "Pop up Vegetariana.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ec66f7c80e168cdba",
-          "name": "Halb getrocknete Kirschtomaten",
-          "price": 4
-        }
-      ]
-    },
-    "6ae7b96ec66f7c80e168cdbb": {
-      "id": "6ae7b96ec66f7c80e168cdbb",
-      "name": "Pop up Quattro Formaggi.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ec66f7c80e168cdbc",
-          "name": "Gegrilltes Gemüse",
-          "price": 3
-        }
-      ]
-    },
-    "6ae7b96ec66f7c80e168cdb7": {
-      "id": "6ae7b96ec66f7c80e168cdb7",
-      "name": "Pop up BBQ Chicken.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ec66f7c80e168cdb8",
-          "name": "Mais",
-          "price": 1.5
         }
       ]
     },
@@ -3687,49 +3687,6 @@
         }
       ]
     },
-    "6ae7b969c66f7c80e168c9a7": {
-      "id": "6ae7b969c66f7c80e168c9a7",
-      "name": "Bitte folgende Zutat weglassen (Rigatoni Gorgonzola).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b969c66f7c80e168c9a8",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b969c66f7c80e168c9a9",
-          "name": "ohne Petersilie",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b969c66f7c80e168c9aa": {
-      "id": "6ae7b969c66f7c80e168c9aa",
-      "name": "Bitte folgende Zutat weglassen (Insalata Caprino e Fragole)",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b969c66f7c80e168c9ab",
-          "name": "Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b969c66f7c80e168c9ac",
-          "name": "Pinienkerne",
-          "price": 0
-        },
-        {
-          "id": "6ae7b969c66f7c80e168c9ad",
-          "name": "Haus-Dressing",
-          "price": 0
-        }
-      ]
-    },
     "6ae7b969c66f7c80e168c9ae": {
       "id": "6ae7b969c66f7c80e168c9ae",
       "name": "Bitte folgende Zutat weglassen (Antipasti della Casa).",
@@ -3789,46 +3746,45 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168c9c2": {
-      "id": "6ae7b96ac66f7c80e168c9c2",
-      "name": "Bitte folgende Zutat weglassen (BBQ Chicken).",
+    "6ae7b969c66f7c80e168c9aa": {
+      "id": "6ae7b969c66f7c80e168c9aa",
+      "name": "Bitte folgende Zutat weglassen (Insalata Caprino e Fragole)",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168c9c3",
-          "name": "ohne Hähnchenbruststreifen frittiert",
+          "id": "6ae7b969c66f7c80e168c9ab",
+          "name": "Kirschtomaten",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9c4",
-          "name": "ohne Mozzarella Würfel",
+          "id": "6ae7b969c66f7c80e168c9ac",
+          "name": "Pinienkerne",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9c5",
-          "name": "ohne  Paprika",
+          "id": "6ae7b969c66f7c80e168c9ad",
+          "name": "Haus-Dressing",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b969c66f7c80e168c9a7": {
+      "id": "6ae7b969c66f7c80e168c9a7",
+      "name": "Bitte folgende Zutat weglassen (Rigatoni Gorgonzola).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b969c66f7c80e168c9a8",
+          "name": "ohne Italienischer Hartkäse",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9c6",
-          "name": "ohne  Rote Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9c7",
-          "name": "ohne  scharfes Öl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9c8",
-          "name": "ohne  BBQ-Sauce",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9c9",
-          "name": "ohne Friggione",
+          "id": "6ae7b969c66f7c80e168c9a9",
+          "name": "ohne Petersilie",
           "price": 0
         }
       ]
@@ -3882,215 +3838,84 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca1b": {
-      "id": "6ae7b96ac66f7c80e168ca1b",
-      "name": "Bitte folgende Zutat weglassen (Vegetariana).",
+    "6ae7b96ac66f7c80e168c9c2": {
+      "id": "6ae7b96ac66f7c80e168c9c2",
+      "name": "Bitte folgende Zutat weglassen (BBQ Chicken).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca1c",
+          "id": "6ae7b96ac66f7c80e168c9c3",
+          "name": "ohne Hähnchenbruststreifen frittiert",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9c4",
           "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca1d",
+          "id": "6ae7b96ac66f7c80e168c9c5",
+          "name": "ohne  Paprika",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9c6",
+          "name": "ohne  Rote Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9c7",
+          "name": "ohne  scharfes Öl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9c8",
+          "name": "ohne  BBQ-Sauce",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9c9",
+          "name": "ohne Friggione",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168c9ca": {
+      "id": "6ae7b96ac66f7c80e168c9ca",
+      "name": "Bitte folgende Zutat weglassen (Capricciosa).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168c9cb",
+          "name": "ohne Hinterschinken",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9cc",
+          "name": "ohne Edamer gewürfelt",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9cd",
+          "name": "ohne Artischocken",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9ce",
           "name": "ohne Frische Champignons",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca1e",
-          "name": "ohne Gegrilltes Gemüse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca1f",
-          "name": "ohne Rucola",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca20",
-          "name": "ohne Knoblauchöl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca21",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca13": {
-      "id": "6ae7b96ac66f7c80e168ca13",
-      "name": "Bitte folgende Zutat weglassen (Rustica).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca14",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca15",
+          "id": "6ae7b96ac66f7c80e168c9cf",
           "name": "ohne Oliven schwarz ohne Stein",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca16",
-          "name": "ohne Tomate",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca17",
-          "name": "ohne Rote Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca18",
-          "name": "ohne Oregano",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca19",
-          "name": "ohne scharfes Öl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca1a",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca09": {
-      "id": "6ae7b96ac66f7c80e168ca09",
-      "name": "Bitte folgende Zutat weglassen (Parmigiana).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca0a",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca0b",
-          "name": "ohne Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca0c",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca0d",
-          "name": "Ohne Italienischer Hartkäse",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168c9fb": {
-      "id": "6ae7b96ac66f7c80e168c9fb",
-      "name": "Bitte folgende Zutat weglassen (Caprese).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168c9fc",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9fd",
-          "name": "ohne Mozzarella Scheiben",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9fe",
-          "name": "ohne Basilikum",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9ff",
-          "name": "ohne  Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca00",
-          "name": "ohne Olivenöl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca01",
-          "name": "ohne  Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca02",
-          "name": "ohne  Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168c9e4": {
-      "id": "6ae7b96ac66f7c80e168c9e4",
-      "name": "Bitte folgende Zutat weglassen (Quattro Formaggi).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168c9e5",
-          "name": "ohne Edamer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9e6",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9e7",
-          "name": "ohne Gorgonzola",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9e8",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9e9",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168c9e0": {
-      "id": "6ae7b96ac66f7c80e168c9e0",
-      "name": "Bitte folgende Zutat weglassen (Prosciutto Crudo).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168c9e1",
-          "name": "ohne Prosciutto Crudo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9e2",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9e3",
+          "id": "6ae7b96ac66f7c80e168c9d0",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -4145,6 +3970,98 @@
         }
       ]
     },
+    "6ae7b96ac66f7c80e168c9da": {
+      "id": "6ae7b96ac66f7c80e168c9da",
+      "name": "Bitte folgende Zutat weglassen (Nduja Calabrese).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168c9db",
+          "name": "ohne Nduja",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9dc",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9dd",
+          "name": "ohne halb getrocknete Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9de",
+          "name": "ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9df",
+          "name": "ohne  Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168c9e0": {
+      "id": "6ae7b96ac66f7c80e168c9e0",
+      "name": "Bitte folgende Zutat weglassen (Prosciutto Crudo).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168c9e1",
+          "name": "ohne Prosciutto Crudo",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9e2",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9e3",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168c9e4": {
+      "id": "6ae7b96ac66f7c80e168c9e4",
+      "name": "Bitte folgende Zutat weglassen (Quattro Formaggi).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168c9e5",
+          "name": "ohne Edamer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9e6",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9e7",
+          "name": "ohne Gorgonzola",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9e8",
+          "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9e9",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
     "6ae7b96ac66f7c80e168c9ea": {
       "id": "6ae7b96ac66f7c80e168c9ea",
       "name": "Bitte folgende Zutat weglassen (Rucola).",
@@ -4174,6 +4091,35 @@
         },
         {
           "id": "6ae7b96ac66f7c80e168c9ef",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168c9f0": {
+      "id": "6ae7b96ac66f7c80e168c9f0",
+      "name": "Bitte folgende Zutat weglassen (Tonno).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168c9f1",
+          "name": "ohne Thunfisch",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9f2",
+          "name": "ohne Edamer gewürfelt",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9f3",
+          "name": "ohne Rote Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168c9f4",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -4213,31 +4159,46 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168c9f0": {
-      "id": "6ae7b96ac66f7c80e168c9f0",
-      "name": "Bitte folgende Zutat weglassen (Tonno).",
+    "6ae7b96ac66f7c80e168c9fb": {
+      "id": "6ae7b96ac66f7c80e168c9fb",
+      "name": "Bitte folgende Zutat weglassen (Caprese).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168c9f1",
-          "name": "ohne Thunfisch",
+          "id": "6ae7b96ac66f7c80e168c9fc",
+          "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9f2",
-          "name": "ohne Edamer gewürfelt",
+          "id": "6ae7b96ac66f7c80e168c9fd",
+          "name": "ohne Mozzarella Scheiben",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9f3",
-          "name": "ohne Rote Zwiebeln",
+          "id": "6ae7b96ac66f7c80e168c9fe",
+          "name": "ohne Basilikum",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9f4",
-          "name": "ohne Tomatensauce",
+          "id": "6ae7b96ac66f7c80e168c9ff",
+          "name": "ohne  Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca00",
+          "name": "ohne Olivenöl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca01",
+          "name": "ohne  Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca02",
+          "name": "ohne  Tomatensauce",
           "price": 0
         }
       ]
@@ -4276,75 +4237,31 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168c9ca": {
-      "id": "6ae7b96ac66f7c80e168c9ca",
-      "name": "Bitte folgende Zutat weglassen (Capricciosa).",
+    "6ae7b96ac66f7c80e168ca09": {
+      "id": "6ae7b96ac66f7c80e168ca09",
+      "name": "Bitte folgende Zutat weglassen (Parmigiana).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168c9cb",
-          "name": "ohne Hinterschinken",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9cc",
-          "name": "ohne Edamer gewürfelt",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9cd",
-          "name": "ohne Artischocken",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9ce",
-          "name": "ohne Frische Champignons",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9cf",
-          "name": "ohne Oliven schwarz ohne Stein",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9d0",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168c9da": {
-      "id": "6ae7b96ac66f7c80e168c9da",
-      "name": "Bitte folgende Zutat weglassen (Nduja Calabrese).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168c9db",
-          "name": "ohne Nduja",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168c9dc",
+          "id": "6ae7b96ac66f7c80e168ca0a",
           "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9dd",
-          "name": "ohne halb getrocknete Kirschtomaten",
+          "id": "6ae7b96ac66f7c80e168ca0b",
+          "name": "ohne Kirschtomaten",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9de",
-          "name": "ohne Rucola",
+          "id": "6ae7b96ac66f7c80e168ca0c",
+          "name": "ohne Tomatensauce",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168c9df",
-          "name": "ohne  Tomatensauce",
+          "id": "6ae7b96ac66f7c80e168ca0d",
+          "name": "Ohne Italienischer Hartkäse",
           "price": 0
         }
       ]
@@ -4378,6 +4295,89 @@
         }
       ]
     },
+    "6ae7b96ac66f7c80e168ca13": {
+      "id": "6ae7b96ac66f7c80e168ca13",
+      "name": "Bitte folgende Zutat weglassen (Rustica).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca14",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca15",
+          "name": "ohne Oliven schwarz ohne Stein",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca16",
+          "name": "ohne Tomate",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca17",
+          "name": "ohne Rote Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca18",
+          "name": "ohne Oregano",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca19",
+          "name": "ohne scharfes Öl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca1a",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca1b": {
+      "id": "6ae7b96ac66f7c80e168ca1b",
+      "name": "Bitte folgende Zutat weglassen (Vegetariana).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca1c",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca1d",
+          "name": "ohne Frische Champignons",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca1e",
+          "name": "ohne Gegrilltes Gemüse",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca1f",
+          "name": "ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca20",
+          "name": "ohne Knoblauchöl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca21",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
     "6ae7b96ac66f7c80e168ca22": {
       "id": "6ae7b96ac66f7c80e168ca22",
       "name": "Bitte folgende Zutat weglassen (Funghi Freschi).",
@@ -4398,30 +4398,6 @@
         {
           "id": "6ae7b96ac66f7c80e168ca25",
           "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca2a": {
-      "id": "6ae7b96ac66f7c80e168ca2a",
-      "name": "Bitte folgende Zutat weglassen (Salami).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca2b",
-          "name": "ohne Salami",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca2c",
-          "name": "ohne Edamer gewürfelt",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca2d",
-          "name": "ohne  Tomatensauce",
           "price": 0
         }
       ]
@@ -4450,123 +4426,26 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca46": {
-      "id": "6ae7b96ac66f7c80e168ca46",
-      "name": "Bitte folgende Zutat weglassen  Gnocchi Gamberetti.",
+    "6ae7b96ac66f7c80e168ca2a": {
+      "id": "6ae7b96ac66f7c80e168ca2a",
+      "name": "Bitte folgende Zutat weglassen (Salami).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca47",
-          "name": "ohne Garnelen",
+          "id": "6ae7b96ac66f7c80e168ca2b",
+          "name": "ohne Salami",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca48",
-          "name": "ohne Petersilie",
+          "id": "6ae7b96ac66f7c80e168ca2c",
+          "name": "ohne Edamer gewürfelt",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca49",
-          "name": "ohne scharfes Öl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca4a",
-          "name": "ohne Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca4b",
-          "name": "ohne Knoblauchöl",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca4c": {
-      "id": "6ae7b96ac66f7c80e168ca4c",
-      "name": "Bitte folgende Zutat weglassen (Fusilli Pesto Genovese).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca4d",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca4e",
-          "name": "ohne Basilikum",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca54": {
-      "id": "6ae7b96ac66f7c80e168ca54",
-      "name": "Bitte folgende Zutat weglassen (Orecchiette di Manzo al Limone).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca55",
-          "name": "ohne Rinderfiletstreifen",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca56",
-          "name": "ohne Paprika",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca57",
-          "name": "ohne Rucola",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca58",
-          "name": "ohne Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca59",
-          "name": "ohne scharfes Öl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca5a",
-          "name": "ohne Knoblauchöl",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca4f": {
-      "id": "6ae7b96ac66f7c80e168ca4f",
-      "name": "Bitte folgende Zutat weglassen Mezzalune Spinaci.",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca50",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca51",
-          "name": "ohne Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca52",
-          "name": "ohne Spinat",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca53",
-          "name": "ohne Knoblauchöl",
+          "id": "6ae7b96ac66f7c80e168ca2d",
+          "name": "ohne  Tomatensauce",
           "price": 0
         }
       ]
@@ -4629,55 +4508,123 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca75": {
-      "id": "6ae7b96ac66f7c80e168ca75",
-      "name": "Bitte folgende Zutat weglassen (Tortelloni Prosciutto e Panna).",
+    "6ae7b96ac66f7c80e168ca46": {
+      "id": "6ae7b96ac66f7c80e168ca46",
+      "name": "Bitte folgende Zutat weglassen  Gnocchi Gamberetti.",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca76",
-          "name": "ohne Hinterschinken gewürfelt",
+          "id": "6ae7b96ac66f7c80e168ca47",
+          "name": "ohne Garnelen",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca77",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca78",
-          "name": "ohne Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca79",
+          "id": "6ae7b96ac66f7c80e168ca48",
           "name": "ohne Petersilie",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca49",
+          "name": "ohne scharfes Öl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca4a",
+          "name": "ohne Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca4b",
+          "name": "ohne Knoblauchöl",
           "price": 0
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca68": {
-      "id": "6ae7b96ac66f7c80e168ca68",
-      "name": "Bitte folgende Zutat weglassen Spaghetti Carbonara.",
+    "6ae7b96ac66f7c80e168ca4c": {
+      "id": "6ae7b96ac66f7c80e168ca4c",
+      "name": "Bitte folgende Zutat weglassen (Fusilli Pesto Genovese).",
       "min": 0,
       "max": 999,
       "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca69",
-          "name": "ohne Speck",
+          "id": "6ae7b96ac66f7c80e168ca4d",
+          "name": "ohne Italienischer Hartkäse",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca6a",
-          "name": "ohne  Italienischer Hartkäse",
+          "id": "6ae7b96ac66f7c80e168ca4e",
+          "name": "ohne Basilikum",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca4f": {
+      "id": "6ae7b96ac66f7c80e168ca4f",
+      "name": "Bitte folgende Zutat weglassen Mezzalune Spinaci.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca50",
+          "name": "ohne Italienischer Hartkäse",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca6b",
-          "name": "ohne  Petersilie",
+          "id": "6ae7b96ac66f7c80e168ca51",
+          "name": "ohne Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca52",
+          "name": "ohne Spinat",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca53",
+          "name": "ohne Knoblauchöl",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca54": {
+      "id": "6ae7b96ac66f7c80e168ca54",
+      "name": "Bitte folgende Zutat weglassen (Orecchiette di Manzo al Limone).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca55",
+          "name": "ohne Rinderfiletstreifen",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca56",
+          "name": "ohne Paprika",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca57",
+          "name": "ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca58",
+          "name": "ohne Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca59",
+          "name": "ohne scharfes Öl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca5a",
+          "name": "ohne Knoblauchöl",
           "price": 0
         }
       ]
@@ -4712,6 +4659,69 @@
         {
           "id": "6ae7b96ac66f7c80e168ca60",
           "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca61": {
+      "id": "6ae7b96ac66f7c80e168ca61",
+      "name": "Bitte folgende Zutat weglassen (Spaghetti Aglio Olio).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca62",
+          "name": "ohne Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca63",
+          "name": "ohne  Knoblauch-Croûtons",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca64",
+          "name": "ohne  Olivenöl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca65",
+          "name": "ohne Petersilie",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca66",
+          "name": "ohne scharfes Öl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca67",
+          "name": "ohne Knoblauchöl",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca68": {
+      "id": "6ae7b96ac66f7c80e168ca68",
+      "name": "Bitte folgende Zutat weglassen Spaghetti Carbonara.",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca69",
+          "name": "ohne Speck",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca6a",
+          "name": "ohne  Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca6b",
+          "name": "ohne  Petersilie",
           "price": 0
         }
       ]
@@ -4769,75 +4779,55 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca8a": {
-      "id": "6ae7b96ac66f7c80e168ca8a",
-      "name": "Bitte folgende Zutat weglassen (BBQ Chicken 2. Hälfte).",
+    "6ae7b96ac66f7c80e168ca75": {
+      "id": "6ae7b96ac66f7c80e168ca75",
+      "name": "Bitte folgende Zutat weglassen (Tortelloni Prosciutto e Panna).",
       "min": 0,
-      "max": 6,
-      "multiple": false,
+      "max": 999,
+      "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca8b",
-          "name": "ohne Hähnchenbruststreifen frittiert",
+          "id": "6ae7b96ac66f7c80e168ca76",
+          "name": "ohne Hinterschinken gewürfelt",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca8c",
-          "name": "ohne Mozzarella Würfel",
+          "id": "6ae7b96ac66f7c80e168ca77",
+          "name": "ohne Italienischer Hartkäse",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca8d",
-          "name": "ohne Paprika",
+          "id": "6ae7b96ac66f7c80e168ca78",
+          "name": "ohne Zwiebeln",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca8e",
-          "name": "ohne Rote Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca8f",
-          "name": "ohne scharfes Öl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca90",
-          "name": "ohne BBQ-Sauce",
+          "id": "6ae7b96ac66f7c80e168ca79",
+          "name": "ohne Petersilie",
           "price": 0
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca84": {
-      "id": "6ae7b96ac66f7c80e168ca84",
-      "name": "Bitte folgende Zutat weglassen (Nduja Calabrese 2. Hälfte).",
+    "6ae7b96ac66f7c80e168ca7a": {
+      "id": "6ae7b96ac66f7c80e168ca7a",
+      "name": "Bitte folgende Zutat weglassen (Spaghetti Pomodoro).",
       "min": 0,
-      "max": 5,
-      "multiple": false,
+      "max": 999,
+      "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca85",
-          "name": "ohne Nduja",
+          "id": "6ae7b96ac66f7c80e168ca7b",
+          "name": "ohne Basilikum",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca86",
-          "name": "ohne Mozzarella Würfel",
+          "id": "6ae7b96ac66f7c80e168ca7c",
+          "name": "ohne Zwiebeln",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca87",
-          "name": "ohne halb getrocknete Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca88",
-          "name": "ohne Rucola",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca89",
-          "name": "ohne Tomatensauce",
+          "id": "6ae7b96ac66f7c80e168ca7d",
+          "name": "ohne Knoblauchöl",
           "price": 0
         }
       ]
@@ -4876,41 +4866,75 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca61": {
-      "id": "6ae7b96ac66f7c80e168ca61",
-      "name": "Bitte folgende Zutat weglassen (Spaghetti Aglio Olio).",
+    "6ae7b96ac66f7c80e168ca84": {
+      "id": "6ae7b96ac66f7c80e168ca84",
+      "name": "Bitte folgende Zutat weglassen (Nduja Calabrese 2. Hälfte).",
       "min": 0,
-      "max": 999,
-      "multiple": true,
+      "max": 5,
+      "multiple": false,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168ca62",
-          "name": "ohne Kirschtomaten",
+          "id": "6ae7b96ac66f7c80e168ca85",
+          "name": "ohne Nduja",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca63",
-          "name": "ohne  Knoblauch-Croûtons",
+          "id": "6ae7b96ac66f7c80e168ca86",
+          "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca64",
-          "name": "ohne  Olivenöl",
+          "id": "6ae7b96ac66f7c80e168ca87",
+          "name": "ohne halb getrocknete Kirschtomaten",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca65",
-          "name": "ohne Petersilie",
+          "id": "6ae7b96ac66f7c80e168ca88",
+          "name": "ohne Rucola",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca66",
+          "id": "6ae7b96ac66f7c80e168ca89",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca8a": {
+      "id": "6ae7b96ac66f7c80e168ca8a",
+      "name": "Bitte folgende Zutat weglassen (BBQ Chicken 2. Hälfte).",
+      "min": 0,
+      "max": 6,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca8b",
+          "name": "ohne Hähnchenbruststreifen frittiert",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca8c",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca8d",
+          "name": "ohne Paprika",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca8e",
+          "name": "ohne Rote Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca8f",
           "name": "ohne scharfes Öl",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168ca67",
-          "name": "ohne Knoblauchöl",
+          "id": "6ae7b96ac66f7c80e168ca90",
+          "name": "ohne BBQ-Sauce",
           "price": 0
         }
       ]
@@ -4954,49 +4978,156 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca7a": {
-      "id": "6ae7b96ac66f7c80e168ca7a",
-      "name": "Bitte folgende Zutat weglassen (Spaghetti Pomodoro).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca7b",
-          "name": "ohne Basilikum",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca7c",
-          "name": "ohne Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca7d",
-          "name": "ohne Knoblauchöl",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168cac4": {
-      "id": "6ae7b96ac66f7c80e168cac4",
-      "name": "Bitte folgende Zutat weglassen (Prosciutto 2. Hälfte).",
+    "6ae7b96ac66f7c80e168ca98": {
+      "id": "6ae7b96ac66f7c80e168ca98",
+      "name": "Bitte folgende Zutat weglassen (Prosciutto Crudo 2. Hälfte).",
       "min": 0,
       "max": 3,
       "multiple": false,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168cac5",
-          "name": "ohne Hinterschinken",
+          "id": "6ae7b96ac66f7c80e168ca99",
+          "name": "ohne Prosciutto Crudo",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168cac6",
+          "id": "6ae7b96ac66f7c80e168ca9a",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca9b",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168ca9c": {
+      "id": "6ae7b96ac66f7c80e168ca9c",
+      "name": "Bitte folgende Zutat weglassen (Quattro Formaggi 2. Hälfte).",
+      "min": 0,
+      "max": 5,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168ca9d",
+          "name": "ohne Edamer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca9e",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168ca9f",
+          "name": "ohne Gorgonzola",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caa0",
+          "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caa1",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168caa2": {
+      "id": "6ae7b96ac66f7c80e168caa2",
+      "name": "Bitte folgende Zutat weglassen (Rucola 2. Hälfte).",
+      "min": 0,
+      "max": 5,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168caa3",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caa4",
+          "name": "ohne Italienischer Hartkäse",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caa5",
+          "name": "ohne Rucola",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caa6",
+          "name": "ohne Knoblauchöl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caa7",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168caa8": {
+      "id": "6ae7b96ac66f7c80e168caa8",
+      "name": "Bitte folgende Zutat weglassen (Tonno 2. Hälfte).",
+      "min": 0,
+      "max": 4,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168caa9",
+          "name": "ohne Thunfisch",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caaa",
           "name": "ohne Edamer gewürfelt",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168cac7",
+          "id": "6ae7b96ac66f7c80e168caab",
+          "name": "ohne Rote Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caac",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168caad": {
+      "id": "6ae7b96ac66f7c80e168caad",
+      "name": "Bitte folgende Zutat weglassen (Salsiccia Piccante 2. Hälfte).",
+      "min": 0,
+      "max": 5,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168caae",
+          "name": "ohne Salsiccia piccante",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caaf",
+          "name": "ohne Mozzarella Würfel",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cab0",
+          "name": "ohne Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cab1",
+          "name": "ohne scharfes Öl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cab2",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -5046,146 +5177,6 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168ca98": {
-      "id": "6ae7b96ac66f7c80e168ca98",
-      "name": "Bitte folgende Zutat weglassen (Prosciutto Crudo 2. Hälfte).",
-      "min": 0,
-      "max": 3,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca99",
-          "name": "ohne Prosciutto Crudo",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca9a",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca9b",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168cac8": {
-      "id": "6ae7b96ac66f7c80e168cac8",
-      "name": "Bitte folgende Zutat weglassen (Prosciutto e Funghi 2. Hälfte).",
-      "min": 0,
-      "max": 4,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168cac9",
-          "name": "ohne Hinterschinken",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caca",
-          "name": "ohne Edamer gewürfelt",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cacb",
-          "name": "ohne Frische Champignons",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cacc",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168caa8": {
-      "id": "6ae7b96ac66f7c80e168caa8",
-      "name": "Bitte folgende Zutat weglassen (Tonno 2. Hälfte).",
-      "min": 0,
-      "max": 4,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168caa9",
-          "name": "ohne Thunfisch",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caaa",
-          "name": "ohne Edamer gewürfelt",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caab",
-          "name": "ohne Rote Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caac",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168cac0": {
-      "id": "6ae7b96ac66f7c80e168cac0",
-      "name": "Bitte folgende Zutat weglassen (Parmigiana 2. Hälfte).",
-      "min": 0,
-      "max": 4,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168cac1",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cac2",
-          "name": "ohne Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cac3",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168ca9c": {
-      "id": "6ae7b96ac66f7c80e168ca9c",
-      "name": "Bitte folgende Zutat weglassen (Quattro Formaggi 2. Hälfte).",
-      "min": 0,
-      "max": 5,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168ca9d",
-          "name": "ohne Edamer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca9e",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168ca9f",
-          "name": "ohne Gorgonzola",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caa0",
-          "name": "ohne Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caa1",
-          "name": "ohne Tomatensauce",
-          "price": 0
-        }
-      ]
-    },
     "6ae7b96ac66f7c80e168cabb": {
       "id": "6ae7b96ac66f7c80e168cabb",
       "name": "Bitte folgende Zutat weglassen (Hawaii 2. Hälfte).",
@@ -5215,69 +5206,78 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168caad": {
-      "id": "6ae7b96ac66f7c80e168caad",
-      "name": "Bitte folgende Zutat weglassen (Salsiccia Piccante 2. Hälfte).",
+    "6ae7b96ac66f7c80e168cac0": {
+      "id": "6ae7b96ac66f7c80e168cac0",
+      "name": "Bitte folgende Zutat weglassen (Parmigiana 2. Hälfte).",
       "min": 0,
-      "max": 5,
+      "max": 4,
       "multiple": false,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168caae",
-          "name": "ohne Salsiccia piccante",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caaf",
+          "id": "6ae7b96ac66f7c80e168cac1",
           "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168cab0",
+          "id": "6ae7b96ac66f7c80e168cac2",
           "name": "ohne Kirschtomaten",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168cab1",
-          "name": "ohne scharfes Öl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cab2",
+          "id": "6ae7b96ac66f7c80e168cac3",
           "name": "ohne Tomatensauce",
           "price": 0
         }
       ]
     },
-    "6ae7b96ac66f7c80e168caa2": {
-      "id": "6ae7b96ac66f7c80e168caa2",
-      "name": "Bitte folgende Zutat weglassen (Rucola 2. Hälfte).",
+    "6ae7b96ac66f7c80e168cac4": {
+      "id": "6ae7b96ac66f7c80e168cac4",
+      "name": "Bitte folgende Zutat weglassen (Prosciutto 2. Hälfte).",
       "min": 0,
-      "max": 5,
+      "max": 3,
       "multiple": false,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168caa3",
-          "name": "ohne Mozzarella Würfel",
+          "id": "6ae7b96ac66f7c80e168cac5",
+          "name": "ohne Hinterschinken",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caa4",
-          "name": "ohne Italienischer Hartkäse",
+          "id": "6ae7b96ac66f7c80e168cac6",
+          "name": "ohne Edamer gewürfelt",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caa5",
-          "name": "ohne Rucola",
+          "id": "6ae7b96ac66f7c80e168cac7",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168cac8": {
+      "id": "6ae7b96ac66f7c80e168cac8",
+      "name": "Bitte folgende Zutat weglassen (Prosciutto e Funghi 2. Hälfte).",
+      "min": 0,
+      "max": 4,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168cac9",
+          "name": "ohne Hinterschinken",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caa6",
-          "name": "ohne Knoblauchöl",
+          "id": "6ae7b96ac66f7c80e168caca",
+          "name": "ohne Edamer gewürfelt",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caa7",
+          "id": "6ae7b96ac66f7c80e168cacb",
+          "name": "ohne Frische Champignons",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cacc",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -5322,51 +5322,31 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168caeb": {
-      "id": "6ae7b96ac66f7c80e168caeb",
-      "name": "Bitte folgende Zutat weglassen (Forza 2. Hälfte).",
+    "6ae7b96ac66f7c80e168cad4": {
+      "id": "6ae7b96ac66f7c80e168cad4",
+      "name": "Bitte folgende Zutat weglassen (Caesare e Pollo).",
       "min": 0,
-      "max": 8,
-      "multiple": false,
+      "max": 999,
+      "multiple": true,
       "options": [
         {
-          "id": "6ae7b96ac66f7c80e168caec",
-          "name": "ohne Veganer Pizzaschmelz",
+          "id": "6ae7b96ac66f7c80e168cad5",
+          "name": "ohne  Hähnchenbruststreifen frittiert",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caed",
-          "name": "ohne Veganes Hähnchen",
+          "id": "6ae7b96ac66f7c80e168cad6",
+          "name": "ohne Mozzarella Würfel",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caee",
-          "name": "ohne Paprika",
+          "id": "6ae7b96ac66f7c80e168cad7",
+          "name": "ohne  Italienischer Hartkäse",
           "price": 0
         },
         {
-          "id": "6ae7b96ac66f7c80e168caef",
-          "name": "ohne Spinat",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caf0",
-          "name": "ohne Rote Zwiebeln",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caf1",
-          "name": "ohne Knoblauchöl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caf2",
-          "name": "ohne Pfeffer",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caf3",
-          "name": "ohne Tomatensauce",
+          "id": "6ae7b96ac66f7c80e168cad8",
+          "name": "ohne Caesare-Dressing",
           "price": 0
         }
       ]
@@ -5448,69 +5428,6 @@
         }
       ]
     },
-    "6ae7b96ac66f7c80e168cafb": {
-      "id": "6ae7b96ac66f7c80e168cafb",
-      "name": "Bitte folgende Zutat weglassen (Insalata Caprese).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168cafc",
-          "name": "ohne Burrata",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cafd",
-          "name": "ohne Basilikum",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cafe",
-          "name": "ohne Kirschtomaten",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168caff",
-          "name": "ohne Olivenöl",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cb00",
-          "name": "ohne Pfeffer",
-          "price": 0
-        }
-      ]
-    },
-    "6ae7b96ac66f7c80e168cad4": {
-      "id": "6ae7b96ac66f7c80e168cad4",
-      "name": "Bitte folgende Zutat weglassen (Caesare e Pollo).",
-      "min": 0,
-      "max": 999,
-      "multiple": true,
-      "options": [
-        {
-          "id": "6ae7b96ac66f7c80e168cad5",
-          "name": "ohne  Hähnchenbruststreifen frittiert",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cad6",
-          "name": "ohne Mozzarella Würfel",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cad7",
-          "name": "ohne  Italienischer Hartkäse",
-          "price": 0
-        },
-        {
-          "id": "6ae7b96ac66f7c80e168cad8",
-          "name": "ohne Caesare-Dressing",
-          "price": 0
-        }
-      ]
-    },
     "6ae7b96ac66f7c80e168cae6": {
       "id": "6ae7b96ac66f7c80e168cae6",
       "name": "Bitte folgende Zutat weglassen (Margherita 2. Hälfte).",
@@ -5535,6 +5452,55 @@
         },
         {
           "id": "6ae7b96ac66f7c80e168caea",
+          "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168caeb": {
+      "id": "6ae7b96ac66f7c80e168caeb",
+      "name": "Bitte folgende Zutat weglassen (Forza 2. Hälfte).",
+      "min": 0,
+      "max": 8,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168caec",
+          "name": "ohne Veganer Pizzaschmelz",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caed",
+          "name": "ohne Veganes Hähnchen",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caee",
+          "name": "ohne Paprika",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caef",
+          "name": "ohne Spinat",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caf0",
+          "name": "ohne Rote Zwiebeln",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caf1",
+          "name": "ohne Knoblauchöl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caf2",
+          "name": "ohne Pfeffer",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caf3",
           "name": "ohne Tomatensauce",
           "price": 0
         }
@@ -5575,6 +5541,40 @@
         {
           "id": "6ae7b96ac66f7c80e168cafa",
           "name": "ohne Tomatensauce",
+          "price": 0
+        }
+      ]
+    },
+    "6ae7b96ac66f7c80e168cafb": {
+      "id": "6ae7b96ac66f7c80e168cafb",
+      "name": "Bitte folgende Zutat weglassen (Insalata Caprese).",
+      "min": 0,
+      "max": 999,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96ac66f7c80e168cafc",
+          "name": "ohne Burrata",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cafd",
+          "name": "ohne Basilikum",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cafe",
+          "name": "ohne Kirschtomaten",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168caff",
+          "name": "ohne Olivenöl",
+          "price": 0
+        },
+        {
+          "id": "6ae7b96ac66f7c80e168cb00",
+          "name": "ohne Pfeffer",
           "price": 0
         }
       ]
@@ -8803,5 +8803,5 @@
       ]
     }
   },
-  "checkedAt": "2026-11-06T12:10:50.361Z"
+  "checkedAt": "2026-11-07T11:07:47.020Z"
 }
