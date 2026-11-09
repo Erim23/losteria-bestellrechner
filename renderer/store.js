@@ -247,6 +247,10 @@ export function subscribe({ onShared, onItems, onError }) {
         marksByUid: d.marksByUid && typeof d.marksByUid === 'object' ? d.marksByUid : {},
         // Ergebnisse des Glücksrads (wer ruft an, wer holt ab)
         draw: d.draw && typeof d.draw === 'object' ? d.draw : {},
+        // Anruf erledigt? { at, name, by } – null, solange niemand bestellt hat
+        ordered: d.ordered && typeof d.ordered === 'object' ? d.ordered : null,
+        // Abholzeitpunkt in Millisekunden seit 1970; 0 = keiner gesetzt
+        pickupAt: Number(d.pickupAt) || 0,
         // Anzeigename der Gruppe – damit Beitretende ihn auch sehen
         groupName: typeof d.groupName === 'string' ? d.groupName : '',
       });

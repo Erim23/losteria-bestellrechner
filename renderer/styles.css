@@ -60,6 +60,7 @@ body {
 
 /* ---- Header ---- */
 .app-header {
+  position: relative; /* Bezugspunkt für die mittige Abholanzeige */
   display: flex;
   align-items: center;
   gap: 24px;
@@ -79,13 +80,14 @@ body {
   flex-shrink: 0;
 }
 
-.brand-mark {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 28px;
-  font-style: italic;
-  font-weight: 700;
+/* Offizieller Schriftzug. Nur der weiße Pfad des Logos – die rote Platte
+   der Originaldatei würde auf dem Farbverlauf als Kante sichtbar werden.
+   Die Breite ergibt sich aus dem viewBox-Seitenverhältnis (rund 5,4:1). */
+.brand-logo {
+  display: block;
+  height: 26px;
+  width: auto;
   color: #fff;
-  letter-spacing: 0.5px;
 }
 
 .brand-sub {
@@ -717,8 +719,8 @@ body.searching .cat-nav {
     gap: 14px;
     padding: 10px 16px;
   }
-  .brand-mark {
-    font-size: 22px;
+  .brand-logo {
+    height: 21px;
   }
   .brand-sub {
     font-size: 10px;
@@ -1908,5 +1910,191 @@ body.searching .cat-nav {
   }
   .readout-list li {
     font-size: 16px;
+  }
+}
+
+/* ==========================================================
+   Bestellt-Status und Abholzeit
+   ========================================================== */
+
+/* Abholanzeige: liegt mittig über der Kopfleiste und ist damit unabhängig
+   davon, wie breit Logo, Adresse und Knöpfe gerade ausfallen. */
+.pickup-timer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  color: #fff;
+}
+
+.pickup-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+}
+
+.pickup-label {
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.82);
+  white-space: nowrap;
+}
+
+.pickup-time {
+  font-size: 21px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pickup-step {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 16px;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.pickup-step:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Kurz vor der Abholzeit auffälliger, danach deutlich hervorgehoben. */
+.pickup-timer.is-soon .pickup-time {
+  color: #ffe27a;
+}
+.pickup-timer.is-due {
+  background: rgba(255, 255, 255, 0.18);
+}
+.pickup-timer.is-due .pickup-time {
+  animation: pickupPulse 1.4s ease-in-out infinite;
+}
+@keyframes pickupPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* Die Adresse wird begrenzt, sobald eine Abholzeit läuft (siehe app.js).
+   Der frei werdende Platz geht an den Rand, damit die Knöpfe rechts
+   stehen bleiben, und der Lokalname kürzt sich mit Auslassungspunkten. */
+.app-header.has-pickup .venue-info {
+  margin-right: auto;
+}
+
+/* Lange Namen in der Abholanzeige dürfen die Leiste nicht sprengen. */
+.pickup-label {
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Telefonknopf oben rechts: gefüllt, sobald bestellt wurde. */
+.order-btn:hover {
+  transform: scale(1.08); /* kein Drehen wie beim Glücksrad */
+}
+.order-btn.is-on {
+  background: #fff;
+  border-color: #fff;
+  color: var(--primary-dark);
+}
+
+/* Status in der Bestellrunden-Leiste */
+.order-chip {
+  background: #e7f5ec;
+  color: #1c6b3a;
+}
+.order-chip::before {
+  content: '📞';
+}
+
+/* Hinweis über dem Warenkorb, sobald der Anruf erledigt ist */
+.order-banner {
+  margin: 0 20px 12px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #fff4d6;
+  border: 1px solid #efcf87;
+  color: #6b4b00;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+/* Namen hinter einer zusammengefassten Zeile der Ableseübersicht */
+.ro-who {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.readout-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+#readout-called.is-on {
+  background: #e7f5ec;
+  color: #1c6b3a;
+  box-shadow: inset 0 0 0 1px #a9d7ba;
+}
+#readout-called.is-on:hover {
+  background: #d9eee1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pickup-timer.is-due .pickup-time {
+    animation: none;
+  }
+  .order-btn:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Schmal ist für Adresse und Abholzeit nebeneinander kein Platz:
+     solange eine Abholzeit läuft, tritt die Adresse zurück. */
+  .app-header.has-pickup .venue-info {
+    display: none;
+  }
+  .pickup-timer {
+    position: static;
+    transform: none;
+    flex: 1;
+    justify-content: center;
+    padding: 0;
+  }
+  .pickup-time {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Auf dem Handy bekommt die Abholzeit eine eigene Zeile, damit die
+     Knöpfe zum Verschieben erreichbar bleiben. */
+  .app-header {
+    flex-wrap: wrap;
+  }
+  .pickup-timer {
+    order: 10;
+    width: 100%;
+    flex: none;
+    gap: 14px;
   }
 }

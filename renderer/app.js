@@ -51,6 +51,8 @@ const state = {
     marksByUid: {},
     draw: {},
     groupName: '',
+    ordered: null,
+    pickupAt: 0,
   },
   groupId: null, // aktuelle Gruppe (null = Startseite)
   groupMetaName: '', // zentral hinterlegter Gruppenname
@@ -77,7 +79,7 @@ const state = {
  * eine neue Kennung zu vergeben und den Text in index.html zu tauschen –
  * dann sehen alle den Hinweis genau einmal erneut.
  */
-const NEWS_ID = '2026-08-favoriten-notizen';
+const NEWS_ID = '2026-11-bestellt-abholzeit';
 const NEWS_KEY = 'losteria.newsSeen';
 
 function newsAlreadySeen() {
@@ -591,7 +593,13 @@ function fallbackToLocal(message) {
   store.unsubscribe();
   state.mode = 'local';
   state.items = [];
-  state.shared = { discountActive: false, marksTotal: 0, marksByUid: {} };
+  state.shared = {
+    discountActive: false,
+    marksTotal: 0,
+    marksByUid: {},
+    ordered: null,
+    pickupAt: 0,
+  };
   // Leiste bleibt sichtbar, aber nur mit dem, was ohne Team Sinn ergibt:
   // die Ableseansicht ist auch beim Alleinbestellen praktisch.
   const bar = document.getElementById('team-bar');
@@ -673,7 +681,10 @@ async function boot() {
         syncGroupName();
         renderBreakdown();
         handleDrawUpdate();
+        renderOrderState();
+        renderPickupTimer();
         if (!document.getElementById('detail-modal').hidden) renderDetail();
+        if (!document.getElementById('readout-modal').hidden) renderReadout();
         if (!document.getElementById('wheel-modal').hidden) {
           renderWheelSvg();
           updateSpinState();
@@ -885,7 +896,11 @@ async function switchGroup(groupId, name) {
     marksByUid: {},
     draw: {},
     groupName: '',
+    ordered: null,
+    pickupAt: 0,
   };
+  pickupLief = false;
+  pickupGemeldet = 0;
   state.drawSeen = { call: 0, pickup: 0 };
   state.drawReady = false;
   state.wheel.excluded = new Set();
@@ -908,7 +923,10 @@ async function switchGroup(groupId, name) {
       syncGroupName();
       renderBreakdown();
       handleDrawUpdate();
+      renderOrderState();
+      renderPickupTimer();
       if (!document.getElementById('detail-modal').hidden) renderDetail();
+      if (!document.getElementById('readout-modal').hidden) renderReadout();
       if (!document.getElementById('wheel-modal').hidden) {
         renderWheelSvg();
         updateSpinState();
@@ -2349,6 +2367,22 @@ async function changePersonMarks(uid, delta) {
 
 /* ---------------- Ableseansicht für den Anruf ---------------- */
 
+/**
+ * Namen hinter einer zusammengefassten Zeile: "Erim 2×, Ayman".
+ * Die Menge steht nur dabei, wenn jemand mehr als eines davon hat.
+ */
+function namenZu(leute) {
+  const proPerson = new Map();
+  for (const p of leute || []) {
+    if (!p.name) continue;
+    proPerson.set(p.name, (proPerson.get(p.name) || 0) + p.qty);
+  }
+  return Array.from(proPerson.entries())
+    .sort((a, b) => a[0].localeCompare(b[0], 'de'))
+    .map(([name, qty]) => (qty > 1 ? name + ' ' + qty + '×' : name))
+    .join(', ');
+}
+
 function renderReadout() {
   const body = document.getElementById('readout-body');
   const t = computeTotals();
@@ -2364,14 +2398,18 @@ function renderReadout() {
     // Notiz gehört zum Schlüssel – sonst verschwände sie beim Zusammenfassen
     const key = e.articleId + '|' + optKey + '|' + (e.note || '');
     const cur = agg.get(key);
-    if (cur) cur.qty += e.qty;
-    else
+    if (cur) {
+      cur.qty += e.qty;
+      cur.people.push({ name: e.userName || '', qty: e.qty });
+    } else
       agg.set(key, {
         name: e.name,
         price: e.price,
         qty: e.qty,
         options: e.options || [],
         note: e.note || '',
+        // Wer hat das bestellt? Für die Namen hinter der Zeile.
+        people: [{ name: e.userName || '', qty: e.qty }],
       });
   }
   const lines = Array.from(agg.values()).sort((a, b) =>
@@ -2382,6 +2420,10 @@ function renderReadout() {
     body.innerHTML = '<p class="dialog-text">Der Warenkorb ist leer.</p>';
     return;
   }
+
+  // Bei nur einer Person wäre der Name auf jeder Zeile bloß Rauschen.
+  const zeigeNamen =
+    new Set(state.items.map((i) => i.userName).filter(Boolean)).size > 1;
 
   let html = '<ol class="readout-list">';
   for (const l of lines) {
@@ -2394,6 +2436,9 @@ function renderReadout() {
         ? '<span class="ro-opts">' + esc(optionsSummary(l.options)) + '</span>'
         : '') +
       (l.note ? '<span class="ro-note">📝 ' + esc(l.note) + '</span>' : '') +
+      (zeigeNamen && namenZu(l.people)
+        ? '<span class="ro-who">' + esc(namenZu(l.people)) + '</span>'
+        : '') +
       '</span><span class="ro-sum">' +
       fmt(round2(l.price * l.qty)) +
       '</span></li>';
@@ -2820,6 +2865,213 @@ function handleDrawUpdate() {
   renderDrawChips();
 }
 
+/* ---------------- Bestellt-Status und Abholzeit ---------------- */
+
+const ABHOL_VORLAUF_MIN = 15; // Voreinstellung direkt nach dem Anruf
+const ABHOL_SCHRITT_MIN = 5; // Schrittweite der Plus-/Minus-Knöpfe
+const ABHOL_NACHLAUF_MS = 5 * 60 * 1000; // "Abholbereit" bleibt kurz stehen
+
+let pickupTicker = null;
+let pickupLief = false; // true, sobald hier eine laufende Zeit gesehen wurde
+let pickupGemeldet = 0; // Zielzeit, zu der schon Bescheid gesagt wurde
+
+/** Hat jemand den Anruf bereits als erledigt markiert? */
+function istBestellt() {
+  const o = state.shared.ordered;
+  return !!(o && o.at);
+}
+
+function uhrzeit(ms) {
+  return new Date(ms).toLocaleTimeString('de-DE', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+}
+
+/**
+ * Markiert den Anruf als erledigt – oder nimmt die Markierung zurück.
+ * Beim Markieren startet zugleich die Abholzeit.
+ */
+async function toggleBestellt() {
+  if (istBestellt()) {
+    await updateShared({ ordered: null, pickupAt: 0 });
+    pickupGemeldet = 0;
+    pickupLief = false;
+    showToast('Bestellung zurückgenommen');
+    return;
+  }
+  const jetzt = Date.now();
+  const ziel = jetzt + ABHOL_VORLAUF_MIN * 60 * 1000;
+  await updateShared({
+    ordered: {
+      at: jetzt,
+      name: state.userName || 'Jemand',
+      by: (store.team && store.team.uid) || 'local',
+    },
+    pickupAt: ziel,
+  });
+  showToast('Bestellt · Abholen um ' + uhrzeit(ziel));
+}
+
+/** Verschiebt die Abholzeit für alle – nie in die Vergangenheit. */
+async function verschiebeAbholzeit(minuten) {
+  const ziel = Number(state.shared.pickupAt) || 0;
+  if (!ziel) return;
+  const jetzt = Date.now();
+  const frueh = jetzt + 60 * 1000;
+  const spaet = jetzt + 3 * 60 * 60 * 1000;
+  const neu = Math.min(spaet, Math.max(frueh, ziel + minuten * 60 * 1000));
+  if (neu === ziel) return;
+  pickupGemeldet = 0; // verschobene Zeit darf erneut Bescheid geben
+  await updateShared({ pickupAt: neu });
+}
+
+/** Knopf, Chip, Banner und Ablese-Knopf auf den Bestellt-Status bringen. */
+function renderOrderState() {
+  const o = state.shared.ordered;
+  const aktiv = istBestellt();
+
+  const btn = document.getElementById('order-called');
+  if (btn) {
+    btn.classList.toggle('is-on', aktiv);
+    btn.setAttribute('aria-pressed', String(aktiv));
+    btn.title = aktiv
+      ? 'Bestellt um ' +
+        uhrzeit(o.at) +
+        ' von ' +
+        o.name +
+        ' – nochmal tippen, um das zurückzunehmen'
+      : 'Anruf erledigt? Hier für alle markieren';
+  }
+
+  const chip = document.getElementById('order-chip');
+  if (chip) {
+    chip.hidden = !aktiv;
+    if (aktiv) chip.textContent = 'bestellt ' + uhrzeit(o.at) + ' · ' + o.name;
+  }
+
+  const banner = document.getElementById('order-banner');
+  if (banner) {
+    banner.hidden = !aktiv;
+    if (aktiv) {
+      banner.innerHTML =
+        '<b>Schon bestellt</b> – ' +
+        esc(uhrzeit(o.at)) +
+        ' von ' +
+        esc(o.name) +
+        '. Was jetzt noch geändert wird, ist <b>nicht</b> mitbestellt.';
+    }
+  }
+
+  const ro = document.getElementById('readout-called');
+  if (ro) {
+    ro.classList.toggle('is-on', aktiv);
+    ro.textContent = aktiv
+      ? '✓ Bestellt um ' + uhrzeit(o.at) + ' – zurücknehmen'
+      : '✓ Bestellt – Anruf erledigt';
+  }
+}
+
+function startPickupTicker() {
+  if (pickupTicker) return;
+  pickupTicker = setInterval(renderPickupTimer, 1000);
+}
+
+function stopPickupTicker() {
+  if (!pickupTicker) return;
+  clearInterval(pickupTicker);
+  pickupTicker = null;
+}
+
+/**
+ * Hält die Adresse aus der mittigen Abholanzeige heraus.
+ *
+ * Die Anzeige liegt mittig über der Leiste, der Lokalname daneben ist aber
+ * unterschiedlich lang – ohne Begrenzung liefe er darunter. Feste Werte
+ * würden brechen, sobald Logo oder Beschriftung sich ändern, deshalb wird
+ * gemessen. Die Anzeige sitzt absolut und verschiebt sich dadurch nicht,
+ * wenn die Adresse schmaler wird – es gibt also keine Rückkopplung.
+ */
+function passeAdresseAn() {
+  const venue = document.querySelector('.venue-info');
+  const box = document.getElementById('pickup-timer');
+  if (!venue || !box) return;
+
+  // Schmal weicht die Adresse ohnehin ganz (siehe styles.css).
+  if (box.hidden || window.innerWidth <= 900) {
+    if (venue.style.maxWidth) venue.style.maxWidth = '';
+    return;
+  }
+
+  const t = box.getBoundingClientRect();
+  const v = venue.getBoundingClientRect();
+  const platz = Math.max(90, Math.round(t.left - 16 - v.left));
+  const neu = platz + 'px';
+  if (venue.style.maxWidth !== neu) venue.style.maxWidth = neu;
+}
+/** Abholanzeige in der Mitte der Kopfleiste. */
+function renderPickupTimer() {
+  const box = document.getElementById('pickup-timer');
+  if (!box) return;
+  const ziel = Number(state.shared.pickupAt) || 0;
+
+  const kopf = document.querySelector('.app-header');
+
+  const aus = () => {
+    box.hidden = true;
+    box.classList.remove('is-due', 'is-soon');
+    // Markierung für die schmale Ansicht: dort weicht die Adresse.
+    if (kopf) kopf.classList.remove('has-pickup');
+    passeAdresseAn();
+    stopPickupTicker();
+  };
+
+  if (!ziel) {
+    pickupLief = false;
+    aus();
+    return;
+  }
+
+  const rest = ziel - Date.now();
+
+  // Nach dem Abholzeitpunkt bleibt der Hinweis kurz stehen – dann ist er weg.
+  if (rest <= -ABHOL_NACHLAUF_MS) {
+    aus();
+    return;
+  }
+
+  box.hidden = false;
+  if (kopf) kopf.classList.add('has-pickup');
+  startPickupTicker();
+
+  const faellig = rest <= 0;
+  box.classList.toggle('is-due', faellig);
+  box.classList.toggle('is-soon', !faellig && rest <= 3 * 60 * 1000);
+
+  const label = document.getElementById('pickup-label');
+  const zeit = document.getElementById('pickup-time');
+  const holt = (state.shared.draw || {}).pickup;
+
+  if (faellig) {
+    label.textContent =
+      holt && holt.name ? holt.name + ' kann los' : 'Essen ist fertig';
+    zeit.textContent = 'Abholbereit!';
+    // Einmal Bescheid sagen – aber nur, wenn die Zeit hier auch lief.
+    if (pickupLief && pickupGemeldet !== ziel) {
+      pickupGemeldet = ziel;
+      showToast(
+        '🛍️ Abholbereit!' + (holt && holt.name ? ' ' + holt.name + ' holt ab.' : '')
+      );
+    }
+  } else {
+    pickupLief = true;
+    label.textContent = 'Abholen um';
+    zeit.textContent = uhrzeit(ziel);
+  }
+
+  passeAdresseAn();
+}
+
 /* ---------------- Konfetti (ohne fremde Bibliothek) ---------------- */
 
 let confettiRaf = null;
@@ -2919,6 +3171,9 @@ async function updateShared(patch) {
   Object.assign(state.shared, patch);
   renderBreakdown();
   renderDrawChips();
+  renderOrderState();
+  renderPickupTimer();
+  if (!document.getElementById('readout-modal').hidden) renderReadout();
   if (!document.getElementById('detail-modal').hidden) renderDetail();
 }
 
@@ -2945,6 +3200,23 @@ function bindEvents() {
   document
     .getElementById('marks-max')
     .addEventListener('click', () => setMarks(computeTotals().maxMarks));
+
+  // Bestellt-Status: derselbe Schalter oben rechts und in der Ableseübersicht
+  document
+    .getElementById('order-called')
+    .addEventListener('click', toggleBestellt);
+  document
+    .getElementById('readout-called')
+    .addEventListener('click', toggleBestellt);
+  document
+    .getElementById('pickup-minus')
+    .addEventListener('click', () => verschiebeAbholzeit(-ABHOL_SCHRITT_MIN));
+  document
+    .getElementById('pickup-plus')
+    .addEventListener('click', () => verschiebeAbholzeit(ABHOL_SCHRITT_MIN));
+  renderOrderState();
+  renderPickupTimer();
+  window.addEventListener('resize', passeAdresseAn);
 
   document.getElementById('cart-clear').addEventListener('click', clearMine);
 
