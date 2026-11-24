@@ -8,7 +8,7 @@
     "city": "Bonn",
     "currencySymbol": "€"
   },
-  "fetchedAt": "2026-11-17T13:32:47.584Z",
+  "fetchedAt": "2026-11-24T14:56:16.615Z",
   "categories": [
     {
       "id": "6ae7b987c66f7c80e16a87c8",
@@ -125,7 +125,8 @@
           },
           "kcal": 0,
           "groupIds": [
-            "6ae7b96cc66f7c80e168cca3"
+            "6ae7b96cc66f7c80e168cca3",
+            "6b046383f5c98c883c680302"
           ],
           "configurable": true
         },
@@ -2435,35 +2436,6 @@
         }
       ]
     },
-    "6ae7b96cc66f7c80e168cca3": {
-      "id": "6ae7b96cc66f7c80e168cca3",
-      "name": "Pizzabrötchen classic Dips.",
-      "min": 0,
-      "max": 1,
-      "multiple": false,
-      "options": [
-        {
-          "id": "6ae7b96cc66f7c80e168cca4",
-          "name": "Italiana DIP (Knoblauch Dip)",
-          "price": 1.75
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca5",
-          "name": "Kräuterbutter",
-          "price": 0.75
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca6",
-          "name": "Rosso Delizioso",
-          "price": 1.75
-        },
-        {
-          "id": "6ae7b96cc66f7c80e168cca7",
-          "name": "Tartufo Dip",
-          "price": 1.75
-        }
-      ]
-    },
     "6ae7b96cc66f7c80e168cca8": {
       "id": "6ae7b96cc66f7c80e168cca8",
       "name": "Pizza Halb | Halb 1.",
@@ -2710,6 +2682,35 @@
         {
           "id": "6ae7b970c66f7c80e168cf45",
           "name": "Zitronenvinaigrette",
+          "price": 0
+        }
+      ]
+    },
+    "6b046383f5c98c883c680302": {
+      "id": "6b046383f5c98c883c680302",
+      "name": "Pizzabrötchen classic Dips (inklusive)",
+      "min": 0,
+      "max": 1,
+      "multiple": false,
+      "options": [
+        {
+          "id": "6b046383f5c98c883c680303",
+          "name": "Italiana DIP (Knoblauch Dip)",
+          "price": 0
+        },
+        {
+          "id": "6b046383f5c98c883c680304",
+          "name": "Kräuterbutter",
+          "price": 0
+        },
+        {
+          "id": "6b046383f5c98c883c680305",
+          "name": "Rosso Delizioso",
+          "price": 0
+        },
+        {
+          "id": "6b046383f5c98c883c680306",
+          "name": "Tartufo Dip",
           "price": 0
         }
       ]
@@ -3242,6 +3243,11 @@
           "id": "6ae7b96cc66f7c80e168cca1",
           "name": "Karamellisiert Walnüsse",
           "price": 2
+        },
+        {
+          "id": "6b046392f5c98c883c68bfa3",
+          "name": "Gegrilltes Gemüse",
+          "price": 3
         }
       ]
     },
@@ -3316,6 +3322,35 @@
           "id": "6ae926cb4e89ee85a94e2a40",
           "name": "Fusilli",
           "price": 0.5
+        }
+      ]
+    },
+    "6ae7b96cc66f7c80e168cca3": {
+      "id": "6ae7b96cc66f7c80e168cca3",
+      "name": "Pizzabrötchen classic Dips (extra)",
+      "min": 0,
+      "max": 99,
+      "multiple": true,
+      "options": [
+        {
+          "id": "6ae7b96cc66f7c80e168cca4",
+          "name": "Italiana DIP (Knoblauch Dip)",
+          "price": 1.75
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cca5",
+          "name": "Kräuterbutter",
+          "price": 0.75
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cca6",
+          "name": "Rosso Delizioso",
+          "price": 1.75
+        },
+        {
+          "id": "6ae7b96cc66f7c80e168cca7",
+          "name": "Tartufo Dip",
+          "price": 1.75
         }
       ]
     },
@@ -8803,5 +8838,5 @@
       ]
     }
   },
-  "checkedAt": "2026-11-23T14:47:47.591Z"
+  "checkedAt": "2026-11-24T14:56:16.619Z"
 }
